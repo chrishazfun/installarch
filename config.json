@@ -1,0 +1,46 @@
+{
+	"audio": "pipewire",
+	"bootloader": "grub-install",
+	"custom-commands": [
+		"git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin;cd /tmp/yay-bin;makepkg -si",
+		"yay -S --needed kdocker pamac-nosnap shutter-encoder brave-bin chromium-widevine gnome-browser-connector gnome-shell-extension-installer pamac-nosnap sublime-text-4 xboxdrv protonup-ng-git ttf-ms-fonts",
+		"curl https://chrishaz.fun/eos/.bashrc >> ~/.bashrc",
+		"sed -i 's/^#unix_sock_group = \"libvirt\"/unix_sock_group = \"libvirt\"/' /etc/libvirt/libvirtd.conf",
+		"sed -i 's/^#unix_sock_ro_perms = \"0777\"/unix_sock_ro_perms = \"0777\"/' /etc/libvirt/libvirtd.conf",
+		"sed -i 's/^#unix_sock_rw_perms = \"0770\"/unix_sock_rw_perms = \"0770\"/' /etc/libvirt/libvirtd.conf",
+		"usermod -aG libvirt $USERNAME",
+		"flatpak install -y --noninteractive org.firestormviewer.FirestormViewer com.steamgriddb.steam-rom-manager"
+	],
+	#gfx_driver
+	#harddrives
+	"hostname": "arch",
+	"kernels": ["linux"],
+	"keyboard-language": "us",
+	"mirror-region": "Australia",
+	"nic": {
+		"NetworkManager": true,
+		"nic": "Use NetworkManager (necessary to configure internet graphically in GNOME and KDE)"
+	},
+	"ntp": true,
+	"packages": [
+		"git", "base-devel", "jre-openjdk", "flatpak",
+
+		"baobab", "gdm", "gnome-characters", "gnome-color-manager", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-font-viewer", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-shell-extensions", "gnome-system-monitor", "gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb", "mutter", "nautilus", "rygel", "sushi", "tracker3-miners", "xdg-user-dirs-gtk", "yelp", "dconf-editor", "endeavour", "polari", "sysprof",
+
+		"xorg-xkill", "bluez", "bluez-libs", "bluez-utils", "wine-gecko", "wine-mono", "wine-staging", "webp-pixbuf-loader", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "bleachbit", "easyeffects", "bash-completion", "gamemode", "gimp", "neofetch", "yt-dlp", "btop", "ardour", "blender", "jami-qt", "meld", "calf", "mda.lv2", "lsp-plugins",
+
+		"qemu", "virt-manager", "virt-viewer", "dnsmasq", "vde2", "bridge-utils", "libguestfs", "ovmf", "swtpm", "openbsd-netcat"
+	],
+	"profile": "xorg",
+	"services": [
+		"gdm",
+		"libvirtd",
+		"bluetooth"
+	],
+	"sys-encoding": "utf-8",
+	"sys-language": "en_US",
+	"filesystem": "btrfs",
+	"swap": true,
+	"hostname": "arch",
+	"timezone": "Australia/Sydney"
+}
