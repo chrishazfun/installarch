@@ -10,8 +10,6 @@
 		"usermod -aG libvirt $USERNAME",
 		"flatpak install -y --noninteractive org.firestormviewer.FirestormViewer com.steamgriddb.steam-rom-manager"
 	],
-	"gfx_driver": "",
-	"harddrives": [""],
 	"hostname": "arch",
 	"kernels": ["linux"],
 	"keyboard-language": "us",
@@ -40,5 +38,7 @@
 	"sys-language": "en_US",
 	"filesystem": "btrfs",
 	"swap": true,
-	"timezone": "Australia/Sydney"
+	"timezone": "Australia/Sydney",
+	#gfx_driver
+	#harddrives
 }
