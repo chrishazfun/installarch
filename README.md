@@ -11,7 +11,7 @@ In the case that you're not using Ethernet and have Wifi, you can connect to it 
 
 ## Installation
 ```
-sudo pacman -Syy git
+sudo pacman -Syy git archlinux-keyring archinstall
 git clone https://github.com/chrishazfun/installarch
 cd installarch
 bash ./go.sh
