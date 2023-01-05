@@ -16,7 +16,7 @@ if [ -f "/etc/arch-release" ]; then
 	lsblk -n
 	read -p "please enter primary installation disk (e.g. /dev/sda /dev/nvme0n1): " harddrive
 	if [[ "${harddrive,,}" =~ (\/\S*) ]]; then
-		sed -i "s|#harddrives|\"harddrives\": [\"$harddrive\"],|g" config.json
+		sed -i "s|#harddrives|\"harddrives\": [\"$harddrive\"]|g" config.json
 		echo "installing in 3.. 2.. 1.." && sleep 2
 		archinstall --config config.json
 	else
