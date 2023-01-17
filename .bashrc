@@ -15,7 +15,7 @@ webm_mp4 () {
 }
 
 updateall () {
-	yay # updates non-official and official packages
+	yay # updates aur and official repo packages
 	flatpak update # updates flatpaks
 	# sudo pacman -Scc (cleans cache)
 	sudo pacman -Rns $(pacman -Qdtq)
