@@ -18,7 +18,7 @@
 	"offline": false,
 	"packages": [
 		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager",
-		"lximage-qt", "lxqt-about", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "screengrab", "breeze-icons", "sddm",
+		"lightdm", "lximage-qt", "lxqt-about", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "screengrab", "breeze-icons", "sddm",
 		"xdg-utils", "bluez", "bluez-libs", "bluez-utils", "wine-gecko", "wine-mono", "wine-staging", "webp-pixbuf-loader", "neofetch", "yt-dlp", "calf", "mda.lv2", "lsp-plugins",
 		"vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "bleachbit", "easyeffects", "gimp", "btop", "ardour", "blender", "jami-qt", "meld", "gnome-disk-utility"
 	],
