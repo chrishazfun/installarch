@@ -10,9 +10,6 @@ if [ -f "/etc/arch-release" ]; then
 	sleep 1
 	sudo pacman -Syy --needed archlinux-keyring archinstall
 
-	echo "Downloading configs and temp credentials (edit the creds in the archinstall screen before installation)"
-	sleep 1
-
 	echo "Installing with partly generated config in 3.. 2.. 1.." && sleep 2
 	archinstall --config config.json --creds creds.json
 
