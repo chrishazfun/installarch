@@ -1,6 +1,8 @@
 # not as important but still worth putting into a file
 # bash ./post.sh when in the cloned repo dir after rebooting into system
 
+sudo pacman -S wine-gecko wine-mono wine-staging neofetch yt-dlp calf mda.lv2 lsp-plugins vlc steam kdenlive obs-studio libreoffice-fresh gimp bleachbit easyeffects ardour blender jami-qt meld
+
 echo "Hiding LSP and ZAM plugins from application menu"
 echo "[Desktop Entry]
 Hidden=true" > /tmp/1
