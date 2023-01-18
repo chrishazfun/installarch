@@ -2,6 +2,7 @@
 	"additional-repositories": ["multilib"],
 	"audio": "pipewire",
 	"bootloader": "grub-install",
+	"custom-commands": ["git clone https://github.com/chrishazfun/installarch"],
 	"filesystem": "ext4",
 	"hostname": "sample",
 	"kernels": ["linux"],

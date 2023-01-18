@@ -13,7 +13,7 @@ if [ -f "/etc/arch-release" ]; then
 	echo "Installing with partly generated config in 3.. 2.. 1.." && sleep 2
 	archinstall --config config.json --creds creds.json
 
-	echo "Done!... hopefully"
+	echo "Done!... hopefully | Post-install script from repo available in installarch repo re-cloned in installation"
 
 else
 	echo "This isn't Arch *flies away*"
