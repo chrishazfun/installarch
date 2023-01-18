@@ -1,5 +1,5 @@
 #!/bin/bash
-# curl -s https://chrishaz.fun/arch/go.sh | bash
+# bash ./go.sh
 if [ -f "/etc/arch-release" ]; then
 
 	echo "Enabling parallel downloads"
