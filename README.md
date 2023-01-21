@@ -9,12 +9,12 @@ In the case that you're not using Ethernet and have Wifi, you can connect to it 
 4. Run `station [device name] get-networks`
 5. Find your network, and run `station [device name] connect [network name]`, enter your password and run `exit`. You can test if you have internet connection by running `ping google.com`, and then Press Ctrl+C to stop the ping test.
 
-## Prerequisite Part 1
-```sgdisk -Zo <disk-to-install-arch-on>``` completely clears a single disk in preperation for installation, after this you should ```reboot``` to avoid any errors when you actually install.
+## Prerequisite
+Sometimes you may be required to execute a command like ```sgdisk -Zo <disk-to-install-arch-on>```, this completely clears a single disk, after this you should ```reboot``` to avoid any errors when you move forward with the installation.
 
 ## Installation
 ```
-pacman-key --init
+pacman-key --init (optional)
 sudo pacman -Syy git
 git clone https://github.com/chrishazfun/installarch
 cd installarch
