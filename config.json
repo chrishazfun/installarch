@@ -2,7 +2,7 @@
 	"additional-repositories": ["multilib"],
 	"audio": "pipewire",
 	"bootloader": "grub-install",
-	"custom-commands": ["git clone https://github.com/chrishazfun/installarch"],
+	"custom-commands": ["reflector -a 48 -c Australia,Sydney -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist"],
 	"filesystem": "ext4",
 	"hostname": "sample",
 	"kernels": ["linux"],
@@ -11,12 +11,11 @@
 	"ntp": true,
 	"offline": false,
 	"packages": [
-		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager",
-		"lightdm", "lightdm-gtk-greeter", "lximage-qt", "lxqt-about", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "screengrab", "xscreensaver", "breeze-icons", "xdg-utils", "xdg-desktop-portal-lxqt",
-		"bluez", "bluez-libs", "bluez-utils", "webp-pixbuf-loader", "btop"
+		"bash", "bash-completion", "git", "reflector", "jre-openjdk", "flatpak", "networkmanager", "lightdm", "lightdm-gtk-greeter", "lxqt-admin", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "obconf-qt", "openbox", "pavucontrol-qt", "qterminal", "xscreensaver", "breeze-icons", "thunar", "thunar-archive-plugin", "thunar-media-tags-plugin", "thunar-volman", "mousepad", "xdg-utils", "xdg-desktop-portal-lxqt", "bluez", "bluez-libs", "bluez-utils", "webp-pixbuf-loader", "btop", "qt6-multimedia-ffmpeg", "firefox", "wine-gecko", "wine-mono", "wine-staging", "neofetch", "yt-dlp", "calf", "mda.lv2", "lsp-plugins", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "bleachbit", "easyeffects", "ardour", "blender", "jami-qt", "meld", "gnome-disk-utility"
 	],
 	"profile": "xorg",
 	"services": [
+		"reflector",
 		"lightdm",
 		"bluetooth",
 		"NetworkManager"

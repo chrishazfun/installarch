@@ -1,7 +1,7 @@
 # not as important but still worth putting into a file
 # bash ./post.sh when in the cloned repo dir after rebooting into system
 
-sudo pacman -S firefox wine-gecko wine-mono wine-staging neofetch yt-dlp calf mda.lv2 lsp-plugins vlc steam kdenlive obs-studio libreoffice-fresh gimp bleachbit easyeffects ardour blender jami-qt meld gnome-disk-utility
+reflector -a 48 -c Australia,Sydney -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 echo "Hiding LSP and ZAM plugins from application menu"
 echo "[Desktop Entry]
@@ -16,7 +16,7 @@ makepkg -si
 cd
 
 echo "Installing AUR packages"
-yay -S --noconfirm sand-lxqt-theme kdocker pamac-nosnap shutter-encoder microsoft-edge-stable-bin chromium-widevine sublime-text-4 xboxdrv protonup-ng-git ttf-ms-fonts
+yay -S --noconfirm kdocker pamac-nosnap shutter-encoder microsoft-edge-stable-bin chromium-widevine sublime-text-4 xboxdrv protonup-ng-git ttf-ms-fonts
 
 echo "Installing flatpaks"
 flatpak install -y --noninteractive org.firestormviewer.FirestormViewer com.steamgriddb.steam-rom-manager
