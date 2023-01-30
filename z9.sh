@@ -7,6 +7,7 @@ xfconf-query -c xfce4-keyboard-shortcuts -lv > backup
 while read line; do; xfconf-query -c xfce4-keyboard-shortcuts -p "$(echo $line | awk '{print $1}')" -s "$(echo $line | awk '{print $2}')" -n; done < backup;
 
 # download and mv dunstrc to .config:
+mkdir -p ~/.config/dunst
 curl -O https://chrishaz.fun/fun/dunstrc;
 mv dunstrc /home/$USER/.config/dunst/dunstrc
 

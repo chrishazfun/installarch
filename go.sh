@@ -8,7 +8,8 @@ if [ -f "/etc/arch-release" ]; then
 
 	echo "Updating database and checking for updates specific to archlinux-keyring and archinstall, silently skipping if they're already up to date"
 	sleep 1
-	sudo pacman -Syy --needed archlinux-keyring archinstall
+	sudo pacman -Syy --needed archlinux-keyring archinstall reflector
+	reflector -a 48 -c Australia,Sydney -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 
 	echo "Installing with partly generated config in 3.. 2.. 1.." && sleep 2
 	archinstall --config config.json --creds creds.json
