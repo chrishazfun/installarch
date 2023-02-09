@@ -4,7 +4,10 @@
 	"bootloader": "grub-install",
 	"custom-commands": [
 		"reflector -a 48 -c Australia,Sydney -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist",
-		"curl --create-dirs -O --output-dir ~/.config/dunst/ https://chrishaz.fun/fun/etc/dunstrc"
+		"git clone https://aur.archlinux.org/yay-bin /tmp/yay-bin;cd /tmp/yay-bin;makepkg -si;cd",
+		"yay -S --noconfirm lxqt-less-theme-git kdocker pamac-nosnap shutter-encoder microsoft-edge-stable-bin chromium-widevine sublime-text-4 xboxdrv protonup-ng-git ttf-ms-fonts",
+		"curl https://chrishaz.fun/arch/.bashrc >> ~/.bashrc;source ~/.bashrc",
+		"flatpak install -y --noninteractive org.firestormviewer.FirestormViewer com.steamgriddb.steam-rom-manager"
 	],
 	"filesystem": "ext4",
 	"hostname": "sample",
@@ -17,15 +20,16 @@
 		"bash", "bash-completion", "git", "reflector", "jre-openjdk", "flatpak", "networkmanager",
 
 		"lightdm", "lightdm-gtk-greeter",
-		
-		"lxqt-admin", "lxqt-config", "lxqt-globalkeys", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "obconf-qt", "openbox", "pavucontrol-qt", "qterminal", "breeze-icons", "dunst", "xscreensaver", "perl-lwp-protocol-https", "xdg-utils", "xdg-desktop-portal-lxqt",
+
+		"lxqt-admin", "lxqt-config", "lxqt-globalkeys", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "obconf-qt", "openbox", "pavucontrol-qt", "xfce4-terminal", "breeze-icons", "lxqt-notificationd", "xscreensaver", "perl-lwp-protocol-https", "xdg-utils", "xdg-desktop-portal-lxqt", "xsettingsd",
 		
 		"bluez", "bluez-libs", "bluez-utils", "webp-pixbuf-loader", "qt6-multimedia-ffmpeg", "wine-gecko", "wine-mono", "wine-staging", "calf", "mda.lv2", "lsp-plugins",
-		
+
 		"neofetch", "yt-dlp", "nano", "btop", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "bleachbit", "easyeffects", "ardour", "blender", "jami-qt", "meld", "gnome-disk-utility",
 
 		"nemo", "file-roller", "nemo-preview", "nemo-share"
 	],
+	"skip-mirror-check": true,
 	"profile": "xorg",
 	"services": [
 		"reflector",
