@@ -2,7 +2,7 @@
 # bash ./go.sh
 if [ -f "/etc/arch-release" ]; then
 
-	echo "Enabling parallel downloads, color and ignoring lxqt-themes pkg in favor of single lxqt-less-theme-git theme"
+	echo "Enabling parallel downloads, color in the terminal and ignoring lxqt-themes pkg in favor of single lxqt-less-theme-git theme"
 	sleep 1
 	sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
 	sed -i 's/^#Color/Color/' /etc/pacman.conf
