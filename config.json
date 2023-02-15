@@ -7,7 +7,7 @@
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=lxqt-themes/' /etc/pacman.conf",
 		"git clone https://aur.archlinux.org/yay-bin /tmp/yay-bin;cd /tmp/yay-bin;makepkg -si;cd",
-		"yay -S --noconfirm darling-bin lxqt-less-theme-git kdocker pamac-nosnap shutter-encoder xboxdrv protonup-ng-git ttf-ms-fonts",
+		"yay -S --noconfirm chromium-widevine darling-bin sublime-text-4 stable-diffusion-ui lxqt-less-theme-git kdocker pamac-nosnap shutter-encoder xboxdrv protonup-ng-git ttf-ms-fonts",
 		"flatpak install -y --noninteractive org.firestormviewer.FirestormViewer com.steamgriddb.steam-rom-manager"
 	],
 	"filesystem": "ext4",
