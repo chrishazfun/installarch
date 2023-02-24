@@ -18,18 +18,15 @@
 	"offline": false,
 	"packages": [
 		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager",
+		"bluez", "bluez-libs", "bluez-utils", "wine-gecko", "wine-mono", "wine-staging",
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 
 		"lxqt-admin", "lxqt-config", "lxqt-themes", "lxqt-globalkeys", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "breeze-icons", "lxqt-notificationd", "xscreensaver", "perl-lwp-protocol-https", "xdg-utils", "xdg-desktop-portal-lxqt", "xsettingsd", "webp-pixbuf-loader", "qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins",
 
-		"bluez", "bluez-libs", "bluez-utils", "wine-gecko", "wine-mono", "wine-staging",
+		"qutebrowser", "solaar", "nano", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "bleachbit", "easyeffects", "ardour", "blender", "jami-qt", "meld", "gnome-disk-utility",
 
-		"qutebrowser",
-
-		"solaar",
-
-		"neofetch", "yt-dlp", "nano", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "bleachbit", "easyeffects", "ardour", "blender", "jami-qt", "meld", "gnome-disk-utility"
+		"neofetch", "yt-dlp"
 	],
 	"skip-mirror-check": true,
 	"profile": "xorg",
