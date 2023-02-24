@@ -27,6 +27,8 @@
 
 		"qutebrowser",
 
+		"solaar",
+
 		"neofetch", "yt-dlp", "nano", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "bleachbit", "easyeffects", "ardour", "blender", "jami-qt", "meld", "gnome-disk-utility"
 	],
 	"skip-mirror-check": true,
