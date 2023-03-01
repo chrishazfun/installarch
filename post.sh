@@ -12,4 +12,4 @@ cd /tmp/yay-bin
 makepkg -si
 cd
 
-yay -S --noconfirm darling-bin sublime-text-4 stable-diffusion-ui kdocker shutter-encoder xboxdrv ttf-ms-fonts
+yay -S darling-bin kdocker xboxdrv ttf-ms-fonts spacecadetpinball-git shutter-encoder octopi chromium-widevine
