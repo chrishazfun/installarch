@@ -5,9 +5,7 @@
 	"custom-commands": [
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
-		"git clone https://aur.archlinux.org/yay-bin /tmp/yay-bin;cd /tmp/yay-bin;makepkg -si;cd",
-		"yay -S --noconfirm darling-bin sublime-text-4 stable-diffusion-ui kdocker shutter-encoder xboxdrv protonup-ng-git ttf-ms-fonts",
-		"flatpak install -y --noninteractive com.steamgriddb.steam-rom-manager in.bharatkalluri.shortcircuit com.github.k4zmu2a.spacecadetpinball"
+		"flatpak install -y --noninteractive com.steamgriddb.steam-rom-manager in.bharatkalluri.shortcircuit com.github.k4zmu2a.spacecadetpinball net.davidotek.pupgui2"
 	],
 	"filesystem": "ext4",
 	"hostname": "sample",
@@ -21,6 +19,8 @@
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 		"lxqt-admin", "lxqt-config", "lxqt-themes", "lxqt-globalkeys", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "featherpad", "lxqt-sudo", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "breeze-icons", "dunst", "xscreensaver", "perl-lwp-protocol-https", "xdg-utils", "xdg-desktop-portal-lxqt", "xsettingsd", "webp-pixbuf-loader", "qt6-multimedia-ffmpeg",
+		
+		"libappimage",
 
 		"qutebrowser", "piper", "solaar", "nano", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "bleachbit", "easyeffects", "ardour", "blender", "jami-qt", "meld", "gnome-disk-utility", "bitwarden",
 
