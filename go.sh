@@ -6,7 +6,7 @@ if [ -f "/etc/arch-release" ]; then
 	sleep 1
 	sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
 	sed -i 's/^#Color/Color/' /etc/pacman.conf
-	sed -i 's/^#IgnorePkg   =/IgnorePkg=lxqt-themes/' /etc/pacman.conf
+	sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
 
 	echo "Updating database and checking for updates specific to archlinux-keyring, archinstall and reflector, silently skipping if they're already up to date"
 	sleep 1
