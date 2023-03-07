@@ -1,5 +1,5 @@
 # installarch
-My personal method of installing Arch Linux, using a script that sets up the ideal conditions for a system installation and uses the pre-installed [archinstall](https://github.com/archlinux/archinstall) command with a premade config to install my ideal Arch Linux system, styled somewhat but not too much for others so as to feel more inviting.
+My personal method of installing Arch Linux, using a script that sets up the ideal conditions and uses the pre-installed [archinstall](https://github.com/archlinux/archinstall) command with a premade config to install my ideal Arch Linux system, styled somewhat but not too much, I'm not too fussed about that sort of thing.
 
 ## Wifi
 In the case that you're not using a wired connection and have Wifi, you can connect to it through these 5 steps:
