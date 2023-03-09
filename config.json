@@ -8,7 +8,7 @@
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
 		"git clone https://github.com/addy-dclxvi/openbox-theme-collections ~/.themes",
 		"xset r rate 200 30",
-		"flatpak install -y --noninteractive com.steamgriddb.steam-rom-manager net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch io.github.sharkwouter.Minigalaxy net.brinkervii.grapejuice io.mrarm.mcpelauncher com.github.k4zmu2a.spacecadetpinball org.yuzu_emu.yuzu org.DolphinEmu.dolphin-emu com.snes9x.Snes9x org.ppsspp.PPSSPP net.pcsx2.PCSX2 org.duckstation.DuckStation net.rpcs3.RPCS3 com.google.Chrome"
+		"flatpak install -y --noninteractive com.steamgriddb.steam-rom-manager net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.github.k4zmu2a.spacecadetpinball"
 	],
 	"filesystem": "ext4",
 	"hostname": "host",
@@ -21,7 +21,7 @@
 		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager",
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 		"lxqt-admin", "lxqt-config", "lxqt-themes", "lxqt-globalkeys", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-session", "featherpad", "lxqt-sudo", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "breeze-icons", "dunst", "xscreensaver", "perl-lwp-protocol-https", "xdg-utils", "xdg-desktop-portal-lxqt", "xsettingsd", "webp-pixbuf-loader", "qt6-multimedia-ffmpeg", "ttf-croscore",
-		"qutebrowser",
+		"firefox", "qutebrowser",
 		"solaar", "nano", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "jami-qt", "gnome-disk-utility",
 		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
