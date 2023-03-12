@@ -8,7 +8,7 @@
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
 		"git clone https://github.com/addy-dclxvi/openbox-theme-collections ~/.themes",
 		"xset r rate 200 30",
-		"flatpak install -y --noninteractive com.steamgriddb.steam-rom-manager net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.github.k4zmu2a.spacecadetpinball com.google.Chrome"
+		"flatpak install -y --noninteractive com.steamgriddb.steam-rom-manager net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.github.k4zmu2a.spacecadetpinball com.microsoft.Edge"
 	],
 	"filesystem": "ext4",
 	"hostname": "host",
