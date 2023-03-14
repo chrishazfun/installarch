@@ -4,11 +4,11 @@
 	"bootloader": "grub-install",
 	"custom-commands": [
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
-		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm,lxqt-themes/' /etc/pacman.conf",
+		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
 		"git clone https://github.com/addy-dclxvi/openbox-theme-collections ~/.themes",
 		"xset r rate 200 30",
-		"flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.brave.Browser"
+		"flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.brave.Browser com.github.tchx84.Flatseal"
 	],
 	"filesystem": "ext4",
 	"hostname": "host",
