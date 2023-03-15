@@ -10,7 +10,7 @@ if [ -f "/etc/arch-release" ]; then
 
 	echo "Updating database and checking for updates specific to archlinux-keyring, archinstall and reflector, silently skipping if they're already up to date"
 	sleep 1
-	sudo pacman -Syy --needed archlinux-keyring archinstall reflector
+	sudo pacman -Syy --needed archlinux-keyring archinstall reflector python-setuptools
 
 	echo "Seperately scanning for optimal mirrors, disabled mirror check in archinstall config as its not returning great results"
 	reflector -a 48 -c Australia,Sydney -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
