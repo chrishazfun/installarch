@@ -13,7 +13,7 @@
 	"filesystem": "ext4",
 	"hostname": "host",
 	"kernels": ["linux"],
-	"keyboard-language": "us",
+	"keyboard-layout": "us",
 	"mirror-region": "Australia",
 	"ntp": true,
 	"offline": false,
