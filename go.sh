@@ -10,7 +10,7 @@ if [ -f "/etc/arch-release" ]; then
 
 	echo "Updating database and checking for updates specific to archlinux-keyring, archinstall and reflector, silently skipping if they're already up to date"
 	sleep 1
-	sudo pacman -Syy --needed archlinux-keyring archinstall reflector python-setuptools
+	sudo pacman -Syy --needed archlinux-keyring archinstall reflector
 
 	echo "Seperately scanning for optimal mirrors, disabled mirror check in archinstall config as its not returning great results"
 	reflector -a 48 -c Australia,Sydney -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
@@ -19,6 +19,7 @@ if [ -f "/etc/arch-release" ]; then
 	archinstall --config config.json --creds creds.json
 
 	echo 'SETTING GTK THEMES TO FLATPAK APPS: itsfoss.com/flatpak-app-apply-theme'
+	sleep 2
 
 	echo "Done!... hopefully | Post-install script from repo available in installarch repo re-cloned in installation"
 

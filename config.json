@@ -9,8 +9,7 @@
 		"xset r rate 200 30",
 		"mkdir -p ~/.config/awesome/",
 		"cp /etc/xdg/awesome/rc.lua ~/.config/awesome/",
-		"echo 'INSTALLING VARIOUS FLATPAKS';sleep 1;flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.microsoft.Edge",
-		"echo 'INSTALLING FLATPAK PERMISSIONS GUI (Flatseal) and PODMAN DESKTOP';sleep 1;flatpak install -y --noninteractive com.github.tchx84.Flatseal io.podman_desktop.PodmanDesktop"
+		"flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.microsoft.Edge com.github.tchx84.Flatseal io.podman_desktop.PodmanDesktop"
 	],
 	"filesystem": "ext4",
 	"hostname": "host",
