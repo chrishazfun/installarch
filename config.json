@@ -3,13 +3,18 @@
 	"audio": "pipewire",
 	"bootloader": "grub-install",
 	"custom-commands": [
+		"echo 'TESTING SOMETHING, IGNORE IF IT DOESNT WORK';sleep 1;echo $HOSTNAME;sleep 1;echo 'if you saw the hostname, sweet'",
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
+		"flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.microsoft.Edge com.github.tchx84.Flatseal io.podman_desktop.PodmanDesktop",
+
 		"xset r rate 200 30",
+
 		"mkdir -p ~/.config/awesome/",
 		"cp /etc/xdg/awesome/rc.lua ~/.config/awesome/",
-		"flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.microsoft.Edge com.github.tchx84.Flatseal io.podman_desktop.PodmanDesktop"
+		"sed -i 's/^terminal = \"xterm\"/terminal = \"qterminal\"/' ~/.config/awesome/rc.lua",
+		"sed -i 's/^editor = os.getenv(\"EDITOR\") or \"nano\"/editor = os.getenv(\"EDITOR\") or \"vim\"/' ~/.config/awesome/rc.lua"
 	],
 	"filesystem": "ext4",
 	"hostname": "host",
