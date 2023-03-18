@@ -1,5 +1,5 @@
 ## installarch
-My personal method of installing Arch Linux.
+My personal method of installing Arch Linux, using [`archinstall`](https://www.github.com/archlinux/archinstall) as a base.
 
 ### Wifi
 In the case that you're not using a wired connection and have Wifi, you can connect to it through these 5 steps:
