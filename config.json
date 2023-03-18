@@ -3,15 +3,17 @@
 	"audio": "pipewire",
 	"bootloader": "grub-install",
 	"custom-commands": [
-		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
-		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
+		"git clone https://aur.archlinux.org/yay-bin /tmp/yay-bin;cd /tmp/yay-bin;makepkg -si;cd",
+		"yay -S --noconfirm --needed darling-bin kdocker xboxdrv ttf-ms-fonts spacecadetpinball-git shutter-encoder octopi chromium-widevine",
 		"flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.microsoft.Edge com.github.tchx84.Flatseal io.podman_desktop.PodmanDesktop",
-		"xset r rate 200 30",
 		"mkdir -p ~/.config/awesome/",
 		"cp /etc/xdg/awesome/rc.lua ~/.config/awesome/",
 		"sed -i 's/^terminal = \"xterm\"/terminal = \"qterminal\"/' ~/.config/awesome/rc.lua",
-		"sed -i 's/^editor = os.getenv(\"EDITOR\") or \"nano\"/editor = os.getenv(\"EDITOR\") or \"vim\"/' ~/.config/awesome/rc.lua"
+		"sed -i 's/^editor = os.getenv(\"EDITOR\") or \"nano\"/editor = os.getenv(\"EDITOR\") or \"vim\"/' ~/.config/awesome/rc.lua",
+		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
+		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
+		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
+		"xset r rate 200 30"
 	],
 	"filesystem": "ext4",
 	"hostname": "host",
@@ -21,7 +23,7 @@
 	"ntp": true,
 	"offline": false,
 	"packages": [
-		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager",
+		"zsh", "zsh-completions", "git", "jre-openjdk", "flatpak", "networkmanager",
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 		"awesome",  "ttf-croscore", "xscreensaver",
@@ -33,7 +35,7 @@
 		"bluez", "bluez-libs", "bluez-utils", "wine-gecko", "wine-mono", "wine-staging", "btop", "neofetch", "yt-dlp",
 		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel"
 	],
-	"skip-mirror-check": true,
+	"skip-mirror-check": false,
 	"profile": "xorg",
 	"services": [
 		"lightdm",
