@@ -3,14 +3,11 @@
 	"audio": "pipewire",
 	"bootloader": "grub-install",
 	"custom-commands": [
-		"echo 'TESTING SOMETHING, IGNORE IF IT DOESNT WORK';sleep 1;echo $HOSTNAME;sleep 1;echo 'if you saw the hostname, sweet'",
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
 		"flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.microsoft.Edge com.github.tchx84.Flatseal io.podman_desktop.PodmanDesktop",
-
 		"xset r rate 200 30",
-
 		"mkdir -p ~/.config/awesome/",
 		"cp /etc/xdg/awesome/rc.lua ~/.config/awesome/",
 		"sed -i 's/^terminal = \"xterm\"/terminal = \"qterminal\"/' ~/.config/awesome/rc.lua",
@@ -27,14 +24,14 @@
 		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager",
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
-		"awesome", "xscreensaver",
-		"pcmanfm-qt", "qterminal", "dunst", "nano", "lxqt-sudo", "xdg-desktop-portal", "qutebrowser",
+		"awesome",  "ttf-croscore", "xscreensaver",
+		"pcmanfm-qt", "qterminal", "dunst", "vim", "xdg-desktop-portal", "qutebrowser",
 
 		"firefox", "solaar", "nano", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "gnome-disk-utility",
 		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
 		"bluez", "bluez-libs", "bluez-utils", "wine-gecko", "wine-mono", "wine-staging", "btop", "neofetch", "yt-dlp",
-		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "ttf-croscore", "axel"
+		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel"
 	],
 	"skip-mirror-check": true,
 	"profile": "xorg",
