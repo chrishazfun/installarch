@@ -3,7 +3,7 @@
 	"audio": "pipewire",
 	"bootloader": "grub-install",
 	"custom-commands": [
-		"mv ~/installarch/post.sh /mnt/archinstall/root",
+		"wget https://raw.githubusercontent.com/chrishazfun/installarch/main/post.sh -O /mnt/archinstall/root/",
         "arch-chroot /mnt/archinstall sh /root/post.sh"
 	],
 	"filesystem": "ext4",
@@ -14,7 +14,7 @@
 	"ntp": true,
 	"offline": false,
 	"packages": [
-		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager",
+		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager", "wget",
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 		"awesome",  "ttf-croscore", "xscreensaver",
