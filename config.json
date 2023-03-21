@@ -3,17 +3,8 @@
 	"audio": "pipewire",
 	"bootloader": "grub-install",
 	"custom-commands": [
-		"git clone https://aur.archlinux.org/yay-bin /tmp/yay-bin;cd /tmp/yay-bin;makepkg -si;cd",
-		"yay -S --noconfirm --needed darling-bin kdocker xboxdrv ttf-ms-fonts spacecadetpinball-git shutter-encoder octopi chromium-widevine",
-		"flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.microsoft.Edge com.github.tchx84.Flatseal io.podman_desktop.PodmanDesktop",
-		"mkdir -p ~/.config/awesome/",
-		"cp /etc/xdg/awesome/rc.lua ~/.config/awesome/",
-		"sed -i 's/^terminal = \"xterm\"/terminal = \"qterminal\"/' ~/.config/awesome/rc.lua",
-		"sed -i 's/^editor = os.getenv(\"EDITOR\") or \"nano\"/editor = os.getenv(\"EDITOR\") or \"vim\"/' ~/.config/awesome/rc.lua",
-		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
-		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
-		"xset r rate 200 30"
+		"mv ~/installarch/post.sh /mnt/archinstall/root",
+        "arch-chroot /mnt/archinstall sh /root/post.sh"
 	],
 	"filesystem": "ext4",
 	"hostname": "host",
@@ -23,13 +14,13 @@
 	"ntp": true,
 	"offline": false,
 	"packages": [
-		"zsh", "zsh-completions", "git", "jre-openjdk", "flatpak", "networkmanager",
+		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager",
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 		"awesome",  "ttf-croscore", "xscreensaver",
 		"pcmanfm-qt", "qterminal", "dunst", "vim", "xdg-desktop-portal", "qutebrowser",
 
-		"firefox", "solaar", "nano", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "gnome-disk-utility",
+		"solaar", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "gnome-disk-utility",
 		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
 		"bluez", "bluez-libs", "bluez-utils", "wine-gecko", "wine-mono", "wine-staging", "btop", "neofetch", "yt-dlp",

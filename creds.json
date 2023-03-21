@@ -2,9 +2,9 @@
     "!encryption-password": null,
     "!users": [
         {
-            "!password": "1234",
+            "!password": "password",
             "sudo": true,
-            "username": "main"
+            "username": "username"
         }
     ]
 }
