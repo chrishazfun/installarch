@@ -1,12 +1,5 @@
 #!/bin/bash
 
-# hiding lsp and zam plugins from application menu
-read 
-echo "[Desktop Entry]
-Hidden=true" > /tmp/1
-find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
-find /usr -name "*zam*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
-
 # pacman tweaks, blocking xterm as it's a common optional dep that we don't need
 sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
 sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
