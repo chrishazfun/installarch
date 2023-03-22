@@ -17,14 +17,14 @@
 		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager", "wget",
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
-		"awesome",  "ttf-croscore", "xscreensaver",
-		"pcmanfm-qt", "qterminal", "dunst", "vim", "xdg-desktop-portal", "qutebrowser",
 
-		"solaar", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "gnome-disk-utility",
+		"exo", "garcon", "thunar", "thunar-volman", "tumbler", "xfce4-appfinder", "xfce4-panel", "xfce4-power-manager", "xfce4-session", "xfce4-settings", "xfce4-terminal", "xfconf", "xfdesktop", "xfwm4", "mousepad", "thunar-archive-plugin", "thunar-media-tags-plugin", "xfce4-battery-plugin", "xfce4-clipman-plugin", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-mpc-plugin", "xfce4-notifyd", "xfce4-pulseaudio-plugin", "xfce4-screensaver", "xfce4-screenshooter", "xfce4-smartbookmark-plugin", "xfce4-taskmanager", "xdg-desktop-portal",
+
+		"qutebrowser", "vim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "gnome-disk-utility",
 		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
 		"bluez", "bluez-libs", "bluez-utils", "wine-gecko", "wine-mono", "wine-staging", "btop", "neofetch", "yt-dlp",
-		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel"
+		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel", "ttf-croscore"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",

@@ -2,7 +2,7 @@
 
 # pacman tweaks, blocking xterm as it's a common optional dep that we don't need
 sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
-sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
+sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm,xfce4-artwork/' /etc/pacman.conf
 sed -i 's/^#Color/Color/' /etc/pacman.conf
 
 # cloning yay-bin in the chrooted post-install script instead of the custom-commands like we COULD but can't rn
