@@ -14,8 +14,11 @@ cd
 # getting them aur pkgs
 yay -S --noconfirm --needed darling-bin kdocker xboxdrv ttf-ms-fonts spacecadetpinball-git shutter-encoder octopi chromium-widevine
 
-# getting some flatpaks, minecraft bedrock for linux anyone?
-flatpak install -y --noninteractive net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice io.mrarm.mcpelauncher com.gitlab.JakobDev.jdMinecraftLauncher com.microsoft.Edge com.github.tchx84.Flatseal io.podman_desktop.PodmanDesktop io.github.vikdevelop.SaveDesktop
+# essential flatpaks
+flatpak install -y --noninteractive com.github.tchx84.Flatseal com.microsoft.Edge io.podman_desktop.PodmanDesktop
+
+# more flatpaks, minecraft bedrock anyone? dedicated xbox cloud client?
+flatpak install -y --noninteractive io.github.mandruis7.xbox-cloud-gaming-electron io.mrarm.mcpelauncher net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice com.gitlab.JakobDev.jdMinecraftLauncher
 
 # setting the awesomewm config
 mkdir -p ~/.config/awesome/
