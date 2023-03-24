@@ -11,7 +11,7 @@ cd /tmp/yay-bin
 makepkg -si
 cd
 
-# getting them aur pkgs
+# getting them aur pkgs, might expand on the selection if this chrooted script plan works
 yay -S --noconfirm --needed darling-bin kdocker xboxdrv ttf-ms-fonts spacecadetpinball-git shutter-encoder octopi chromium-widevine
 
 # essential flatpaks
@@ -19,12 +19,6 @@ flatpak install -y --noninteractive com.github.tchx84.Flatseal com.microsoft.Edg
 
 # more flatpaks, minecraft bedrock anyone? dedicated xbox cloud client?
 flatpak install -y --noninteractive io.github.mandruis7.xbox-cloud-gaming-electron io.mrarm.mcpelauncher net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice com.gitlab.JakobDev.jdMinecraftLauncher
-
-# setting the awesomewm config
-mkdir -p ~/.config/awesome/
-cp /etc/xdg/awesome/rc.lua ~/.config/awesome/
-sed -i 's/^terminal = \"xterm\"/terminal = \"qterminal\"/' ~/.config/awesome/rc.lua
-sed -i 's/^editor = os.getenv(\"EDITOR\") or \"nano\"/editor = os.getenv(\"EDITOR\") or \"vim\"/' ~/.config/awesome/rc.lua
 
 # setting mpv config, might set some things idk
 cp -r /usr/share/doc/mpv/ ~/.config/

@@ -4,7 +4,7 @@
 	"bootloader": "grub-install",
 	"custom-commands": [
 		"wget https://raw.githubusercontent.com/chrishazfun/installarch/main/post.sh -O /mnt/archinstall/root/",
-        "arch-chroot /mnt/archinstall sh /root/post.sh"
+		"arch-chroot /mnt/archinstall sh /root/post.sh"
 	],
 	"filesystem": "ext4",
 	"hostname": "host",
@@ -16,20 +16,22 @@
 	"packages": [
 		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager", "wget",
 
-		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
+		"gdm",
 
-		"exo", "garcon", "thunar", "thunar-volman", "tumbler", "xfce4-appfinder", "xfce4-panel", "xfce4-power-manager", "xfce4-session", "xfce4-settings", "xfce4-terminal", "xfconf", "xfdesktop", "xfwm4", "mousepad", "thunar-archive-plugin", "thunar-media-tags-plugin", "xfce4-battery-plugin", "xfce4-clipman-plugin", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-mpc-plugin", "xfce4-notifyd", "xfce4-pulseaudio-plugin", "xfce4-screensaver", "xfce4-screenshooter", "xfce4-smartbookmark-plugin", "xfce4-taskmanager", "xdg-desktop-portal",
+		"gnome-session", "gnome-settings-daemon", "gnome-system-monitor", "gnome-shell", "xdg-user-dirs-gtk", "gnome-terminal", "nautilus", "sushi", "tracker3-miners", "gnome-text-editor", "dconf-editor", "gnome-keyring", "gnome-disk-utility", "gnome-font-viewer", "grilo-plugins", "rygel",
 
-		"qutebrowser", "vim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "gnome-disk-utility",
+		"firefox", "vim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "gnome-disk-utility",
 		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
-		"bluez", "bluez-libs", "bluez-utils", "wine-gecko", "wine-mono", "wine-staging", "btop", "neofetch", "yt-dlp",
+		"bluez", "bluez-libs", "bluez-utils",
+		"wine-gecko", "wine-mono", "wine-staging",
+		"btop", "neofetch", "yt-dlp",
 		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel", "ttf-croscore"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",
 	"services": [
-		"lightdm",
+		"gdm",
 		"bluetooth",
 		"NetworkManager"
 	],
