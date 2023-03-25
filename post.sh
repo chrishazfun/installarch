@@ -5,6 +5,12 @@ sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
 sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm,xfce4-artwork/' /etc/pacman.conf
 sed -i 's/^#Color/Color/' /etc/pacman.conf
 
+# setting up for qemu/virt-manager
+sed -i 's/^#unix_sock_group = "libvirt"/unix_sock_group = "libvirt"/' /etc/libvirt/libvirtd.conf
+sed -i 's/^#unix_sock_ro_perms = "0777"/unix_sock_ro_perms = "0777"/' /etc/libvirt/libvirtd.conf
+sed -i 's/^#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/' /etc/libvirt/libvirtd.conf
+usermod -aG libvirt $USERNAME
+
 # cloning yay-bin in the chrooted post-install script instead of the custom-commands like we COULD but can't rn
 git clone https://aur.archlinux.org/yay-bin /tmp/yay-bin
 cd /tmp/yay-bin

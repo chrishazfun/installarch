@@ -26,12 +26,15 @@
 		"bluez", "bluez-libs", "bluez-utils",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"btop", "neofetch", "yt-dlp",
-		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel", "ttf-croscore"
+		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel", "ttf-croscore",
+
+		"qemu", "virt-manager", "virt-viewer", "dnsmasq", "vde2", "bridge-utils", "libguestfs", "ovmf", "swtpm", "openbsd-netcat"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",
 	"services": [
 		"gdm",
+		"libvirtd",
 		"bluetooth",
 		"NetworkManager"
 	],
