@@ -20,7 +20,7 @@
 
 		"gnome-session", "gnome-settings-daemon", "gnome-system-monitor", "gnome-shell", "xdg-user-dirs-gtk", "gnome-terminal", "nautilus", "sushi", "tracker3-miners", "gnome-text-editor", "dconf-editor", "gnome-keyring", "gnome-disk-utility", "gnome-font-viewer", "grilo-plugins", "rygel",
 
-		"firefox", "vim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender",
+		"firefox", "vim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "scrcpy",
 		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
 		"bluez", "bluez-libs", "bluez-utils",
