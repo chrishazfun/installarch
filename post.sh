@@ -11,6 +11,13 @@ sed -i 's/^#unix_sock_ro_perms = "0777"/unix_sock_ro_perms = "0777"/' /etc/libvi
 sed -i 's/^#unix_sock_rw_perms = "0770"/unix_sock_rw_perms = "0770"/' /etc/libvirt/libvirtd.conf
 usermod -aG libvirt $USERNAME
 
+# hiding lsp,zam plugin shortcuts on gnome menu
+echo "[Desktop Entry]
+Hidden=true" > /tmp/1
+find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
+find /usr -name "*zam*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
+
+
 # cloning yay-bin in the chrooted post-install script instead of the custom-commands like we COULD but can't rn
 git clone https://aur.archlinux.org/yay-bin /tmp/yay-bin
 cd /tmp/yay-bin

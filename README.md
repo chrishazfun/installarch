@@ -17,7 +17,7 @@ Sometimes you may be required to execute a command like ```sgdisk -Zo <disk-to-i
 You may encounter some errors when using Pacman (Arch Linux's default package manager) like that of syncing databases, we've found most of them get resolved by reinitializing its keyring by executing ```pacman-key --init```, theres no need to ```reboot``` after this but if you feel like you need to go ahead :)
 
 ### Installation
-```
+```bash
 sudo pacman -Syy git
 git clone https://github.com/chrishazfun/installarch
 cd installarch
