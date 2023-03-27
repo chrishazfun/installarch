@@ -13,13 +13,11 @@ In the case that you're not using a wired connection and have Wifi, you can conn
 ### Prerequisite Part 1
 Sometimes you may be required to execute a command like ```sgdisk -Zo <disk-to-install-arch-on>```, this completely clears a single disk, after this you should execute ```reboot``` to avoid any errors when you move forward with the installation.
 
-### Prerequisite Part 2
-You may encounter some errors when using Pacman (Arch Linux's default package manager) like that of syncing databases, we've found most of them get resolved by reinitializing its keyring by executing ```pacman-key --init```, theres no need to ```reboot``` after this but if you feel like you need to go ahead :)
-
 ### Installation
 ```bash
+pacman-key --init
 sudo pacman -Syy git
 git clone https://github.com/chrishazfun/installarch
 cd installarch
-bash ./install.sh
+bash install.sh
 ```
