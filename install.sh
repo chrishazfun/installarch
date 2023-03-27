@@ -9,8 +9,7 @@ if [ -f "/etc/arch-release" ]; then
 
 	echo "Disabling timeout on downloading packages, enabling parallel downloads and setting them to 25 max, color in the terminal and blocking xterm from being installed in this config"
 	sleep 2
-
-	echo 'DisableDownloadTimeout' >> /etc/pacman.conf
+	perl -pi -e '$_ .= qq(DisableDownloadTimeout\n) if /# Misc options/' /etc/pacman.conf
 	sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
 	sed -i 's/#Color/Color/' /etc/pacman.conf
 	sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
