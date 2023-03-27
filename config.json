@@ -3,8 +3,8 @@
 	"audio": "pipewire",
 	"bootloader": "grub-install",
 	"custom-commands": [
-		"wget https://raw.githubusercontent.com/chrishazfun/installarch/main/post.sh -O /mnt/archinstall/root/",
-		"arch-chroot /mnt/archinstall sh /root/post.sh"
+		"wget https://raw.githubusercontent.com/chrishazfun/installarch/main/post.sh -O /mnt/archinstall/",
+		"arch-chroot /mnt/archinstall sh post.sh"
 	],
 	"filesystem": "ext4",
 	"hostname": "host",
