@@ -7,11 +7,13 @@ if [ -f "/etc/arch-release" ]; then
 	sleep 2
 	pacman-key --init
 
-	echo "Enabling parallel downloads, color in the terminal and blocking xterm from being installed in this config, just in case"
+	echo "Disabling timeout on downloading packages, enabling parallel downloads and setting them to 25 max, color in the terminal and blocking xterm from being installed in this config"
 	sleep 2
-	sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
-	sed -i 's/^#Color/Color/' /etc/pacman.conf
-	sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm,xfce4-artwork/' /etc/pacman.conf
+
+	echo 'DisableDownloadTimeout' >> /etc/pacman.conf
+	sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
+	sed -i 's/#Color/Color/' /etc/pacman.conf
+	sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
 
 	echo "Updating database and checking for updates specific to archlinux-keyring, archinstall and reflector, silently skipping if they're already up to date"
 	sleep 2
