@@ -17,7 +17,7 @@
 		"xset r rate 200 30"
 	],
 	"filesystem": "ext4",
-	"hostname": "host",
+	"hostname": "#hostname",
 	"kernels": ["linux"],
 	"keyboard-layout": "us",
 	"mirror-region": "Australia",

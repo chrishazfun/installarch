@@ -14,11 +14,15 @@ if [ -f "/etc/arch-release" ]; then
 	sed -i 's/#Color/Color/' /etc/pacman.conf
 	sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
 
+	echo "Hostname (e.g. laptop OR bigpc): \c" && read hn
+	sed -i "s/#hostname/$hn/" config.json
+
 	echo "Username (e.g. chris OR main): \c" && read un
 	sed -i "s/#username/$un/" config.json
+	sed -i "s/#username/$un/" creds.json
 
 	echo "Password (make sure no one is around, this input is open like the username): \c" && read pd
-	sed -i "s/#password/$pd/" config.json
+	sed -i "s/#password/$pd/" creds.json
 
 	echo "Updating database and checking for updates specific to archlinux-keyring, archinstall, reflector and python-setuptools. Silently skipping if they're already up to date."
 	sleep 2
