@@ -3,18 +3,18 @@
 # bash ./install.sh
 if [ -f "/etc/arch-release" ]; then
 
-	echo "initializing pacmans keyring"
+	echo "Initializing pacmans keyring"
 	sleep 2
 	pacman-key --init
 
-	echo "Disabling timeout on downloading packages, enabling parallel downloads and setting them to 25 max, color in the terminal and blocking xterm from being installed in this config"
+	echo "Disabling timeout on downloading packages, enabling parallel downloads and setting them to 25 max, color in the terminal and blocking xterm from being installed"
 	sleep 2
 	perl -pi -e '$_ .= qq(DisableDownloadTimeout\n) if /# Misc options/' /etc/pacman.conf
 	sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
 	sed -i 's/#Color/Color/' /etc/pacman.conf
 	sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
 
-	echo "Updating database and checking for updates specific to archlinux-keyring, archinstall and reflector, silently skipping if they're already up to date"
+	echo "Updating database and checking for updates specific to archlinux-keyring, archinstall, reflector and python-setuptools. Silently skipping if they're already up to date."
 	sleep 2
 	sudo pacman -Syy --needed archlinux-keyring archinstall reflector python-setuptools
 
@@ -25,7 +25,7 @@ if [ -f "/etc/arch-release" ]; then
 	sleep 2
 	archinstall --config config.json
 
-	echo 'SETTING GTK THEMES TO FLATPAK APPS: itsfoss.com/flatpak-app-apply-theme'
+	echo "SETTING GTK THEMES TO FLATPAK APPS: itsfoss.com/flatpak-app-apply-theme"
 	sleep 2
 
 	echo "Done!... hopefully | Post-install script from repo available in installarch repo re-cloned in installation"
