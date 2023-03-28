@@ -10,8 +10,8 @@
 		"sed -i 's/^#unix_sock_group = \"libvirt\"/unix_sock_group = \"libvirt\"/' /etc/libvirt/libvirtd.conf",
 		"sed -i 's/^#unix_sock_ro_perms = \"0777\"/unix_sock_ro_perms = \"0777\"/' /etc/libvirt/libvirtd.conf",
 		"sed -i 's/^#unix_sock_rw_perms = \"0770\"/unix_sock_rw_perms = \"0770\"/' /etc/libvirt/libvirtd.conf",
-		"usermod -aG libvirt #username",
-		"cd /home/#username;git clone https://aur.archlinux.org/paru.git;chown -R #username:#username /home/#username/paru;paru -S --noconfirm darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi",
+		"usermod -aG libvirt $USERNAME",
+		"git clone https://aur.archlinux.org/yay-bin.git;cd yay-bin;makepkg -si;yay -S --noconfirm darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi",
 		"flatpak install -y --noninteractive com.github.tchx84.Flatseal com.microsoft.Edge io.podman_desktop.PodmanDesktop io.github.mandruis7.xbox-cloud-gaming-electron io.mrarm.mcpelauncher net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice com.gitlab.JakobDev.jdMinecraftLauncher",
 		"cp -r /usr/share/doc/mpv/ ~/.config/",
 		"xset r rate 200 30"
