@@ -3,9 +3,10 @@
 # bash ./install.sh
 if [ -f "/etc/arch-release" ]; then
 
-	echo "Initializing pacmans keyring"
+	echo "Initializing and populating pacmans keyring"
 	sleep 2
 	pacman-key --init
+	pacman-key --populate archlinux
 
 	echo "Disabling timeout on downloading packages, enabling parallel downloads and setting them to 25 max, color in the terminal and blocking xterm from being installed"
 	sleep 2

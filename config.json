@@ -3,21 +3,8 @@
 	"additional-repositories": ["multilib"],
 	"audio": "pipewire",
 	"bootloader": "grub-install",
-	"custom-commands": [
-		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
-		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
-		"sed -i 's/^#unix_sock_group = \"libvirt\"/unix_sock_group = \"libvirt\"/' /etc/libvirt/libvirtd.conf",
-		"sed -i 's/^#unix_sock_ro_perms = \"0777\"/unix_sock_ro_perms = \"0777\"/' /etc/libvirt/libvirtd.conf",
-		"sed -i 's/^#unix_sock_rw_perms = \"0770\"/unix_sock_rw_perms = \"0770\"/' /etc/libvirt/libvirtd.conf",
-		"usermod -aG libvirt $USERNAME",
-		"git clone https://aur.archlinux.org/yay-bin.git;cd yay-bin;makepkg -si;yay -S --noconfirm darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi",
-		"flatpak install -y --noninteractive com.github.tchx84.Flatseal com.microsoft.Edge io.podman_desktop.PodmanDesktop io.github.mandruis7.xbox-cloud-gaming-electron io.mrarm.mcpelauncher net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice com.gitlab.JakobDev.jdMinecraftLauncher",
-		"cp -r /usr/share/doc/mpv/ ~/.config/",
-		"xset r rate 200 30"
-	],
 	"filesystem": "ext4",
-	"hostname": "#hostname",
+	"hostname": "change-hostname",
 	"kernels": ["linux"],
 	"keyboard-layout": "us",
 	"mirror-region": "Australia",
@@ -30,18 +17,16 @@
 
 		"exo", "garcon", "thunar", "thunar-volman", "thunar-archive-plugin", "thunar-media-tags-plugin", "tumbler", "xfce4-appfinder", "xfce4-panel", "xfce4-power-manager", "xfce4-session", "xfce4-settings", "xfce4-terminal", "xfconf", "xfdesktop", "xfwm4", "mousepad", "parole", "ristretto", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-mpc-plugin", "xfce4-notes-plugin", "xfce4-notifyd", "xfce4-pulseaudio-plugin", "xfce4-screensaver", "xfce4-screenshooter", "xfce4-taskmanager", "xfce4-verve-plugin", "xfce4-weather-plugin", "xfce4-xkb-plugin", "xdg-desktop-portal",
 
-		"firefox", "vim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "scrcpy",
+		"firefox", "neovim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "scrcpy",
 		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
 		"bluez", "bluez-libs", "bluez-utils",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"btop", "neofetch", "yt-dlp",
-		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel", "ttf-croscore",
-
-		"qemu", "virt-manager", "virt-viewer", "dnsmasq", "vde2", "bridge-utils", "libguestfs", "ovmf", "swtpm", "openbsd-netcat"
+		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel", "ttf-croscore"
 	],
 	"skip-mirror-check": false,
-	"profile": "xorg",
+	"profile": "minimal",
 	"services": [
 		"lightdm",
 		"libvirtd",
