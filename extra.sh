@@ -11,7 +11,7 @@ cp -r /usr/share/doc/mpv/ ~/.config/
 # scrolling fix (temp)
 xset r rate 200 30
 
-# clear out lsp and zam plugins in gnome app menu
+# clear out lsp and zam plugins in app menu
 echo "[Desktop Entry]
 Hidden=true" > /tmp/1
 find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
