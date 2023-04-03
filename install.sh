@@ -3,6 +3,11 @@
 # bash ./install.sh
 if [ -f "/etc/arch-release" ]; then
 
+	echo "Killing gpg-agent processes and emptying out pacmans gnupg directory"
+	sleep 2
+	killall gpg-agent
+	rm -rf /etc/pacman.d/gnupg/*
+
 	echo "Initializing and populating pacmans keyring"
 	sleep 2
 	pacman-key --init
@@ -14,6 +19,14 @@ if [ -f "/etc/arch-release" ]; then
 	sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
 	sed -i 's/#Color/Color/' /etc/pacman.conf
 	sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
+
+	read -p "Enter username: " un
+	sed -i "s/#username/$un/" creds.json
+	sleep 1
+
+	read -s -p "Enter password (Input hidden for security): " pd
+	sed -i "s/#password/$pd/" creds.json
+	sleep 1
 
 	echo "Updating database and checking for updates specific to archlinux-keyring, archinstall, reflector and python-setuptools. Silently skipping if they're already up to date."
 	sleep 2
