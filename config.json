@@ -17,13 +17,13 @@
 
 		"exo", "garcon", "thunar", "thunar-volman", "thunar-archive-plugin", "thunar-media-tags-plugin", "tumbler", "xfce4-appfinder", "xfce4-panel", "xfce4-power-manager", "xfce4-session", "xfce4-settings", "xfce4-terminal", "xfconf", "xfdesktop", "xfwm4", "mousepad", "parole", "ristretto", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-mpc-plugin", "xfce4-notes-plugin", "xfce4-notifyd", "xfce4-pulseaudio-plugin", "xfce4-screensaver", "xfce4-screenshooter", "xfce4-taskmanager", "xfce4-verve-plugin", "xfce4-weather-plugin", "xfce4-xkb-plugin", "xdg-desktop-portal",
 
-		"firefox", "neovim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "mpv", "libreoffice-fresh", "gimp", "easyeffects", "ardour", "blender", "scrcpy",
+		"firefox", "neovim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "mpv", "libreoffice-fresh", "gimp", "ardour", "blender", "scrcpy",
 		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
 		"bluez", "bluez-libs", "bluez-utils",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"btop", "neofetch", "yt-dlp",
-		"qt6-multimedia-ffmpeg", "calf", "mda.lv2", "lsp-plugins", "webp-pixbuf-loader", "axel", "ttf-croscore"
+		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore"
 	],
 	"skip-mirror-check": false,
 	"profile": "minimal",

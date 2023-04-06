@@ -17,8 +17,11 @@ Hidden=true" > /tmp/1
 find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
 find /usr -name "*zam*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
 
+# easyeffects, related plugins
+pacman -Syy --needed easyeffects calf mda.lv2 lsp-plugins
+
 echo "# prepping for qemu/virt-manager"
-pacman -S --needed qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils libguestfs ovmf swtpm openbsd-netcat
+pacman -Syy --needed qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils libguestfs ovmf swtpm openbsd-netcat
 systemctl start libvirtd
 systemctl enable libvirtd
 sed -i 's/^#unix_sock_group = \"libvirt\"/unix_sock_group = \"libvirt\"/' /etc/libvirt/libvirtd.conf
@@ -30,8 +33,7 @@ echo "# yay/aur"
 git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
 cd /tmp/yay-bin
 makepkg -si
-yay -S --noconfirm darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi
-cd
+yay -S --needed --noconfirm darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi appimagelauncher
 
 echo "# flatpak"
-flatpak install -y --noninteractive com.github.tchx84.Flatseal com.microsoft.Edge io.podman_desktop.PodmanDesktop io.github.mandruis7.xbox-cloud-gaming-electron io.mrarm.mcpelauncher net.davidotek.pupgui2 com.heroicgameslauncher.hgl io.itch.itch net.brinkervii.grapejuice com.gitlab.JakobDev.jdMinecraftLauncher
+flatpak install -y --noninteractive com.github.tchx84.Flatseal com.microsoft.Edge io.podman_desktop.PodmanDesktop net.davidotek.pupgui2 net.brinkervii.grapejuice io.mrarm.mcpelauncher com.heroicgameslauncher.hgl io.itch.itch re.chiaki.Chiaki io.github.mandruis7.xbox-cloud-gaming-electron
