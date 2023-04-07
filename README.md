@@ -13,7 +13,7 @@ In the case that you're not using a wired connection and have Wifi, you can conn
 ### Prerequisite Part 1
 Sometimes you may be required to execute a command like ```sgdisk -Zo <disk-to-install-arch-on>```, this completely clears a single disk, after this you should execute ```reboot``` to avoid any errors when you move forward with the installation.
 
-### Installation
+### Installation (all commands required and in order)
 ```bash
 pacman-key --init
 sudo pacman -Syy git
