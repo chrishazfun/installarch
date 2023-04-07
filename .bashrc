@@ -10,7 +10,7 @@ updateall () {
 	yay
 	flatpak update
 	while
-		printf "Clear cache and uninstall orphans? " && read answer
+		read -p "Clear cache and uninstall orphans? (y/N)" answer
 	do
 		case $answer in
 			([yY][eE][sS] | [yY]) flushall;;
