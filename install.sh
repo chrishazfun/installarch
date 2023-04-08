@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# bash ./install.sh
 if [ -f "/etc/arch-release" ]; then
 
 	echo "Killing gpg-agent processes and emptying out pacmans gnupg directory"
