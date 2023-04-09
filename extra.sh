@@ -17,7 +17,7 @@ Hidden=true" > /tmp/1
 find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
 find /usr -name "*zam*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
 
-# easyeffects, related plugins
+echo "# easyeffects, related plugins"
 pacman -Syy --needed easyeffects calf mda.lv2 lsp-plugins
 
 echo "# prepping for qemu/virt-manager"
