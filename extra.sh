@@ -33,7 +33,7 @@ echo "# yay/aur"
 git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
 cd /tmp/yay-bin
 makepkg -si
-yay -S --needed --noconfirm darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi appimagelauncher
+yay -S --needed --noconfirm darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi appimagelauncher flatseal microsoft-edge-stable-bin podman-desktop-bin protonup-qt-bin grapejuice
 
 echo "# flatpak"
-flatpak install -y --noninteractive com.github.tchx84.Flatseal com.microsoft.Edge io.podman_desktop.PodmanDesktop net.davidotek.pupgui2 net.brinkervii.grapejuice io.mrarm.mcpelauncher com.heroicgameslauncher.hgl io.itch.itch re.chiaki.Chiaki io.github.mandruis7.xbox-cloud-gaming-electron
+flatpak install -y --noninteractive io.mrarm.mcpelauncher com.heroicgameslauncher.hgl io.itch.itch re.chiaki.Chiaki io.github.mandruis7.xbox-cloud-gaming-electron

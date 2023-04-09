@@ -26,7 +26,7 @@
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore"
 	],
 	"skip-mirror-check": false,
-	"profile": "minimal",
+	"profile": "xorg",
 	"services": [
 		"lightdm",
 		"bluetooth",
