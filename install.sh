@@ -31,12 +31,9 @@ if [ -f "/etc/arch-release" ]; then
 	sleep 2
 	sudo pacman -Syy --needed archlinux-keyring archinstall reflector python-setuptools
 
-	#echo "Seperately scanning for optimal mirrors, disabled mirror check in archinstall config as its not returning great results"
-	#reflector -a 48 -c Australia,Sydney -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
-
 	echo "Installing with partly generated config in 3.. 2.. 1.."
 	sleep 2
-	archinstall --config config.json
+	archinstall --config config.json --creds creds.json
 
 	echo "SETTING GTK THEMES TO FLATPAK APPS: itsfoss.com/flatpak-app-apply-theme"
 	sleep 2
