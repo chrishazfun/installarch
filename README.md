@@ -20,4 +20,7 @@ sudo pacman -Syy git
 git clone https://github.com/chrishazfun/installarch
 cd installarch
 bash install.sh
+# ^ current version OR
+bash chatgpt.sh
+# ^ chatgpt-generated alternative with error checking suggestions
 ```
