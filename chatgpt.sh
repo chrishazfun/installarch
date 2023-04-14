@@ -8,7 +8,7 @@ IFS=$'\n\t'
 
 # Check if the script is being run as root
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root" 
+   echo "This script must be run as root"
    exit 1
 fi
 
@@ -30,8 +30,8 @@ sleep 2
 pacman-key --init || { echo "Failed to initialize pacmans keyring"; exit 1; }
 pacman-key --populate archlinux || { echo "Failed to populate pacmans keyring"; exit 1; }
 
-# Disable timeout on downloading packages, enable parallel downloads and set them to 25 max, color in the terminal and block xterm from being installed
-echo "Disabling timeout on downloading packages, enabling parallel downloads and setting them to 25 max, color in the terminal and blocking xterm from being installed"
+# Disable timeout on downloading packages, enable parallel downloads and set them to 25 max, enable color in the terminal and block xterm from being installed
+echo "Disabling timeout on downloading packages, enabling parallel downloads and setting them to 25 max, enabling color in the terminal and blocking xterm from being installed"
 sleep 2
 if ! perl -pi -e '$_ .= qq(DisableDownloadTimeout\n) if /# Misc options/' /etc/pacman.conf; then
     echo "Failed to disable download timeout"
