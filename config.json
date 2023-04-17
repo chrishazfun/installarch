@@ -15,9 +15,9 @@
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 
-		"exo", "garcon", "thunar", "thunar-volman", "thunar-archive-plugin", "thunar-media-tags-plugin", "tumbler", "xfce4-appfinder", "xfce4-panel", "xfce4-power-manager", "xfce4-session", "xfce4-settings", "xfce4-terminal", "xfconf", "xfdesktop", "xfwm4", "mousepad", "parole", "ristretto", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-mpc-plugin", "xfce4-notes-plugin", "xfce4-notifyd", "xfce4-pulseaudio-plugin", "xfce4-screensaver", "xfce4-screenshooter", "xfce4-taskmanager", "xfce4-verve-plugin", "xfce4-weather-plugin", "xfce4-xkb-plugin", "xdg-desktop-portal",
+		"lxqt-about", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "screengrab", "mousepad", "parole", "ristretto", "xdg-desktop-portal",
 
-		"firefox", "neovim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "mpv", "libreoffice-fresh", "gimp", "ardour", "blender", "scrcpy",
+		"firefox", "neovim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "mpv", "libreoffice-fresh", "gimp", "ardour", "blender",
 		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
 		"bluez", "bluez-libs", "bluez-utils",
