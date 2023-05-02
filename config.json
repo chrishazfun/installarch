@@ -15,14 +15,14 @@
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 
-		"lxqt-about", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "screengrab", "mousepad", "parole", "ristretto", "xdg-desktop-portal",
+		"lxqt-about", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "obconf-qt", "openbox", "pavucontrol-qt", "nemo", "qterminal", "screengrab", "featherpad", "neovim", "vlc", "xdg-desktop-portal",
 
-		"firefox", "neovim", "solaar", "vlc", "steam", "kdenlive", "obs-studio", "mpv", "libreoffice-fresh", "gimp", "ardour", "blender",
-		"retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
+		"firefox", "solaar", "kdenlive", "obs-studio", "libreoffice-fresh", "gimp", "ardour", "blender",
 		"bluez", "bluez-libs", "bluez-utils",
 		"wine-gecko", "wine-mono", "wine-staging",
-		"btop", "neofetch", "yt-dlp",
+		"steam",
+		"btop", "yt-dlp",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore"
 	],
 	"skip-mirror-check": false,
