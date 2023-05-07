@@ -1,4 +1,4 @@
-## installarch
+# installarch
 My personal method of installing Arch Linux, using [`archinstall`](https://www.github.com/archlinux/archinstall) as a base.
 
 ### Wifi
@@ -11,16 +11,12 @@ In the case that you're not using a wired connection and have Wifi, you can conn
 6. (Optional) If you don't know if you're connected you can test it by running `ping google.com`, press Ctrl+C to stop the ping test.
 
 ### Prerequisite Part 1
-Sometimes you may be required to execute a command like ```sgdisk -Zo <disk-to-install-arch-on>```, this completely clears a single disk, after this you should execute ```reboot``` to avoid any errors when you move forward with the installation.
+Sometimes you may be required to execute a command like ```sgdisk -Zo <disk-to-install-arch-on>```, filling the placeholder with your intended disk this completely clears it, after this you should execute ```reboot``` to avoid any errors when you move forward with the installation.
 
 ### Installation (all commands required and in order)
 ```bash
 pacman-key --init
 sudo pacman -Syy git
 git clone https://github.com/chrishazfun/installarch
-cd installarch
-bash install.sh
-# ^ current version OR
-bash chatgpt.sh
-# ^ chatgpt-generated alternative with error checking suggestions
+bash installarch/install.sh # < error-checking version of old install.sh (WIP)
 ```

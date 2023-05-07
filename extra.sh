@@ -5,22 +5,22 @@ sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
 sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
 sed -i 's/^#Color/Color/' /etc/pacman.conf
 
-echo "# copy over mpv config to .config dir"
+echo "# mpv config > .config dir"
 cp -r /usr/share/doc/mpv/ ~/.config/
 
-echo "# scrolling fix (temp)"
+echo "# scrolling fix for x11 (temp)"
 xset r rate 200 30
 
-echo "# clear out lsp and zam plugins in app menu"
+echo "# scrub lsp and zam plugins from app menu"
 echo "[Desktop Entry]
 Hidden=true" > /tmp/1
 find /usr -name "*lsp_plug*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
 find /usr -name "*zam*desktop" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}
 
-echo "# easyeffects, related plugins"
+echo "# easyeffects and related plugins"
 pacman -Syy --needed easyeffects calf mda.lv2 lsp-plugins
 
-echo "# prepping for qemu/virt-manager"
+echo "# qemu/virt-manager"
 pacman -Syy --needed qemu virt-manager virt-viewer dnsmasq vde2 bridge-utils libguestfs ovmf swtpm openbsd-netcat
 systemctl start libvirtd
 systemctl enable libvirtd
@@ -33,7 +33,12 @@ echo "# yay/aur"
 git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
 cd /tmp/yay-bin
 makepkg -si
-yay -S --needed --noconfirm darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi appimagelauncher flatseal microsoft-edge-stable-bin podman-desktop-bin protonup-qt-bin grapejuice
+yay -Syy --needed darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi flatseal protonup-qt-bin brave-bin chromium-bypass-paywalls-clean-git chiaki itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin devtoolbox
 
-echo "# flatpak"
-flatpak install -y --noninteractive io.mrarm.mcpelauncher com.heroicgameslauncher.hgl io.itch.itch re.chiaki.Chiaki io.github.mandruis7.xbox-cloud-gaming-electron
+echo "# xbox xcloud"
+yay -Syy --needed xbox-xcloud
+# yay -S --needed --noconfirm greenlight-bin
+# ^ eventually probably as project has been renamed to greenlight
+
+echo "# flatpaks"
+flatpak install io.github.Bavarder.Bavarder
