@@ -33,7 +33,7 @@ echo "# yay/aur"
 git clone https://aur.archlinux.org/yay-bin.git /tmp/yay-bin
 cd /tmp/yay-bin
 makepkg -si
-yay -Syy --needed darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi flatseal protonup-qt-bin brave-bin chromium-bypass-paywalls-clean-git chiaki itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin devtoolbox
+yay -Syy --needed darling-bin kdocker xboxdrv ttf-ms-fonts shutter-encoder octopi flatseal protonup-qt-bin brave-bin chromium-bypass-paywalls-clean-git chiaki itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin devtoolbox powershell-bin
 
 echo "# xbox xcloud"
 yay -Syy --needed xbox-xcloud
