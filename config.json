@@ -18,7 +18,7 @@
 		"lxqt-about", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "obconf-qt", "openbox", "pavucontrol-qt", "nemo", "qterminal", "screengrab", "vim", "filezilla", "xdg-desktop-portal",
 
 		"bleachbit", "kid3-qt", "meld", "picard", "homebank",
-		"firefox", "solaar", "vlc", "kdenlive", "obs-studio", "libreoffice-fresh", "inkscape", "ardour", "blender",
+		"firefox", "solaar", "vlc", "obs-studio", "libreoffice-fresh", "inkscape", "ardour", "blender",
 		"bluez", "bluez-libs", "bluez-utils",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"steam", "appimagelauncher",

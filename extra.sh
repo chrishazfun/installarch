@@ -41,4 +41,4 @@ yay -Syy --needed xbox-xcloud
 # ^ eventually probably as project has been renamed to greenlight
 
 echo "# flatpaks"
-flatpak install io.github.Bavarder.Bavarder
+flatpak install io.github.Bavarder.Bavarder io.github.jliljebl.Flowblade
