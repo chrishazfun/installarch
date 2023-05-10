@@ -55,12 +55,12 @@ fi
 
 # Prompt for username and password
 read -p "Enter username: " un
-sed -i "s/#username/$un/" creds.json || { echo "Failed to update username in creds.json"; exit 1; }
-sed -i "s/#username/$un/" config.json || { echo "Failed to update username in config.json"; exit 1; }
+sed -i "s/#username/$un/" creds.json || { sed -i "s/$un/#username/" creds.json; echo "Failed to update username in creds.json, reverted username in file back to dummy."; exit 1; }
+sed -i "s/#username/$un/" config.json || { sed -i "s/$un/#username/" config.json; echo "Failed to update username in config.json, reverted username in file back to dummy."; exit 1; }
 sleep 1
 
 read -s -p "Enter password (Input hidden for security): " pd
-sed -i "s/#password/$pd/" creds.json || { echo "Failed to update password in creds.json"; exit 1; }
+sed -i "s/#password/$pd/" creds.json || { sed -i "s/$pd/#password/" creds.json; echo "Failed to update password in creds.json"; exit 1; }
 sleep 1
 
 # Update database and check for updates specific to archlinux-keyring, archinstall, reflector and python-setuptools
