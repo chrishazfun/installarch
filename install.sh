@@ -56,6 +56,7 @@ fi
 # Prompt for username and password
 read -p "Enter username: " un
 sed -i "s/#username/$un/" creds.json || { echo "Failed to update username in creds.json"; exit 1; }
+sed -i "s/#username/$un/" config.json || { echo "Failed to update username in config.json"; exit 1; }
 sleep 1
 
 read -s -p "Enter password (Input hidden for security): " pd
