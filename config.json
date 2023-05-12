@@ -24,7 +24,7 @@
 	"plugin": "https://raw.githubusercontent.com/Torxed/archinstall-aur/main/archinstall_aur/__init__.py",
 	"plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-plugin/main/archinstall_plugin/__init__.py",
 	"packages": [
-		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "yay-bin",
+		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager", "wget",
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 
@@ -41,6 +41,7 @@
 		"btop", "yt-dlp",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore",
 
+		"yay-bin",
 		"ungoogled-chromium-xdg-bin", "chromium-widevine",
 		"chromium-extension-web-store", "chromium-extension-ublock-origin-bin", "chromium-extension-violentmonkey-git", "bitwarden-chromium",
 		"yay-bin", "bleachbit-admin", "darling-bin", "flowblade", "bavarder", "kdocker", "xboxdrv", "ttf-ms-fonts", "shutter-encoder", "octopi", "flatseal", "protonup-qt-bin", "chiaki", "itch-setup-bin", "heroic-games-launcher-bin", "mcbelauncher-bin", "devtoolbox", "powershell-bin", "xbox-xcloud",
