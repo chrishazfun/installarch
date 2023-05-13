@@ -54,14 +54,14 @@ if ! sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf; then
 fi
 
 # Prompt for username and password
-read -p "Enter username: " un
-sed -i "s/#username/$un/" creds.json || { sed -i "s/$un/#username/" creds.json; echo "Failed to update username in creds.json, reverted username in file back to dummy."; exit 1; }
-sed -i "s/#username/$un/" config.json || { sed -i "s/$un/#username/" config.json; echo "Failed to update username in config.json, reverted username in file back to dummy."; exit 1; }
-sleep 1
+#read -p "Enter username: " un
+#sed -i "s/#username/$un/" creds.json || { sed -i "s/$un/#username/" creds.json; echo "Failed to update username in creds.json, reverted username in file back to dummy."; exit 1; }
+#sed -i "s/#username/$un/" config.json || { sed -i "s/$un/#username/" config.json; echo "Failed to update username in config.json, reverted username in file back to dummy."; exit 1; }
+#sleep 1
 
-read -s -p "Enter password (Input hidden for security): " pd
-sed -i "s/#password/$pd/" creds.json || { sed -i "s/$pd/#password/" creds.json; echo "Failed to update password in creds.json, reverted password in file back to dummy."; exit 1; }
-sleep 1
+#read -s -p "Enter password (Input hidden for security): " pd
+#sed -i "s/#password/$pd/" creds.json || { sed -i "s/$pd/#password/" creds.json; echo "Failed to update password in creds.json, reverted password in file back to dummy."; exit 1; }
+#sleep 1
 
 # Update database and check for updates specific to archlinux-keyring, archinstall, reflector and python-setuptools
 echo "Updating internal database and checking for updates specific to archlinux-keyring, archinstall, reflector and python-setuptools. Silently skipping if they're already up to date."
@@ -74,11 +74,9 @@ fi
 # Install with partly generated config
 echo "Installing with partly generated config in 3.. 2.. 1.."
 sleep 2
-if ! archinstall --config config.json --creds creds.json; then
+if ! archinstall --config config.json; then
+#if ! archinstall --config config.json --creds creds.json; then
     echo "Failed to install"
-    sed -i "s/$un/#username/" creds.json
-    sed -i "s/$un/#username/" config.json
-    sed -i "s/$pd/#password/" creds.json
     exit 1
 fi
 
