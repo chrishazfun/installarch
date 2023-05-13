@@ -66,7 +66,7 @@ sleep 1
 # Update database and check for updates specific to archlinux-keyring, archinstall, reflector and python-setuptools
 echo "Updating internal database and checking for updates specific to archlinux-keyring, archinstall, reflector and python-setuptools. Silently skipping if they're already up to date."
 sleep 2
-if ! sudo pacman -Syy --needed archlinux-keyring archinstall reflector python-setuptools; then
+if ! sudo pacman -Syy --needed archlinux-keyring archinstall reflector python python-setuptools; then
     echo "Failed to update packages"
     exit 1
 fi
