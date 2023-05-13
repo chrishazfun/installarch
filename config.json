@@ -3,12 +3,6 @@
 	"additional-repositories": ["multilib"],
 	"audio": "pipewire",
 	"bootloader": "grub-install",
-	"custom-commands": [
-		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
-		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
-		"xset r rate 200 30"
-	],
 	"filesystem": "ext4",
 	"hostname": "host",
 	"kernels": ["linux"],

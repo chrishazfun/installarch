@@ -1,5 +1,11 @@
 #!/bin/bash
 
+echo "# pacman stuff"
+sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
+sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf
+sed -i 's/^#Color/Color/' /etc/pacman.conf
+
+
 echo "# installing easyeffects, lsp and zam plugins and scrubing them from the app menu"
 pacman -S easyeffects calf mda.lv2 lsp-plugins
 echo "[Desktop Entry]
