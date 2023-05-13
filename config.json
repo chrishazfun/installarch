@@ -36,14 +36,11 @@
 		"solaar", "vlc", "obs-studio", "inkscape", "ardour", "blender",
 		"bluez", "bluez-libs", "bluez-utils",
 		"wine-gecko", "wine-mono", "wine-staging",
-		"steam", "appimagelauncher",
+		"steam",
 		"btop", "yt-dlp",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore",
 
-		"yay-bin",
-		"ungoogled-chromium-xdg-bin", "chromium-widevine", "chromium-extension-web-store", "bitwarden-chromium",
-		"protonup-qt-bin", "chiaki", "itch-setup-bin", "heroic-games-launcher-bin", "mcbelauncher-bin", "xbox-xcloud",
-		"bleachbit-admin", "darling-bin", "flowblade", "kdocker", "xboxdrv", "ttf-ms-fonts", "shutter-encoder", "octopi", "flatseal", "devtoolbox", "powershell-bin"
+		"yay-bin"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",
