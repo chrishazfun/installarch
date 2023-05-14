@@ -3,12 +3,13 @@
 	"additional-repositories": ["multilib"],
 	"audio": "pipewire",
 	"bootloader": "grub-install",
-	"filesystem": "ext4",
 	"hostname": "host",
+	"disk_encryption": null,
 	"kernels": ["linux"],
 	"keyboard-layout": "us",
 	"mirror-region": "Australia",
 	"ntp": true,
+	"no_pkg_lookups": true,
 	"offline": false,
 	"plugin": "https://raw.githubusercontent.com/Torxed/archinstall-aur/main/archinstall_aur/__init__.py",
 	"packages": [
@@ -36,6 +37,7 @@
 		"NetworkManager"
 	],
 	"swap": true,
+	"silent": false,
 	"sys-encoding": "utf-8",
 	"sys-language": "en_US",
 	"timezone": "Australia/Sydney"
