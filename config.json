@@ -4,6 +4,20 @@
 	"audio": "pipewire",
 	"bootloader": "grub-install",
 	"hostname": "host",
+	"custom-commands": [
+		"sed -i 's/^#unix_sock_group = \"libvirt\"/unix_sock_group = \"libvirt\"/' /etc/libvirt/libvirtd.conf",
+		"sed -i 's/^#unix_sock_ro_perms = \"0777\"/unix_sock_ro_perms = \"0777\"/' /etc/libvirt/libvirtd.conf",
+		"sed -i 's/^#unix_sock_rw_perms = \"0770\"/unix_sock_rw_perms = \"0770\"/' /etc/libvirt/libvirtd.conf",
+		"usermod -aG libvirt $USER",
+
+		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
+		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
+		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
+
+		"echo '[Desktop Entry]\nHidden=true' > /tmp/1",
+		"find /usr -name \"*lsp_plug*desktop\" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}",
+		"find /usr -name \"*zam*desktop\" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}"
+	],
 	"disk_encryption": null,
 	"kernels": ["linux"],
 	"keyboard-layout": "us",
@@ -15,23 +29,27 @@
 	"packages": [
 		"bash", "bash-completion", "git", "jre-openjdk", "flatpak", "networkmanager", "wget",
 
-		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-shell-extensions", "gnome-software", "gnome-system-monitor", "gnome-text-editor", "nautilus", "gvfs", "gvfs-afc", "gvfs-google", "gvfs-mtp", "gvfs-smb", "rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk", "dconf-editor", "evolution",
+		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-system-monitor", "gnome-text-editor", "nautilus", "file-roller", "gvfs", "gvfs-afc", "gvfs-google", "gvfs-mtp", "gvfs-smb", "rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk", "dconf-editor", "gnome-shell-extensions",
 
-		"kid3-qt", "meld", "picard", "homebank",
-		"solaar", "vlc", "obs-studio", "inkscape", "ardour", "blender",
+		"firefox",
+		"meld", "picard", "homebank",
+		"solaar", "vlc", "obs-studio", "inkscape", "ardour", "blender", "easyeffects",
 		"bluez", "bluez-libs", "bluez-utils",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"steam",
-		"btop", "yt-dlp",
-		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore",
+		"vim", "yt-dlp",
+		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins",
 
-		"yay-bin", "firefox", "microsoft-edge-stable-bin"
+		"qemu", "virt-manager", "virt-viewer", "dnsmasq", "vde2", "bridge-utils", "libguestfs", "ovmf", "swtpm", "openbsd-netcat",
+
+		"yay-bin", "appimagelauncher", "protonup-qt-bin", "itch-setup-bin", "heroic-games-launcher-bin", "mcbelauncher-bin", "xbox-xcloud", "flowblade", "kdocker", "xboxdrv", "shutter-encoder"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",
 	"services": [
 		"gdm",
 		"bluetooth",
+		"libvirtd",
 		"NetworkManager"
 	],
 	"swap": true,
