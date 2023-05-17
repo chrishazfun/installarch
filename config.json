@@ -1,5 +1,5 @@
 {
-	"debug": true,
+	"debug": false,
 	"additional-repositories": ["multilib"],
 	"audio": "pipewire",
 	"bootloader": "grub-install",
