@@ -27,7 +27,7 @@
 		"btop", "yt-dlp",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore",
 
-		"yay-bin"
+		"yay-bin", "firefox", "microsoft-edge-stable-bin"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",
