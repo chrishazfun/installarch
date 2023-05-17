@@ -20,3 +20,6 @@ sudo pacman -Syy git
 git clone https://github.com/chrishazfun/installarch
 bash installarch/install.sh # < error-checking version of old install.sh (WIP)
 ```
+
+### Notes
+1. Initial startup before configuration screen may take a while, this plugin is just preparing itself, this may take ~10 minutes.

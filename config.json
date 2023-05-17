@@ -9,7 +9,7 @@
 	"keyboard-layout": "us",
 	"mirror-region": "Australia",
 	"ntp": true,
-	"no_pkg_lookups": true,
+	"no_pkg_lookups": false,
 	"offline": false,
 	"plugin": "https://raw.githubusercontent.com/Torxed/archinstall-aur/main/archinstall_aur/__init__.py",
 	"packages": [
