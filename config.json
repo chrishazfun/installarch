@@ -23,7 +23,7 @@
 	"packages": [
 		"bash", "bash-completion", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget",
 
-		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-system-monitor", "gnome-text-editor", "nautilus", "file-roller", "gvfs", "gvfs-afc", "gvfs-google", "gvfs-mtp", "gvfs-smb", "rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk", "dconf-editor", "gnome-shell-extensions",
+		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-system-monitor", "gnome-text-editor", "nautilus", "file-roller", "gvfs", "gvfs-afc", "gvfs-google", "gvfs-mtp", "gvfs-smb", "rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk", "dconf-editor", "gnome-shell-extensions", "packagekit", "gnome-software-packagekit-plugin", "archlinux-appstream-data",
 
 		"firefox",
 		"meld", "picard", "homebank",
@@ -32,9 +32,9 @@
 		"wine-gecko", "wine-mono", "wine-staging",
 		"steam",
 		"vim", "yt-dlp",
-		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins",
+		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins", "libappimage",
 
-		"paru-bin", "paruz", "libappimage", "appimagelauncher"
+		"yay-bin", "appimagelauncher"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",
