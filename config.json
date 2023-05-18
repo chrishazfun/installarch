@@ -42,7 +42,7 @@
 
 		"qemu", "virt-manager", "virt-viewer", "dnsmasq", "vde2", "bridge-utils", "libguestfs", "ovmf", "swtpm", "openbsd-netcat",
 
-		"yay-bin", "appimagelauncher", "protonup-qt-bin", "itch-setup-bin", "heroic-games-launcher-bin", "mcbelauncher-bin", "xbox-xcloud", "flowblade", "kdocker", "xboxdrv", "shutter-encoder"
+		"paru-bin", "paruz", "libappimage", "appimagelauncher"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",
