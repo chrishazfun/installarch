@@ -53,6 +53,7 @@ if ! sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf; then
 fi
 
 echo "Adjusting makeflags for makepkg"
+nc=$(grep -c ^processor /proc/cpuinfo)
 if ! sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$nc\"/g" /etc/makepkg.conf; then
     echo "Step 1 in adjusting makeflags for makepkg failed"
     exit 1
