@@ -82,7 +82,7 @@ fi
 # --creds creds.json
 echo "Installing with partly generated config in 3.. 2.. 1.."
 sleep 2
-if ! archinstall --config config.json; then
+if ! archinstall --config config.json --creds creds.json; then
     echo "Failed to install"
     exit 1
 fi

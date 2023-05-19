@@ -7,10 +7,7 @@
 	"custom-commands": [
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
-		"echo '[Desktop Entry]\nHidden=true' > /tmp/1",
-		"find /usr -name \"*lsp_plug*desktop\" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}",
-		"find /usr -name \"*zam*desktop\" 2>/dev/null | cut -f 5 -d '/' | xargs -I {} cp /tmp/1 ~/.local/share/applications/{}"
+		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
 	],
 	"disk_encryption": null,
 	"kernels": ["linux"],
@@ -23,7 +20,7 @@
 	"packages": [
 		"bash", "bash-completion", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget",
 
-		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-system-monitor", "gnome-text-editor", "nautilus", "file-roller", "gvfs", "gvfs-afc", "gvfs-google", "gvfs-mtp", "gvfs-smb", "rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk", "dconf-editor", "gnome-shell-extensions", "packagekit", "gnome-software-packagekit-plugin", "archlinux-appstream-data",
+		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-system-monitor", "gnome-text-editor", "nautilus", "file-roller", "gvfs", "gvfs-afc", "gvfs-google", "gvfs-mtp", "gvfs-smb", "rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk", "dconf-editor", "gnome-shell-extensions", "packagekit", "archlinux-appstream-data",
 
 		"firefox",
 		"meld", "picard", "homebank",
@@ -34,7 +31,7 @@
 		"vim", "yt-dlp",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins", "libappimage",
 
-		"yay-bin", "appimagelauncher"
+		"yay-bin", "appimagelauncher", "pamac-flatpak"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",

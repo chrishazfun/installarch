@@ -18,7 +18,8 @@ Sometimes you may be required to execute a command like ```sgdisk -Zo <disk-to-i
 pacman-key --init
 sudo pacman -Syy git
 git clone https://github.com/chrishazfun/installarch
-bash installarch/install.sh # < error-checking version of old install.sh (WIP)
+cd installarch
+bash install.sh # < error-checking version of old install.sh (WIP)
 ```
 
 ### Notes
