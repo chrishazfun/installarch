@@ -20,7 +20,7 @@
 	"packages": [
 		"bash", "bash-completion", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget",
 
-		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-system-monitor", "gnome-text-editor", "nautilus", "file-roller", "gvfs", "gvfs-afc", "gvfs-google", "gvfs-mtp", "gvfs-smb", "rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk", "dconf-editor", "gnome-shell-extensions", "packagekit", "archlinux-appstream-data",
+		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-system-monitor", "gnome-text-editor", "nautilus", "file-roller", "gvfs", "gvfs-afc", "gvfs-google", "gvfs-mtp", "gvfs-smb", "rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk", "dconf-editor", "gnome-shell-extensions",
 
 		"firefox",
 		"meld", "picard", "homebank",
@@ -31,7 +31,7 @@
 		"vim", "yt-dlp",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins", "libappimage",
 
-		"yay-bin", "appimagelauncher", "pamac-flatpak"
+		"yay-bin", "appimagelauncher"
 	],
 	"skip-mirror-check": false,
 	"profile": "xorg",
