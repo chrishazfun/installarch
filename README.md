@@ -23,4 +23,5 @@ bash install.sh # < error-checking version of old install.sh (WIP)
 ```
 
 ### Notes
-1. Initial startup before configuration screen may take a while, this plugin is just preparing itself, this may take ~10 minutes.
+1. The initial startup before the actual archinstall screen comes up may take a while, the plugin used to gather AUR pkgs is just preparing itself, this may take ~10 minutes.
+2. You will be required to create an account in the archinstall screen, also make sure to set sudo access to true if you wanna use temporary admin features.
