@@ -1,6 +1,14 @@
 # installarch
 My personal method of installing Arch Linux, using [`archinstall`](https://www.github.com/archlinux/archinstall) as a base.
 
+----
+### For ArchISO May Users
+Due to the git migration pacman itself needs to be updated, before the first step of the install process execute this:
+```bash
+pacman -Syu "pacman>=6.0.2-7"
+```
+----
+
 ### Wifi
 In the case that you're not using a wired connection and have Wifi, you can connect to it through these 5 steps:
 1. Run [`iwctl`](https://wiki.archlinux.org/index.php/Iwd#iwctl) to access the cli interface for `iw`
