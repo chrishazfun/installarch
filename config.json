@@ -23,7 +23,7 @@
 	"offline": false,
 	"plugin": "https://raw.githubusercontent.com/Torxed/archinstall-aur/main/archinstall_aur/__init__.py",
 	"packages": [
-		"bash", "bash-completion", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl",
+		"bash", "bash-completion", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python",
 
 		"ly",
 		"lximage-qt", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "screengrab",
