@@ -9,7 +9,8 @@
 		"curl -sS https://github.com/chrishazfun/installarch/raw/main/.vimrc >> ~/.vimrc",
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
+		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
+		"obmenu-generator -p -i"
 	],
 	"disk_encryption": null,
 	"kernels": ["linux"],
@@ -23,8 +24,9 @@
 		"bash", "bash-completion", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python",
 
 		"ly",
-		"lximage-qt", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "screengrab",
-		"xdg-desktop-portal-lxqt",
+		"openbox", "qterminal", "pcmanfm", "pavucontrol", "dunst", "screengrab",
+		"ttf-dejavu", "ttf-liberation",
+		"xdg-desktop-portal",
 
 		"firefox",
 		"meld", "picard", "homebank",
@@ -34,7 +36,8 @@
 		"bluez", "bluez-libs", "bluez-utils",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins",
 
-		"yay-bin", "pcurses",
+		"yay-bin",
+		"obmenu-generator",
 		"libappimage", "appimagelauncher"
 	],
 	"skip-mirror-check": false,
