@@ -70,14 +70,13 @@ if ! sed -i "s/BUILDENV=(!distcc color !ccache check !sign)/BUILDENV=(!distcc co
 fi
 echo "MAKEPKG/CCACHE: Setting cores in accordance with those available in MAKEFLAGS"
 sleep 1
-nc=$(grep -c ^processor /proc/cpuinfo)
-if ! sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$nc\"/g" /etc/makepkg.conf; then
+if ! nc=$(grep -c ^processor /proc/cpuinfo) && sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$nc\"/g" /etc/makepkg.conf; then
     echo "MAKEPKG/CCACHE: Failed to set cores in accordance with those available in MAKEFLAGS"
     exit 1
 fi
 echo "MAKEPKG/CCACHE: Adjusting COMPRESSXZ with cores set"
 sleep 1
-if ! sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g" /etc/makepkg.conf; then
+if ! nc=$(grep -c ^processor /proc/cpuinfo) && sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g" /etc/makepkg.conf; then
     echo "MAKEPKG/CCACHE: Failed to adjust COMPRESSXZ with cores set"
     exit 1
 fi
@@ -110,11 +109,12 @@ if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-
     exit 1
 fi
 
-# --creds creds.json
 echo "We're about to execute the archinstall screen with the config, don't forget to add a user with sudo access"
-sleep 5
+sleep 6
+
 echo "Installing with partly generated config..."
 sleep 3
+# --creds creds.json
 if ! archinstall --config config.json; then
     echo "Failed to install"
     exit 1
