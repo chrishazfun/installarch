@@ -8,58 +8,89 @@ IFS=$'\n\t'
 
 # Check if the script is being run as root
 if [[ $EUID -ne 0 ]]; then
-   echo "This script must be run as root"
+   echo "SYSTEM: This script must be run as root"
    exit 1
 fi
 
 if [ ! -f "/etc/arch-release" ]; then
-   echo "This script is only intended to run on Arch Linux"
+   echo "SYSTEM: This script is only intended to run on Arch Linux"
    exit 1
 fi
 
-echo "Killing gpg-agent processes and emptying out pacmans gnupg directory"
+echo "GPG: Killing gpg-agent processes and emptying out pacmans gnupg directory"
 sleep 2
 killall gpg-agent
 rm -rf /etc/pacman.d/gnupg/*
 
-echo "Initializing and populating pacmans keyring"
+echo "PACMAN/GPG: Initializing and populating pacmans keyring"
 sleep 2
-pacman-key --init || { echo "Failed to initialize pacmans keyring"; exit 1; }
-pacman-key --populate archlinux || { echo "Failed to populate pacmans keyring"; exit 1; }
+pacman-key --init || { echo "PACMAN/GPG: Failed to initialize pacmans keyring"; exit 1; }
+pacman-key --populate archlinux || { echo "PACMAN/GPG: Failed to populate pacmans keyring"; exit 1; }
 
-echo "Disabling timeout on downloading packages"
-sleep 2
+echo "PACMAN: Disabling download timeout on pkgs"
+sleep 1
 if ! perl -pi -e '$_ .= qq(DisableDownloadTimeout\n) if /# Misc options/' /etc/pacman.conf; then
-    echo "Failed to disable download timeout"
+    echo "PACMAN: Failed to disable download timeout"
     exit 1
 fi
 
-echo "Enabling parallel downloads and setting them to 25 max"
+echo "PACMAN: Enabling parallel downloads and setting the max to 25"
+sleep 1
 if ! sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf; then
-    echo "Failed to enable parallel downloads"
+    echo "PACMAN: Failed to enable parallel downloads"
     exit 1
 fi
 
-echo "Enabling color in the terminal"
+echo "PACMAN: Enabling color in the terminal"
+sleep 1
 if ! sed -i 's/#Color/Color/' /etc/pacman.conf; then
-    echo "Failed to enable color in the terminal"
+    echo "PACMAN: Failed to enable color in the terminal"
     exit 1
 fi
 
-echo "Adding xterm to the pkg blocklist"
+echo "PACMAN: Adding xterm to the blocklist"
+sleep 1
 if ! sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf; then
-    echo "Failed to add xterm to the blocklist so as to prevent being installed when archinstall is executed"
+    echo "PACMAN: Failed to add xterm to the blocklist"
     exit 1
 fi
 
-echo "Adjusting makeflags for makepkg"
+# MAKEPKG/CCACHE
+echo "MAKEPKG/CCACHE: Getting ccache"
+sleep 1
+if ! pacman -Syy --needed ccache; then
+    echo "MAKEPKG/CCACHE: Failed to get ccache"
+    exit 1
+fi
+echo "MAKEPKG/CCACHE: Enabling ccache in BUILDENV"
+sleep 1
+if ! sed -i "s/BUILDENV=(!distcc color !ccache check !sign)/BUILDENV=(!distcc color ccache check !sign)/g" /etc/makepkg.conf; then
+    echo "MAKEPKG/CCACHE: Failed to enable ccache in BUILDENV"
+    exit 1
+fi
+echo "MAKEPKG/CCACHE: Setting cores in accordance with those available in MAKEFLAGS"
+sleep 1
 nc=$(grep -c ^processor /proc/cpuinfo)
 if ! sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$nc\"/g" /etc/makepkg.conf; then
-    echo "Step 1 in adjusting makeflags for makepkg failed"
+    echo "MAKEPKG/CCACHE: Failed to set cores in accordance with those available in MAKEFLAGS"
     exit 1
 fi
+echo "MAKEPKG/CCACHE: Adjusting COMPRESSXZ with cores set"
+sleep 1
 if ! sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g" /etc/makepkg.conf; then
-    echo "Step 2 in adjusting makeflags for makepkg failed"
+    echo "MAKEPKG/CCACHE: Failed to adjust COMPRESSXZ with cores set"
+    exit 1
+fi
+echo "MAKEPKG/CCACHE: Passing on ccache in ~/.bashrc"
+sleep 1
+if ! echo "export PATH=\"/usr/lib/ccache/bin/:$PATH\"" >> ~/.bashrc; then
+    echo "MAKEPKG/CCACHE: Failed to pass on ccache in ~/.bashrc"
+    exit 1
+fi
+echo "MAKEPKG/CCACHE: Updating ~/.bashrc"
+sleep 1
+if ! source ~/.bashrc; then
+    echo "MAKEPKG/CCACHE: Failed to source ~/.bashrc"
     exit 1
 fi
 
@@ -72,16 +103,18 @@ fi
 # sed -i "s/#password/$pd/" creds.json || { sed -i "s/$pd/#password/" creds.json; echo "Failed to update password in creds.json, reverted password in file back to dummy."; exit 1; }
 # sleep 1
 
-echo "Updating internal database and checking for updates specific to archlinux-keyring, archinstall, reflector and python-setuptools. Silently skipping if they're already up to date."
+echo "Updating internal database and checking for updates specific to archlinux-keyring, archinstall, reflector, python and python-setuptools"
 sleep 2
 if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-setuptools; then
-    echo "Failed to update packages"
+    echo "Failed to update internal database and packages specific to archlinux-keyring, archinstall, reflector, python and python-setuptools"
     exit 1
 fi
 
 # --creds creds.json
-echo "Installing with partly generated config in 3.. 2.. 1.."
-sleep 2
+echo "We're about to execute the archinstall screen with the config, don't forget to add a user with sudo access"
+sleep 5
+echo "Installing with partly generated config..."
+sleep 3
 if ! archinstall --config config.json; then
     echo "Failed to install"
     exit 1
