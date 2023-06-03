@@ -26,8 +26,9 @@
 		"ly",
 		"exo", "garcon",
 		"thunar", "thunar-volman", "thunar-archive-plugin", "tumbler",
+		"gvfs", "gvfs-afc", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb",
 		"xfce4-session", "xfce4-panel", "xfce4-settings", "xfconf", "xfdesktop", "xfwm4",
-		"xfce4-appfinder", "xfce4-power-manager", "xfce4-terminal", "xfce4-notifyd", "xfce4-screensaver", "xfce4-screenshooter",
+		"xfce4-appfinder", "xfce4-power-manager", "xfce4-terminal", "xfce4-notifyd", "xfce4-screensaver", "xfce4-screenshooter", "btop",
 		"xfce4-battery-plugin", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-pulseaudio-plugin", "xfce4-xkb-plugin",
 		"xdg-desktop-portal",
 
