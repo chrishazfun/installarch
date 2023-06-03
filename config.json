@@ -5,6 +5,10 @@
 	"bootloader": "grub-install",
 	"hostname": "archlinux",
 	"custom-commands": [
+		"mkdir -p ~/.config/awesome/",
+		"cp /etc/xdg/awesome/rc.lua ~/.config/awesome/",
+		"sed -i 's/^terminal = \"xterm\"/terminal = \"xfce4-terminal\"/g' /etc/pacman.conf",
+
 		"curl -Sk https://raw.githubusercontent.com/chrishazfun/installarch/main/.bashrc >> ~/.bashrc && source ~/.bashrc",
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
@@ -23,14 +27,13 @@
 	"packages": [
 		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python",
 
-		"ly",
-		"exo", "garcon",
-		"thunar", "thunar-volman", "thunar-archive-plugin", "tumbler",
+		"gdm",
+		"gnome-keyring", "gnome-session", "gnome-settings-daemon", "gnome-shell",
 		"gvfs", "gvfs-afc", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb",
-		"xfce4-session", "xfce4-panel", "xfce4-settings", "xfconf", "xfdesktop", "xfwm4",
-		"xfce4-appfinder", "xfce4-power-manager", "xfce4-terminal", "xfce4-notifyd", "xfce4-screensaver", "xfce4-screenshooter", "btop",
-		"xfce4-battery-plugin", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-pulseaudio-plugin", "xfce4-xkb-plugin",
-		"xdg-desktop-portal",
+		"gnome-logs", "gnome-font-viewer",
+		"gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-shell-extensions",
+		"nautilus", "sushi", "dconf-editor", "file-roller",
+		"rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk",
 
 		"firefox",
 		"qbittorrent", "sqlitebrowser",
@@ -46,7 +49,7 @@
 	"skip-mirror-check": false,
 	"profile": "xorg",
 	"services": [
-		"ly",
+		"gdm",
 		"bluetooth",
 		"NetworkManager"
 	],
