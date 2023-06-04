@@ -1,5 +1,12 @@
 #!/bin/bash
 
+curl -Sk https://raw.githubusercontent.com/chrishazfun/installarch/main/.bashrc >> ~/.bashrc
+source ~/.bashrc
+
+nc=$(grep -c ^processor /proc/cpuinfo)
+sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$nc\"/g" /etc/makepkg.conf
+sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g" /etc/makepkg.conf
+
 # read command needed for lsp/zam shortcut flush
 echo '[Desktop Entry]
 Hidden=true' > /tmp/1

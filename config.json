@@ -5,16 +5,9 @@
 	"bootloader": "grub-install",
 	"hostname": "archlinux",
 	"custom-commands": [
-		"mkdir -p ~/.config/awesome/",
-		"cp /etc/xdg/awesome/rc.lua ~/.config/awesome/",
-		"sed -i 's/^terminal = \"xterm\"/terminal = \"xfce4-terminal\"/g' /etc/pacman.conf",
-
-		"curl -Sk https://raw.githubusercontent.com/chrishazfun/installarch/main/.bashrc >> ~/.bashrc && source ~/.bashrc",
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
-		"nc=$(grep -c ^processor /proc/cpuinfo) && sed -i \"s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$nc\"/g\" /etc/makepkg.conf",
-		"nc=$(grep -c ^processor /proc/cpuinfo) && sed -i \"s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g\" /etc/makepkg.conf"
+		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
 	],
 	"disk_encryption": null,
 	"kernels": ["linux"],
@@ -29,8 +22,8 @@
 
 		"gdm",
 		"gnome-keyring", "gnome-session", "gnome-settings-daemon", "gnome-shell",
-		"gvfs", "gvfs-afc", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb",
-		"gnome-logs", "gnome-font-viewer",
+		"gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb",
+		"gnome-logs", "gnome-font-viewer", 
 		"gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-shell-extensions",
 		"nautilus", "sushi", "dconf-editor", "file-roller",
 		"rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk",
