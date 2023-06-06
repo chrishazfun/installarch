@@ -24,7 +24,8 @@
 		"gnome-keyring", "gnome-session", "gnome-settings-daemon", "gnome-shell",
 		"gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb",
 		"gnome-logs", "gnome-font-viewer",
-		"gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-shell-extensions",
+		"gnome-console", "gnome-control-center", "gnome-disk-utility",
+		"gnome-shell-extension-installer", "gnome-shell-extension-appindicator",
 		"nautilus", "sushi", "dconf-editor", "file-roller",
 		"rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk",
 
