@@ -7,8 +7,7 @@
 	"custom-commands": [
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
-		"pipx install gnome-extensions-cli --system-site-packages"
+		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
 	],
 	"disk_encryption": null,
 	"kernels": ["linux"],
@@ -17,7 +16,7 @@
 	"ntp": true,
 	"no_pkg_lookups": false,
 	"offline": false,
-	"plugin": "https://raw.githubusercontent.com/Torxed/archinstall-aur/main/archinstall_aur/__init__.py",
+	"plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-plugin/main/archinstall_plugin/__init__.py",
 	"packages": [
 		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python", "python-pipx",
 
@@ -26,7 +25,7 @@
 		"gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb",
 		"gnome-logs", "gnome-font-viewer",
 		"gnome-console", "gnome-control-center", "gnome-disk-utility",
-		"gnome-shell-extension-installer", "gnome-shell-extension-appindicator",
+		"gnome-shell-extension-appindicator",
 		"nautilus", "sushi", "dconf-editor", "file-roller",
 		"rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk",
 
@@ -37,10 +36,11 @@
 		"yt-dlp",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"bluez", "bluez-libs", "bluez-utils",
-		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins",
-
-		"yay-bin"
+		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins"
 	],
+	"packages-aur": ["yay-bin"],
+	"packages-flatpak": ["de.haeckerfelix.Shortwave"],
+	"packages-pipx": ["gnome-extensions-cli"],
 	"skip-mirror-check": false,
 	"profile": "xorg",
 	"services": [
