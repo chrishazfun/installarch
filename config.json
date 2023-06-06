@@ -7,7 +7,8 @@
 	"custom-commands": [
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
+		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
+		"pipx install gnome-extensions-cli --system-site-packages"
 	],
 	"disk_encryption": null,
 	"kernels": ["linux"],
@@ -18,7 +19,7 @@
 	"offline": false,
 	"plugin": "https://raw.githubusercontent.com/Torxed/archinstall-aur/main/archinstall_aur/__init__.py",
 	"packages": [
-		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python",
+		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python", "python-pipx",
 
 		"gdm",
 		"gnome-keyring", "gnome-session", "gnome-settings-daemon", "gnome-shell",
