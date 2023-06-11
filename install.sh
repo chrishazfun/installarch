@@ -55,44 +55,6 @@ if ! sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf; then
     exit 1
 fi
 
-# MAKEPKG/CCACHE
-echo "MAKEPKG/CCACHE: Getting ccache"
-sleep 1
-if ! pacman -Syy --needed ccache; then
-    echo "MAKEPKG/CCACHE: Failed to get ccache"
-    exit 1
-fi
-echo "MAKEPKG/CCACHE: Enabling ccache in BUILDENV"
-sleep 1
-if ! sed -i "s/BUILDENV=(!distcc color !ccache check !sign)/BUILDENV=(!distcc color ccache check !sign)/g" /etc/makepkg.conf; then
-    echo "MAKEPKG/CCACHE: Failed to enable ccache in BUILDENV"
-    exit 1
-fi
-echo "MAKEPKG/CCACHE: Setting cores in accordance with those available in MAKEFLAGS"
-sleep 1
-if ! nc=$(grep -c ^processor /proc/cpuinfo) && sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$nc\"/g" /etc/makepkg.conf; then
-    echo "MAKEPKG/CCACHE: Failed to set cores in accordance with those available in MAKEFLAGS"
-    exit 1
-fi
-echo "MAKEPKG/CCACHE: Adjusting COMPRESSXZ with cores set"
-sleep 1
-if ! nc=$(grep -c ^processor /proc/cpuinfo) && sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g" /etc/makepkg.conf; then
-    echo "MAKEPKG/CCACHE: Failed to adjust COMPRESSXZ with cores set"
-    exit 1
-fi
-echo "MAKEPKG/CCACHE: Passing on ccache in ~/.bashrc"
-sleep 1
-if ! echo "export PATH=\"/usr/lib/ccache/bin/:$PATH\"" >> ~/.bashrc; then
-    echo "MAKEPKG/CCACHE: Failed to pass on ccache in ~/.bashrc"
-    exit 1
-fi
-echo "MAKEPKG/CCACHE: Updating ~/.bashrc"
-sleep 1
-if ! source ~/.bashrc; then
-    echo "MAKEPKG/CCACHE: Failed to source ~/.bashrc"
-    exit 1
-fi
-
 # read -p "Enter username: " un
 # sed -i "s/#username/$un/" creds.json || { sed -i "s/$un/#username/" creds.json; echo "Failed to update username in creds.json, reverted username in file back to dummy."; exit 1; }
 # sed -i "s/#username/$un/" config.json || { sed -i "s/$un/#username/" config.json; echo "Failed to update username in config.json, reverted username in file back to dummy."; exit 1; }
