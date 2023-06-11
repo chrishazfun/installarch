@@ -39,8 +39,6 @@
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins"
 	],
 	"packages-aur": ["yay-bin"],
-	"packages-flatpak": ["de.haeckerfelix.Shortwave"],
-	"packages-pip": ["gnome-extensions-cli"],
 	"skip-mirror-check": false,
 	"profile": "xorg",
 	"services": [
