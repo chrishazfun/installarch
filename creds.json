@@ -6,7 +6,8 @@
 		},
 		{
 			"sudo": true,
-			"username": "chris"
+			"username": "#username",
+			"password": "#password"
 		}
 	]
 }

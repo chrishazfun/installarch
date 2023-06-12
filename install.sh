@@ -55,30 +55,35 @@ if ! sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf; then
     exit 1
 fi
 
-# read -p "Enter username: " un
-# sed -i "s/#username/$un/" creds.json || { sed -i "s/$un/#username/" creds.json; echo "Failed to update username in creds.json, reverted username in file back to dummy."; exit 1; }
-# sed -i "s/#username/$un/" config.json || { sed -i "s/$un/#username/" config.json; echo "Failed to update username in config.json, reverted username in file back to dummy."; exit 1; }
-# sleep 1
-
-# read -s -p "Enter password (Input hidden for security): " pd
-# sed -i "s/#password/$pd/" creds.json || { sed -i "s/$pd/#password/" creds.json; echo "Failed to update password in creds.json, reverted password in file back to dummy."; exit 1; }
-# sleep 1
-
-echo "Updating internal database and checking for updates specific to archlinux-keyring, archinstall, reflector, python and python-setuptools"
-sleep 2
-if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-setuptools; then
-    echo "Failed to update internal database and packages specific to archlinux-keyring, archinstall, reflector, python and python-setuptools"
+if ! read -p "SYSTEM: Username: " un && sed -i "s/#username/$un/" creds.json && sed -i "s/#username/$un/" config.json; then
+    sed -i "s/$un/#username/" creds.json
+    sed -i "s/$un/#username/" creds.json
+    echo "Failed to update username in creds.json and config.json, reverted username in file back to dummy."
+    sleep 1
     exit 1
 fi
 
-echo "We're about to execute the archinstall screen with the config, don't forget to add a user with sudo access"
+if ! read -s -p "SYSTEM: Password (Input hidden for security): " pd && sed -i "s/#password/$pd/" creds.json; then
+    sed -i "s/$pd/#password/" creds.json
+    echo "Failed to update password in creds.json, reverted password in file back to dummy."
+    sleep 1
+    exit 1
+fi
+
+echo "PACMAN: Updating internal database and checking for updates specific to archlinux-keyring, archinstall, reflector, python and python-setuptools"
+sleep 2
+if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-setuptools; then
+    echo "PACMAN: Failed to update internal database and packages specific to archlinux-keyring, archinstall, reflector, python and python-setuptools"
+    exit 1
+fi
+
+echo "SYSTEM: We're about to execute the archinstall screen with the config, don't forget to add a user with sudo access"
 sleep 6
 
-echo "Installing with partly generated config..."
+echo "SYSTEM: Installing with partly generated config..."
 sleep 3
-# --creds creds.json
-if ! archinstall --config config.json; then
-    echo "Failed to install"
+if ! read -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " aur_pkgs && archinstall --aur $aur_pkgs --config config.json --creds creds.json; then
+    echo "SYSTEM: Failed to install"
     exit 1
 fi
 
