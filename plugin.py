@@ -7,7 +7,7 @@ __version__ = 0.1
 class Plugin:
     TEMPORARY_USER_NAME = "aurinstall"
     DEPENDENCIES = ["git"]
-    AUR_HELPER_REPOSITORY = "https://aur.archlinux.org/paru-bin.git"
+    AUR_HELPER_REPOSITORY = "https://aur.archlinux.org/yay-bin.git"
 
     def on_install(self, installer: Installer):
         packages = archinstall.arguments['aur']
@@ -61,7 +61,7 @@ class Plugin:
         )
 
     def install_aur_helper(self, installer: Installer):
-        installer.log("Installing paru aur helper.", level=logging.INFO)
+        installer.log("Installing Yay AUR helper.", level=logging.INFO)
         installer.log(
             installer.arch_chroot(
                 f"su aurinstall -c 'cd $(mktemp -d) && git clone {self.AUR_HELPER_REPOSITORY} . && makepkg -sim --noconfirm'"
@@ -76,6 +76,6 @@ class Plugin:
         )
         installer.log(
             installer.arch_chroot(
-                f'su {self.TEMPORARY_USER_NAME} -c "paru -Sy --nosudoloop --needed --noconfirm {" ".join(packages)}"'),
+                f'su {self.TEMPORARY_USER_NAME} -c "yay -Sy --nosudoloop --needed --noconfirm {" ".join(packages)}"'),
             level=logging.DEBUG
         )

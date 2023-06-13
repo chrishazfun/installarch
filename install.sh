@@ -82,7 +82,7 @@ sleep 6
 
 echo "SYSTEM: Installing with partly generated config..."
 sleep 3
-if ! read -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " aur_pkgs && archinstall --aur $aur_pkgs --config config.json --creds creds.json; then
+if ! read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git" aur_pkgs && archinstall --aur $aur_pkgs --config config.json --creds creds.json; then
     echo "SYSTEM: Failed to install"
     exit 1
 fi
