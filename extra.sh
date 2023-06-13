@@ -21,7 +21,4 @@ sed -i 's/^#unix_sock_rw_perms = \"0770\"/unix_sock_rw_perms = \"0770\"/' /etc/l
 usermod -aG libvirt $USERNAME
 sudo systemctl enable libvirtd
 
-# read command needed for extra aur stuff
-yay -S --needed protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud flowblade kdocker xboxdrv shutter-encoder ytmdesktop-git
-
 # xbox-xcloud may be renamed as greenlight or greenlight-bin
