@@ -95,7 +95,7 @@ sleep 6
 echo "SYSTEM: Installing with partly generated config..."
 sleep 3
 #  --creds creds.json
-if ! archinstall --aur $aur_pkgs --config config.json; then
+if ! archinstall --packages_aur $aur_pkgs --config config.json; then
 	echo "SYSTEM: Failed to install"
 	exit 1
 fi

@@ -7,7 +7,7 @@ pacman-key --init
 sudo pacman -Syy git
 git clone https://github.com/chrishazfun/installarch
 cd installarch
-bash install.sh # < error-checking version of old install.sh (WIP)
+bash install.sh
 ```
 
 ### Additional Notes
