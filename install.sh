@@ -77,12 +77,12 @@ if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-
 	exit 1
 fi
 
-if ! read -s -p "SYSTEM: Password (Input hidden for security): " pd && sed -i "s/#password/$pd/" creds.json; then
-	sed -i "s/$pd/#password/" creds.json
-	echo "Failed to update password in creds.json, reverted password in file back to dummy."
-	sleep 1
-	exit 1
-fi
+#if ! read -s -p "SYSTEM: Password (Input hidden for security): " pd && sed -i "s/#password/$pd/" creds.json; then
+#	sed -i "s/$pd/#password/" creds.json
+#	echo "Failed to update password in creds.json, reverted password in file back to dummy."
+#	sleep 1
+#	exit 1
+#fi
 
 if ! read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git" aur_pkgs; then
 	echo "SYSTEM: Failed to process aur_pkgs variable"
