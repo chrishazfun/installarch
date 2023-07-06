@@ -12,7 +12,7 @@ bash install.sh
 
 ### Additional Notes
 1. The initial startup before the actual archinstall screen comes up may take a while, the plugin used to gather AUR pkgs is just preparing itself, this may take ~10 minutes.
-2. You will be required to create an account in the archinstall screen, also make sure to set sudo access to true if you wanna use temporary admin features.
+2. You will be required to create an account in the archinstall screen, please ensure you set sudo access to true if you want to access temporary admin features.
 
 ### Wifi
 In the case that you're not using a wired connection and have Wifi, you can connect to it through these 5 steps:

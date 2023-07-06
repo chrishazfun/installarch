@@ -16,7 +16,7 @@
 	"ntp": true,
 	"no_pkg_lookups": false,
 	"offline": false,
-	"plugin": "https://raw.githubusercontent.com/chrishazfun/installarch/main/plugin.py",
+	"plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-aur/main/archinstall_aur/__init__.py",
 	"packages": [
 		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python", "python-pip",
 
@@ -32,7 +32,7 @@
 		"firefox", "epiphany",
 		"qbittorrent", "dbeaver",
 		"meld", "picard", "homebank",
-		"solaar", "vlc", "obs-studio", "inkscape", "ardour", "blender", "easyeffects", "steam",
+		"solaar", "vlc", "obs-studio", "inkscape", "ardour", "blender", "easyeffects", "steam", "httrack",
 		"yt-dlp",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"bluez", "bluez-libs", "bluez-utils",

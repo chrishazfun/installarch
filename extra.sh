@@ -22,3 +22,7 @@ usermod -aG libvirt $USERNAME
 sudo systemctl enable libvirtd
 
 # xbox-xcloud may be renamed as greenlight or greenlight-bin
+
+# locale for australia
+# en_AU.UTF-8
+# en_AU ISO-8859-1
