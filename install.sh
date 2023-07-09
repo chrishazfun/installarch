@@ -83,12 +83,18 @@ fi
 # fi
 
 # parseAURToConfig () {
-# 	# if $1 != "", use jq to parse into a comma-seperated list and push it into the "packages" array in config.json
+	# if $1 != "", use jq to parse into a comma-seperated list and push it into the "packages" array in config.json
 # }
 # if ! read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git cyberdropdownloader tube-converter boatswain" aur_pkgs && parseAURToConfig aur_pkgs; then
 # 	echo "SYSTEM: Failed to parse aur_pkgs to packages object in config.json"
 # 	exit 1
 # fi
+
+read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin" packages # space seperated list of items
+# read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git cyberdropdownloader tube-converter boatswain" packages
+editedConfig = $(cat config.json | jq --arg packages "$packages" '.packages += ($packages | split(" "))') # json object items to the "packages" array within the JSON object
+# overwrite file with added packages
+echo "$editedConfig" >| config.json
 
 echo "SYSTEM: We're about to execute the archinstall screen with the config, don't forget to add a user with sudo access"
 sleep 6
