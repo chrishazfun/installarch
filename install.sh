@@ -53,20 +53,20 @@ if ! sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf; then
 	exit 1
 fi
 
-#if ! read -p "SYSTEM: Username: " un && sed -i "s/#username/$un/" creds.json && sed -i "s/#username/$un/" config.json; then
-#	sed -i "s/$un/#username/" creds.json
-#	sed -i "s/$un/#username/" config.json
-#	echo "Failed to update username in creds.json and config.json, reverted username in file back to dummy."
-#	sleep 1
-#	exit 1
-#fi
+# if ! read -p "SYSTEM: Username: " un && sed -i "s/#username/$un/" creds.json && sed -i "s/#username/$un/" config.json; then
+# 	sed -i "s/$un/#username/" creds.json
+# 	sed -i "s/$un/#username/" config.json
+# 	echo "Failed to update username in creds.json and config.json, reverted username in file back to dummy."
+# 	sleep 1
+# 	exit 1
+# fi
 
-#if ! read -s -p "SYSTEM: Password (Input hidden for security): " pd && sed -i "s/#password/$pd/" creds.json; then
-#	sed -i "s/$pd/#password/" creds.json
-#	echo "Failed to update password in creds.json, reverted password in file back to dummy."
-#	sleep 1
-#	exit 1
-#fi
+# if ! read -s -p "SYSTEM: Password (Input hidden for security): " pd && sed -i "s/#password/$pd/" creds.json; then
+# 	sed -i "s/$pd/#password/" creds.json
+# 	echo "Failed to update password in creds.json, reverted password in file back to dummy."
+# 	sleep 1
+# 	exit 1
+# fi
 
 echo "PACMAN: Updating internal database and checking for updates specific to archlinux-keyring, archinstall, reflector, python and python-setuptools"
 sleep 2
@@ -105,8 +105,6 @@ if ! yayPkgsParse; then
 	echo "SYSTEM: AUR packages import failed";
 	exit 1
 fi
-
-# json=$(echo "$json" | jq --arg list "$list" '.array += ($list | split(" "))')
 
 echo "SYSTEM: We're about to execute the archinstall screen with the config, don't forget to add a user with sudo access"
 sleep 6
