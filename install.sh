@@ -70,8 +70,8 @@ fi
 
 echo "PACMAN: Updating internal database and checking for updates specific to archlinux-keyring, archinstall, reflector, python and python-setuptools"
 sleep 2
-if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-setuptools; then
-	echo "PACMAN: Failed to update internal database and packages specific to archlinux-keyring, archinstall, reflector, python and python-setuptools"
+if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-setuptools jq; then
+	echo "PACMAN: Failed to update internal database and packages specific to archlinux-keyring, archinstall, reflector, python, python-setuptools and jq"
 	exit 1
 fi
 
@@ -90,11 +90,23 @@ fi
 # 	exit 1
 # fi
 
-read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin" packages # space seperated list of items
-# read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git cyberdropdownloader tube-converter boatswain" packages
-editedConfig = $(cat config.json | jq --arg packages "$packages" '.packages += ($packages | split(" "))') # json object items to the "packages" array within the JSON object
-# overwrite file with added packages
-echo "$editedConfig" >| config.json
+yayPkgsParse () {
+	# WIP testing right now
+	configAsIs="config.json"
+	read -e -p "aurpkgs: " -i "yay-bin" aur_pkgs
+	configData=$(cat "$configAsIs")
+	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configData")
+	echo "$modifiedConfig" > tempConfig.json
+	mv tempConfig.json "$configAsIs"
+}
+
+# yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git cyberdropdownloader tube-converter boatswain
+if ! yayPkgsParse; then
+	echo "SYSTEM: AUR packages import failed";
+	exit 1
+fi
+
+# json=$(echo "$json" | jq --arg list "$list" '.array += ($list | split(" "))')
 
 echo "SYSTEM: We're about to execute the archinstall screen with the config, don't forget to add a user with sudo access"
 sleep 6
