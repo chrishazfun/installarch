@@ -93,14 +93,13 @@ fi
 yayPkgsParse () {
 	# WIP testing right now
 	configAsIs="config.json"
-	read -e -p "aurpkgs: " -i "yay-bin" aur_pkgs
+	read -e -p "aurpkgs: " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git cyberdropdownloader tube-converter boatswain" aur_pkgs
 	configData=$(cat "$configAsIs")
 	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configData")
-	echo "$modifiedConfig" > tempConfig.json
-	mv tempConfig.json "$configAsIs"
+	echo "$modifiedConfig" > configToBe.json
+	mv configToBe.json "$configAsIs"
 }
 
-# yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git cyberdropdownloader tube-converter boatswain
 if ! yayPkgsParse; then
 	echo "SYSTEM: AUR packages import failed";
 	exit 1
