@@ -93,7 +93,7 @@ fi
 yayPkgsParse () {
 	# WIP testing right now
 	configAsIs="config.json"
-	read -e -p "aurpkgs: " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git cyberdropdownloader tube-converter boatswain" aur_pkgs
+	read -e -p "aurpkgs: " -i "yay-bin mission-control microsoft-edge-stable-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder spotify ytmdesktop-git cyberdropdownloader tube-converter boatswain" aur_pkgs
 	configData=$(cat "$configAsIs")
 	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configData")
 	echo "$modifiedConfig" > configToBe.json
