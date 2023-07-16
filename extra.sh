@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git cyberdropdownloader tube-converter boatswain
+
 curl -Sk https://raw.githubusercontent.com/chrishazfun/installarch/main/.bashrc >> ~/.bashrc
 source ~/.bashrc
 
