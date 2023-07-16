@@ -82,18 +82,10 @@ fi
 # 	exit 1
 # fi
 
-# parseAURToConfig () {
-	# if $1 != "", use jq to parse into a comma-seperated list and push it into the "packages" array in config.json
-# }
-# if ! read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin mcbelauncher-bin xbox-xcloud xboxdrv shutter-encoder ytmdesktop-git cyberdropdownloader tube-converter boatswain" aur_pkgs && parseAURToConfig aur_pkgs; then
-# 	echo "SYSTEM: Failed to parse aur_pkgs to packages object in config.json"
-# 	exit 1
-# fi
-
 yayPkgsParse () {
 	# WIP testing right now
 	configAsIs="config.json"
-	read -e -p "aurpkgs: " -i "yay-bin mission-control microsoft-edge-stable-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder spotify tube-converter boatswain" aur_pkgs
+	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin mission-control microsoft-edge-stable-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder spotify tube-converter boatswain" aur_pkgs
 	configData=$(cat "$configAsIs")
 	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configData")
 	echo "$modifiedConfig" > configToBe.json
