@@ -1,13 +1,8 @@
 {
-	"!users": [
-		{
-			"sudo": false,
-			"username": "guest"
-		},
-		{
-			"sudo": true,
-			"username": "#username",
-			"password": "#password"
-		}
-	]
+    "!users": [
+        {
+            "sudo": true,
+            "username": "main"
+        }
+    ]
 }

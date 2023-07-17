@@ -82,17 +82,53 @@ fi
 # 	exit 1
 # fi
 
-yayPkgsParse () {
-	# WIP testing right now
+# yayPkgsParse () {
+# 	configAsIs="config.json"
+# 	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain" aur_pkgs
+# 	configData=$(cat "$configAsIs")
+# 	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configData")
+# 	echo "$modifiedConfig" > configToBe.json
+# 	mv configToBe.json "$configAsIs"
+# }
+
+yayPkgsParse() {
+	# protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain
 	configAsIs="config.json"
-	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain" aur_pkgs
-	configData=$(cat "$configAsIs")
-	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configData")
-	echo "$modifiedConfig" > configToBe.json
-	mv configToBe.json "$configAsIs"
+	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin" aur_pkgs
+	jq --argjson items '[$aur_pkgs]' '.packages += $items' "$configAsIs" > temp.json
+	mv temp.json "$configAsIs"
 }
 
 if ! yayPkgsParse; then
+	echo "SYSTEM: AUR packages import failed";
+	exit 1
+fi
+
+# filter to change top level string example
+# .hostname = "hostnamegoeshere"
+
+addDrivesToConfig() {
+	drivesAsIs="config.json"
+	lsblk
+	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
+	read -e -p "SYSTEM: Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want" -i "/dev/$first_disk" hdds
+	jq --argjson items '[$hdds]' '.packages += $items' "$drivesAsIs" > temp.json
+	mv temp.json "$drivesAsIs"
+}
+
+if ! addDrivesToConfig; then
+	echo "SYSTEM: Unable to add drives to config";
+	exit 1
+fi
+
+# WIP
+setUSR() {
+	credsAsIs="creds.json"
+	read -e -p "SYSTEM: Set username for primary account (Pwd in archinstall screen): " -i "main" usrname
+	jq --argjson items '[$usrname]' '.username += $items' "$credsAsIs" > temp.json
+	mv temp.json "$credsAsIs"
+}
+if ! setUSR; then
 	echo "SYSTEM: AUR packages import failed";
 	exit 1
 fi
@@ -103,7 +139,7 @@ sleep 6
 echo "SYSTEM: Installing with partly generated config..."
 sleep 3
 #  --creds creds.json
-if ! archinstall --config config.json; then
+if ! archinstall --config config.json --creds creds.json --advanced; then
 	echo "SYSTEM: Failed to install"
 	exit 1
 fi
