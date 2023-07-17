@@ -85,7 +85,7 @@ fi
 yayPkgsParse () {
 	# WIP testing right now
 	configAsIs="config.json"
-	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin" aur_pkgs
+	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain" aur_pkgs
 	configData=$(cat "$configAsIs")
 	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configData")
 	echo "$modifiedConfig" > configToBe.json
