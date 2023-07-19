@@ -94,11 +94,10 @@ fi
 yayPkgsParse() {
 	# protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain
 	configAsIs="config.json"
-	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin" aur_pkgs
+	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip, helper prefilled just in case): " -i "yay-bin waterfox-g-bin" aur_pkgs
 	jq --argjson items '[$aur_pkgs]' '.packages += $items' "$configAsIs" > temp.json
 	mv temp.json "$configAsIs"
 }
-
 if ! yayPkgsParse; then
 	echo "SYSTEM: AUR packages import failed";
 	exit 1
