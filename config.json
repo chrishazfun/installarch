@@ -21,7 +21,7 @@
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 		"lxqt-archiver", "obconf-qt", "pavucontrol-qt",
-		"lxqt-admin", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "openbox", "qterminal", "screengrab",
+		"lxqt-admin", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "openbox", "qterminal", "screengrab", "breeze-icons",
 		"thunar", "thunar-archive-plugin", "thunar-media-tags-plugin", "thunar-volman",
 		"xdg-user-dirs", "xdg-desktop-portal-lxqt",
 
