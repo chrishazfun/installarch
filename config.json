@@ -19,21 +19,16 @@
 	"packages": [
 		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python", "python-pip",
 
-		"gdm",
-		"gnome-keyring", "gnome-session", "gnome-settings-daemon", "gnome-shell",
-		"gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb",
-		"gnome-logs", "gnome-font-viewer",
-		"gnome-console", "gnome-control-center", "gnome-disk-utility",
-		"gnome-shell-extension-appindicator",
-		"nautilus", "sushi", "dconf-editor", "file-roller",
-		"rygel", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk",
+		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
+		"lxqt-archiver", "obconf-qt", "pavucontrol-qt",
+		"lxqt-admin", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "openbox", "qterminal", "screengrab",
+		"thunar", "thunar-archive-plugin", "thunar-media-tags-plugin", "thunar-volman",
+		"xdg-user-dirs", "xdg-desktop-portal-lxqt",
 
-		"epiphany",
 		"qbittorrent", "dbeaver",
 		"meld", "picard", "homebank",
 		"solaar", "vlc", "obs-studio", "inkscape", "ardour", "blender", "easyeffects", "steam",
-		"yt-dlp",
-		"httrack", "distrobox",
+		"yt-dlp", "distrobox",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"bluez", "bluez-libs", "bluez-utils",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins"
@@ -41,7 +36,7 @@
 	"skip-mirror-check": false,
 	"profile": "xorg",
 	"services": [
-		"gdm",
+		"lightdm",
 		"bluetooth",
 		"NetworkManager"
 	],
