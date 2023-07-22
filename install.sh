@@ -82,37 +82,28 @@ fi
 # 	exit 1
 # fi
 
-# yayPkgsParse () {
-# 	configAsIs="config.json"
-# 	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain" aur_pkgs
-# 	configData=$(cat "$configAsIs")
-# 	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configData")
-# 	echo "$modifiedConfig" > configToBe.json
-# 	mv configToBe.json "$configAsIs"
-# }
-
+# <<< "$configData"
+# ^^ just in case the demo fails
 config="config.json"
 
-yayPkgsParse() {
+aurPkgsParse () {
 	# protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain
-	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip, helper and default browser prefilled just in case): " -i "yay-bin waterfox-g-bin" aur_pkgs
-	jq --argjson items '[$aur_pkgs]' '.packages += $items' "config.json" > temp.json
-	mv temp.json "config.json"
+	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin waterfox-g-bin" aur_pkgs
+	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+	echo "$modifiedConfig" >> temp.json
+	mv temp.json "$config"
 }
-if ! yayPkgsParse; then
+if ! aurPkgsParse; then
 	echo "SYSTEM: AUR packages import failed";
 	exit 1
 fi
 
-# filter to change top level string example
-# .hostname = "hostnamegoeshere"
-
-addDrivesToConfig() {
-	lsblk
-	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
-	read -e -p "SYSTEM: Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want" -i "/dev/$first_disk" hdds
-	jq --argjson items '[$hdds]' '.harddrives += $items' "config.json" > temp.json
-	mv temp.json "config.json"
+addDrivesToConfig () {
+	lsblk && first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme") ## check what disks are available
+	read -e -p "SYSTEM: Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdds
+	modifiedConfig=$(jq --arg items "$hdds" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+	echo "$modifiedConfig" >> temp.json
+	mv temp.json "$config"
 }
 if ! addDrivesToConfig; then
 	echo "SYSTEM: Unable to add drives to config";
@@ -124,6 +115,7 @@ sleep 6
 
 echo "SYSTEM: Installing with partly generated config..."
 sleep 3
+
 #  --creds creds.json
 if ! archinstall --config config.json --creds creds.json --advanced; then
 	echo "SYSTEM: Failed to install"

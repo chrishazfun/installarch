@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# filter to change top level string example
+# .hostname = "hostnamegoeshere"
+
 # yay -S protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain mcbelauncher-bin ytmdesktop-git cyberdropdownloader tube-converter
 
 curl -Sk https://raw.githubusercontent.com/chrishazfun/installarch/main/.bashrc >> ~/.bashrc
