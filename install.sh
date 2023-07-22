@@ -101,7 +101,7 @@ fi
 addDrivesToConfig () {
 	lsblk && first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme") ## check what disks are available
 	read -e -p "SYSTEM: Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdds
-	modifiedConfig=$(jq --arg items "$hdds" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+	modifiedConfig=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))' <<< $(cat "$config"))
 	echo "$modifiedConfig" >> temp.json
 	mv temp.json "$config"
 }
