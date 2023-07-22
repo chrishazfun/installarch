@@ -86,11 +86,22 @@ fi
 # ^^ just in case the demo fails
 config="config.json"
 
+hostnamePush () {
+	read -e -p "SYSTEM: Hostname: " -i "changethishostname" hostnme
+	modified_config=$(jq --arg hn "$hostnme" '.hostname = $hn' <<< $(cat "$config"))
+	echo "$modified_config" >> temp.json
+	mv temp.json "$config"
+}
+if ! hostnamePush; then
+	echo "SYSTEM: Hostname import failed";
+	exit 1
+fi
+
 aurPkgsParse () {
 	# protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain
-	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip): " -i "yay-bin waterfox-g-bin" aur_pkgs
-	modifiedConfig=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
-	echo "$modifiedConfig" >> temp.json
+	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip, aur helper and browser prefilled): " -i "yay-bin waterfox-g-bin" aur_pkgs
+	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 }
 if ! aurPkgsParse; then
@@ -101,8 +112,8 @@ fi
 addDrivesToConfig () {
 	lsblk && first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme") ## check what disks are available
 	read -e -p "SYSTEM: Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdds
-	modifiedConfig=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))' <<< $(cat "$config"))
-	echo "$modifiedConfig" >> temp.json
+	modified_config=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))' <<< $(cat "$config"))
+	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 }
 if ! addDrivesToConfig; then
@@ -111,13 +122,13 @@ if ! addDrivesToConfig; then
 fi
 
 echo "SYSTEM: We're about to execute the archinstall screen with the config, don't forget to add a user with sudo access"
-sleep 6
+sleep 5
 
 echo "SYSTEM: Installing with partly generated config..."
-sleep 3
+sleep 2
 
-#  --creds creds.json
-if ! archinstall --config config.json --creds creds.json --advanced; then
+# --creds creds.json
+if ! archinstall --config config.json --creds creds.json; then
 	echo "SYSTEM: Failed to install"
 	exit 1
 fi
