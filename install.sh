@@ -75,13 +75,6 @@ if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-
 	exit 1
 fi
 
-# if ! read -s -p "SYSTEM: Password (Input hidden for security): " pd && sed -i "s/#password/$pd/" creds.json; then
-# 	sed -i "s/$pd/#password/" creds.json
-# 	echo "Failed to update password in creds.json, reverted password in file back to dummy."
-# 	sleep 1
-# 	exit 1
-# fi
-
 # <<< "$configData"
 # ^^ just in case the demo fails
 config="config.json"
@@ -121,14 +114,29 @@ if ! addDrivesToConfig; then
 	exit 1
 fi
 
-echo "SYSTEM: We're about to execute the archinstall screen with the config, don't forget to add a user with sudo access"
-sleep 5
-
 echo "SYSTEM: Installing with partly generated config..."
 sleep 2
 
+echo "..."
+sleep 3
+echo "██████   ██████  ███    ██ ████████         ███████  ██████  ██████   ██████  ███████ ████████         ████████  ██████           ██████ ██████  ███████  █████  ████████ ███████                                     ";
+echo "██   ██ ██    ██ ████   ██    ██            ██      ██    ██ ██   ██ ██       ██         ██               ██    ██    ██         ██      ██   ██ ██      ██   ██    ██    ██                                          ";
+echo "██   ██ ██    ██ ██ ██  ██    ██            █████   ██    ██ ██████  ██   ███ █████      ██               ██    ██    ██         ██      ██████  █████   ███████    ██    █████                                       ";
+echo "██   ██ ██    ██ ██  ██ ██    ██            ██      ██    ██ ██   ██ ██    ██ ██         ██               ██    ██    ██         ██      ██   ██ ██      ██   ██    ██    ██                                          ";
+echo "██████   ██████  ██   ████    ██            ██       ██████  ██   ██  ██████  ███████    ██               ██     ██████           ██████ ██   ██ ███████ ██   ██    ██    ███████                                     ";
+echo "                                                                                                                                                                                                                      ";
+echo "                                                                                                                                                                                                                      ";
+echo " █████          ██    ██ ███████ ███████ ██████          ██     ██ ██ ████████ ██   ██         ███████ ██    ██ ██████   ██████          ██████  ██████  ██ ██    ██ ██      ███████ ██████   ██████  ███████ ███████ ";
+echo "██   ██         ██    ██ ██      ██      ██   ██         ██     ██ ██    ██    ██   ██         ██      ██    ██ ██   ██ ██    ██         ██   ██ ██   ██ ██ ██    ██ ██      ██      ██   ██ ██       ██      ██      ";
+echo "███████         ██    ██ ███████ █████   ██████          ██  █  ██ ██    ██    ███████         ███████ ██    ██ ██   ██ ██    ██         ██████  ██████  ██ ██    ██ ██      █████   ██   ██ ██   ███ █████   ███████ ";
+echo "██   ██         ██    ██      ██ ██      ██   ██         ██ ███ ██ ██    ██    ██   ██              ██ ██    ██ ██   ██ ██    ██         ██      ██   ██ ██  ██  ██  ██      ██      ██   ██ ██    ██ ██           ██ ";
+echo "██   ██          ██████  ███████ ███████ ██   ██          ███ ███  ██    ██    ██   ██         ███████  ██████  ██████   ██████          ██      ██   ██ ██   ████   ███████ ███████ ██████   ██████  ███████ ███████ ";
+echo "                                                                                                                                                                                                                      ";
+echo "                                                                                                                                                                                                                      ";
+sleep 3
+
 # --creds creds.json
-if ! archinstall --config config.json --creds creds.json; then
+if ! archinstall --config config.json; then
 	echo "SYSTEM: Failed to install"
 	exit 1
 fi
