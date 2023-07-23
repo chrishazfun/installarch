@@ -20,10 +20,10 @@
 		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python", "python-pip",
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
-		"lxqt-archiver", "obconf-qt", "pavucontrol-qt",
-		"lxqt-admin", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "openbox", "qterminal", "screengrab", "breeze-icons",
+		"exo", "garcon", "tumbler", "xfce4-appfinder", "xfce4-panel", "xfce4-power-manager", "xfce4-session", "xfce4-settings", "xfce4-terminal", "xfconf", "xfdesktop", "xfwm4", "xfwm4-themes", "featherpad", "xfce4-notifyd", "xfce4-screensaver", "xfce4-screenshooter", "xfce4-smartbookmark-plugin", "xfce4-taskmanager",
+		"xfce4-battery-plugin", "xfce4-clipman-plugin", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-mpc-plugin", "xfce4-notes-plugin", "xfce4-pulseaudio-plugin", "xfce4-weather-plugin", "xfce4-whiskermenu-plugin", "xfce4-xkb-plugin",
 		"thunar", "thunar-archive-plugin", "thunar-media-tags-plugin", "thunar-volman",
-		"xdg-user-dirs", "xdg-desktop-portal-lxqt",
+		"xdg-user-dirs", "xdg-desktop-portal",
 
 		"qbittorrent", "dbeaver",
 		"meld", "picard", "homebank",
