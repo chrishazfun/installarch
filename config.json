@@ -4,10 +4,10 @@
 	"audio": "pipewire",
 	"bootloader": "grub-install",
 	"custom-commands": [
+		"mkinitcpio -P",
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf",
-		"mkinitcpio -P"
+		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
 	],
 	"disk_encryption": null,
 	"kernels": ["linux"],
