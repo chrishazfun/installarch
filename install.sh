@@ -91,8 +91,7 @@ if ! hostnamePush; then
 fi
 
 aurPkgsParse () {
-	# protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain
-	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip, aur helper, waterfox and kdocker prefilled): " -i "yay-bin waterfox-g-bin kdocker-git" aur_pkgs
+	read -e -p "SYSTEM: Optional AUR Pkgs (yay aur helper, waterfox and other preferred apps prefilled): " -i "yay-bin waterfox-g-bin kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder github-desktop-bin boatswain" aur_pkgs
 	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
@@ -130,6 +129,9 @@ if ! archinstall --config config.json; then
 fi
 
 echo "APPLYING GTK THEMES TO GTK FLATPAK APPS: itsfoss.com/flatpak-app-apply-theme"
+sleep 2
+
+echo "IF YOU INSTALLED PLEX ENABLE 'plexmediaserver' SYSTEMD SERVICE AND ACCESS http://localhost:32400/web/ FOR CONFIGURATION"
 sleep 2
 
 echo "Done!... hopefully | More to do at github.com/chrishazfun/installarch under extra.sh if you want :)"
