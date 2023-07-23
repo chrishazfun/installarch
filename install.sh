@@ -92,7 +92,7 @@ fi
 
 aurPkgsParse () {
 	# protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xbox-xcloud xboxdrv shutter-encoder boatswain
-	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip, aur helper and browser prefilled): " -i "yay-bin waterfox-g-bin" aur_pkgs
+	read -e -p "SYSTEM: Optional AUR Pkgs (leave empty to skip, aur helper, waterfox and kdocker prefilled): " -i "yay-bin waterfox-g-bin kdocker-git" aur_pkgs
 	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"

@@ -36,3 +36,12 @@ ffmpeg "-hide_banner" "-i" "C:/Users/lowle/Downloads/gemmabetty1.mp4" "-sws_flag
 # locale for australia
 # en_AU.UTF-8
 # en_AU ISO-8859-1
+
+# kdocker chrome pwas
+bash -c '/opt/google/chrome/google-chrome --profile-directory=Default --app-id=cifhbcnohmdccbgoicgdjpfamggdegmo &'
+while true; do
+  sleep 5
+  status=$(wmctrl -l | grep "Microsoft Teams")
+  if [ "$status" != "" ]; then break; fi
+done
+WID="$(wmctrl -lx | grep "Microsoft Teams")"; kdocker -qw "${WID%% *}" -i /usr/share/icons/Numix-Circle/48/apps/teams.svg
