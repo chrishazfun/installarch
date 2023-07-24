@@ -78,18 +78,19 @@ fi
 # <<< "$configData"
 # ^^ just in case the demo fails
 config="config.json"
+configCat=$(cat "$configCat")
 
 autoGPU () {
 	if lspci | grep -i "VGA compatible controller" | grep -i -E "NVIDIA|AMD"; then
 		if lspci | grep -i "VGA compatible controller" | grep -i "NVIDIA"; then
 			gpu_pkgs="nvidia nvidia-utils nvidia-settings opencl-nvidia lib32-nvidia-utils"
-			modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+			modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))' <<< "$configCat")
 			echo "$modified_config" >> temp.json
 			mv temp.json "$config"
 			echo "Nvidia drivers imported to config."
 		elif lspci | grep -i "VGA compatible controller" | grep -i "AMD"; then
 			gpu_pkgs="xf86-video-amdgpu"
-			modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+			modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))' <<< "$configCat")
 			echo "$modified_config" >> temp.json
 			mv temp.json "$config"
 			echo "AMD GPU drivers imported to config."
@@ -105,7 +106,7 @@ fi
 
 hostnamePush () {
 	read -e -p "SYSTEM: Hostname: " -i "changethishostname" hostname
-	modified_config=$(jq --arg item "$hostname" '.hostname = $item' <<< $(cat "$config"))
+	modified_config=$(jq --arg item "$hostname" '.hostname = $item' <<< "$configCat")
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 }
@@ -116,7 +117,7 @@ fi
 
 aurPkgsParse () {
 	read -e -p "SYSTEM: Optional AUR Pkgs (yay aur helper, waterfox and other preferred apps prefilled): " -i "yay-bin kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain" aur_pkgs
-	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configCat")
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 }
@@ -128,7 +129,7 @@ fi
 addDrivesToConfig () {
 	lsblk && first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme") ## check what disks are available
 	read -e -p "SYSTEM: Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdds
-	modified_config=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))' <<< $(cat "$config"))
+	modified_config=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))' <<< "$configCat")
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 }
