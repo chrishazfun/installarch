@@ -21,10 +21,10 @@
 		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python", "python-pip",
 
 		"gdm",
-		"baobab", "cheese", "gnome-characters", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-font-viewer", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-remote-desktop", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-shell-extensions", "gnome-system-monitor", "gnome-text-editor", "gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb", "nautilus", "rygel", "simple-scan", "sushi", "dconf-editor", "file-roller", "gitg", "gnome-boxes", "gnome-sound-recorder", "gnome-shell-extension-appindicator",
+		"baobab", "cheese", "gnome-characters", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-font-viewer", "gnome-keyring", "gnome-logs", "gnome-menus", "gnome-remote-desktop", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-shell-extensions", "gnome-system-monitor", "gnome-text-editor", "gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb", "nautilus", "rygel", "simple-scan", "sushi", "dconf-editor", "file-roller", "gnome-boxes", "gnome-sound-recorder", "gnome-shell-extension-appindicator", "gnome-browser-connector",
 		"xdg-desktop-portal-gnome", "xdg-user-dirs-gtk",
 
-		"qbittorrent",
+		"firefox", "qbittorrent",
 		"meld", "picard", "homebank",
 		"solaar", "vlc", "obs-studio", "inkscape", "ardour", "blender", "easyeffects", "steam",
 		"yt-dlp", "distrobox",
