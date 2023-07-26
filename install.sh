@@ -87,13 +87,13 @@ autoGPU () {
 			modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))' <<< "$configCat")
 			echo "$modified_config" >> temp.json
 			mv temp.json "$config"
-			echo "Nvidia drivers imported to config."
+			echo "SYSTEM: Nvidia drivers imported to config."
 		elif lspci | grep -i "VGA compatible controller" | grep -i "AMD"; then
 			gpu_pkgs="xf86-video-amdgpu"
 			modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))' <<< "$configCat")
 			echo "$modified_config" >> temp.json
 			mv temp.json "$config"
-			echo "AMD GPU drivers imported to config."
+			echo "SYSTEM: AMD GPU drivers imported to config."
 		fi
 	else
 		echo "No supported GPU detected. Skipping GPU driver import."
@@ -116,7 +116,7 @@ if ! hostnamePush; then
 fi
 
 aurPkgsParse () {
-	read -e -p "SYSTEM: Optional AUR Pkgs (yay aur helper, waterfox and other preferred apps prefilled): " -i "yay-bin kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain" aur_pkgs
+	read -e -p "SYSTEM: Optional AUR Pkgs (yay aur helper, waterfox and other preferred apps prefilled): " -i "yay-bin kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain jamesdsp" aur_pkgs
 	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< "$configCat")
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
