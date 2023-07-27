@@ -79,27 +79,22 @@ fi
 # ^^ just in case the demo fails
 config="config.json"
 
-autoGPU () {
-	if lspci | grep -i "VGA compatible controller" | grep -i -E "NVIDIA|AMD"; then
-		if lspci | grep -i "VGA compatible controller" | grep -i "NVIDIA"; then
-			gpu_pkgs="nvidia nvidia-utils nvidia-settings opencl-nvidia lib32-nvidia-utils"
-			modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
-			echo "$modified_config" >> temp.json
-			mv temp.json "$config"
-			echo "SYSTEM: Nvidia drivers imported to config."
-		elif lspci | grep -i "VGA compatible controller" | grep -i "AMD"; then
-			gpu_pkgs="xf86-video-amdgpu"
-			modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
-			echo "$modified_config" >> temp.json
-			mv temp.json "$config"
-			echo "SYSTEM: AMD GPU drivers imported to config."
-		fi
-	else
-		echo "No supported GPU detected. Skipping GPU driver import."
+if lspci | grep -i "VGA compatible controller" | grep -i -E "NVIDIA|AMD"; then
+	if lspci | grep -i "VGA compatible controller" | grep -i "NVIDIA"; then
+		gpu_pkgs="nvidia nvidia-utils nvidia-settings opencl-nvidia lib32-nvidia-utils"
+		modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
+		echo "$modified_config" >> temp.json
+		mv temp.json "$config"
+		echo "SYSTEM: Nvidia drivers imported to config."
+	elif lspci | grep -i "VGA compatible controller" | grep -i "AMD"; then
+		gpu_pkgs="xf86-video-amdgpu"
+		modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
+		echo "$modified_config" >> temp.json
+		mv temp.json "$config"
+		echo "SYSTEM: AMD GPU drivers imported to config."
 	fi
-}
-if ! autoGPU; then
-	echo "SYSTEM: Automatic GPU driver detection failed";
+else
+	echo "SYSTEM: No supported GPU detected."
 	exit 1
 fi
 
