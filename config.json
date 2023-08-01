@@ -18,17 +18,17 @@
 	"offline": false,
 	"plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-aur/main/archinstall_aur/__init__.py",
 	"packages": [
-		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python", "python-pip",
+		"bash", "bash-completion", "nano", "vim", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python", "python-pipx",
 
 		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
 		"cinnamon", "cheese", "gnome-disk-utility", "gnome-text-editor", "nemo", "dconf-editor", "file-roller", "gnome-sound-recorder",
 		"xdg-desktop-portal-gnome", "xdg-user-dirs-gtk",
 
+		"yt-dlp", "distrobox",
+		"wine-gecko", "wine-mono", "wine-staging",
 		"firefox", "qbittorrent",
 		"meld", "picard", "homebank",
 		"vlc", "obs-studio", "gimp", "ardour", "blender", "steam",
-		"yt-dlp", "distrobox",
-		"wine-gecko", "wine-mono", "wine-staging",
 		"bluez", "bluez-libs", "bluez-utils",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "calf", "mda.lv2", "lsp-plugins", "ffmpegthumbnailer"
 	],

@@ -79,23 +79,14 @@ fi
 # ^^ just in case the demo fails
 config="config.json"
 
-if lspci | grep -i "VGA compatible controller" | grep -i -E "NVIDIA|AMD"; then
-	if lspci | grep -i "VGA compatible controller" | grep -i "NVIDIA"; then
-		gpu_pkgs="nvidia nvidia-utils nvidia-settings opencl-nvidia lib32-nvidia-utils"
-		modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
-		echo "$modified_config" >> temp.json
-		mv temp.json "$config"
-		echo "SYSTEM: Nvidia drivers imported to config."
-	elif lspci | grep -i "VGA compatible controller" | grep -i "AMD"; then
-		gpu_pkgs="xf86-video-amdgpu"
-		modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
-		echo "$modified_config" >> temp.json
-		mv temp.json "$config"
-		echo "SYSTEM: AMD GPU drivers imported to config."
-	fi
+if [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' -gt 0 ]; then
+	gpu_pkgs="nvidia nvidia-utils nvidia-settings opencl-nvidia lib32-nvidia-utils"
+	modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
+	echo "$modified_config" >> temp.json
+	mv temp.json "$config"
+	echo "SYSTEM: Nvidia drivers imported to config"
 else
-	echo "SYSTEM: No supported GPU detected."
-	exit 1
+	echo "SYSTEM: No Nvidia card detected, skipping driver import"
 fi
 
 hostnamePush () {
@@ -110,7 +101,8 @@ if ! hostnamePush; then
 fi
 
 aurPkgsParse () {
-	read -e -p "SYSTEM: Optional AUR Pkgs (yay aur helper, waterfox and other preferred apps prefilled): " -i "yay-bin kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain jamesdsp" aur_pkgs
+	# yay-bin xfce4-panel-profiles
+	read -e -p "SYSTEM: Optional AUR Pkgs (yay aur helper, waterfox and other preferred apps prefilled): " -i "pamac-aur kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain jamesdsp" aur_pkgs
 	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
