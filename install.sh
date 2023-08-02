@@ -102,7 +102,7 @@ fi
 
 aurPkgsParse () {
 	# yay-bin xfce4-panel-profiles
-	read -e -p "SYSTEM: Optional AUR Pkgs (yay aur helper, waterfox and other preferred apps prefilled): " -i "pamac-aur kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain jamesdsp" aur_pkgs
+	read -e -p "SYSTEM: Optional AUR Pkgs (yay aur helper, waterfox and other preferred apps prefilled): " -i "pamac-aur obs-captions-plugin-bin kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain jamesdsp" aur_pkgs
 	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
