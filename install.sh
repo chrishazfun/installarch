@@ -76,17 +76,16 @@ if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-
 fi
 
 # <<< "$configData"
-# ^^ just in case the demo fails
 config="config.json"
 
-if [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' -gt 0 ]; then
+if [[ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' -gt 0 ]]; then
 	gpu_pkgs="nvidia nvidia-utils nvidia-settings opencl-nvidia lib32-nvidia-utils"
 	modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 	echo "SYSTEM: Nvidia drivers imported to config"
 else
-	echo "SYSTEM: No Nvidia card detected, skipping driver import"
+	echo "SYSTEM: No Nvidia card detected, skipping driver pkg import"
 fi
 
 hostnamePush () {
@@ -101,11 +100,16 @@ if ! hostnamePush; then
 fi
 
 aurPkgsParse () {
-	# yay-bin xfce4-panel-profiles
-	read -e -p "SYSTEM: Optional AUR Pkgs (yay aur helper, waterfox and other preferred apps prefilled): " -i "pamac-aur obs-captions-plugin-bin kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain jamesdsp" aur_pkgs
+	read -e -p "SYSTEM: Optional AUR Pkgs (preferred apps prefilled): " -i "yay-bin obs-captions-plugin-bin kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain jamesdsp streamlink-handoff-host" aur_pkgs
 	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
+	if [[ "$aur_pkgs" == *plex-media-server* ]]; then
+		# add plexmediaserver systemd service if plex-media-server is in the aur_pkgs variable
+		modified_config=$(jq --arg item "plexmediaserver" '.services += $item') <<< $(cat "$config")
+		echo "$modified_config" >> temp.json
+		mv temp.json "$config"
+	fi
 }
 if ! aurPkgsParse; then
 	echo "SYSTEM: AUR packages import failed";
@@ -113,7 +117,8 @@ if ! aurPkgsParse; then
 fi
 
 addDrivesToConfig () {
-	lsblk && first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme") ## check what disks are available
+	lsblk
+	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
 	read -e -p "SYSTEM: Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdds
 	modified_config=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))') <<< $(cat "$config")
 	echo "$modified_config" >> temp.json
