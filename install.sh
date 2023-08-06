@@ -78,7 +78,7 @@ fi
 # <<< "$configData"
 config="config.json"
 
-if [[ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' -gt 0 ]]; then
+if [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' -gt 0 ]; then
 	gpu_pkgs="nvidia nvidia-utils nvidia-settings opencl-nvidia lib32-nvidia-utils"
 	modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
 	echo "$modified_config" >> temp.json
