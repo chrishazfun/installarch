@@ -80,7 +80,7 @@ config="config.json"
 
 if [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' = 0 ]; then
 	gpu_pkgs="nvidia nvidia-utils nvidia-settings opencl-nvidia lib32-nvidia-utils"
-	modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
+	modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 	echo "SYSTEM: Nvidia drivers imported to config"
@@ -90,7 +90,7 @@ fi
 
 hostnamePush () {
 	read -e -p "SYSTEM: Hostname: " -i "changethishostname" hostname
-	modified_config=$(jq --arg item "$hostname" '.hostname = $item') <<< $(cat "$config")
+	modified_config=$(jq --arg item "$hostname" '.hostname = $item' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 }
@@ -101,12 +101,12 @@ fi
 
 aurPkgsParse () {
 	read -e -p "SYSTEM: Optional AUR Pkgs (preferred apps prefilled): " -i "yay-bin obs-captions-plugin-bin kdocker-git plex-media-server protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain jamesdsp streamlink-handoff-host" aur_pkgs
-	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))') <<< $(cat "$config")
+	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 	if [[ "$aur_pkgs" == *plex-media-server* ]]; then
 		# add plexmediaserver systemd service if plex-media-server is in the aur_pkgs variable
-		modified_config=$(jq --arg item "plexmediaserver" '.services += $item') <<< $(cat "$config")
+		modified_config=$(jq --arg item "plexmediaserver" '.services += $item' <<< $(cat "$config"))
 		echo "$modified_config" >> temp.json
 		mv temp.json "$config"
 	fi
@@ -120,7 +120,7 @@ addDrivesToConfig () {
 	lsblk
 	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
 	read -e -p "SYSTEM: Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdds
-	modified_config=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))') <<< $(cat "$config")
+	modified_config=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 }

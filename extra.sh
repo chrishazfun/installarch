@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+# https://raw.githubusercontent.com/qbittorrent/search-plugins/master/nova3/engines/piratebay.py
+# https://raw.githubusercontent.com/qbittorrent/search-plugins/master/nova3/engines/torlock.py
+
 # filter to change top level string example
 # .hostname = "hostnamegoeshere"
 
