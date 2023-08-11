@@ -24,6 +24,7 @@
 		"gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-font-viewer", "gnome-keyring", "gnome-logs", "gnome-music", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-shell-extensions", "gnome-system-monitor", "gnome-text-editor", "gnome-user-share", "gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb", "nautilus", "rygel", "simple-scan", "tracker3-miners", "xdg-desktop-portal-gnome", "xdg-user-dirs-gtk", "dconf-editor", "file-roller", "gnome-boxes", "gnome-notes", "gnome-sound-recorder", "seahorse"
 
 		"yt-dlp", "distrobox",
+		"toot",
 		"streamlink",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"firefox", "qbittorrent",
