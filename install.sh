@@ -78,9 +78,9 @@ fi
 # <<< "$configData"
 config="config.json"
 
+# push to nvidia propritary drivers if it's an nvidia card, open-source generic driver on everything else
 if [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' = 0 ]; then
-	gpu_pkgs="nvidia nvidia-utils nvidia-settings opencl-nvidia lib32-nvidia-utils"
-	modified_config=$(jq --arg items "$gpu_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+	modified_config=$(jq --arg items "Nvidia (proprietary)" '.profile_config.gfx_driver = $item)' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 	echo "SYSTEM: Nvidia drivers imported to config"

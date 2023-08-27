@@ -10,10 +10,9 @@
 	"plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-aur/main/archinstall_aur/__init__.py",
 	"audio_config": {"audio": "pipewire"},
 	"bootloader": "Grub",
-	"hostname": "archlinux",
+	"hostname": "hostname",
 	"profile_config": {
 		"gfx_driver": "All open-source (default)",
-		"greeter": "lightdm",
 		"profile": {
 			"main": "Xorg"
 		}
@@ -60,7 +59,7 @@
 	},
 	"mirror-region": {
 		"Australia": {
-			"http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch": true,
+			"http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch": true
 		}
 	},
 	"disk_encryption": null,
