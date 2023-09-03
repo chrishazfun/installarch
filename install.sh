@@ -79,14 +79,12 @@ fi
 config="config.json"
 
 # nvidia propritary drivers or vmware drivers for relevant systems, open-source generic drivers for everything else
-if [[ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' -gt 0 ]]
-then
+if [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' -gt 0 ]; then
 	modified_config=$(jq --arg items "Nvidia (proprietary)" '.profile_config.gfx_driver = $item)' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 	echo "SYSTEM: Nvidia drivers imported to config"
-elif [[ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i vmware | wc -l' -gt 0 ]]
-then
+elif [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i vmware | wc -l' -gt 0 ]; then
 	modified_config=$(jq --arg items "VMware / VirtualBox (open-source)" '.profile_config.gfx_driver = $item)' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
