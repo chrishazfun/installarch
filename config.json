@@ -7,7 +7,7 @@
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
 	],
 	"kernels": ["linux"],
-	"plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-aur/main/archinstall_aur/__init__.py",
+	"plugin": "https://raw.githubusercontent.com/chrishazfun/installarch/main/plugin.py",
 	"audio_config": {"audio": "pipewire"},
 	"bootloader": "Grub",
 	"hostname": "hostname",
