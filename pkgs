@@ -1,0 +1,14 @@
+zsh nano git jre-openjdk flatpak networkmanager wget curl python python-pipx
+
+plasma-desktop plasma-nm plasma-pa plasma-thunderbolt kde-gtk-config kdeplasma-addons kscreen ksysguard powerdevil
+xdg-desktop-portal-kde xdg-user-dirs
+
+yt-dlp distrobox
+toot
+streamlink
+wine-gecko wine-mono wine-staging
+firefox qbittorrent
+meld picard homebank
+vlc obs-studio gimp ardour blender steam
+bluez bluez-libs bluez-utils
+qt6-multimedia-ffmpeg webp-pixbuf-loader ttf-croscore ffmpegthumbnailer

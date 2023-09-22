@@ -1,4 +1,4 @@
-alias getmp4="yt-dlp -f 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/mp4'"
+alias getmp4="yt-dlp -f 'bestvideo+bestaudio[ext=m4a]/best[ext=mp4]' --recode-video mp4"
 alias getmp3="yt-dlp -x --audio-format mp3"
 alias downloadwebsite="wget -mkEpnp"
 
