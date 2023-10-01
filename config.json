@@ -1,24 +1,46 @@
 {
-	"additional-repositories": ["multilib"],
+	"additional-repositories": [
+		"multilib"
+	],
 	"custom-commands": [
 		"mkinitcpio -P",
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
 	],
-	"kernels": ["linux"],
-	"plugin": "https://raw.githubusercontent.com/chrishazfun/installarch/main/plugin.py",
-	"audio_config": {"audio": "pipewire"},
-	"bootloader": "Grub",
-	"hostname": "hostname",
-	"profile_config": {
-		"gfx_driver": "All open-source (default)",
-		"profile": {
-			"main": "Xorg"
-		}
+	"archinstall-language": "English",
+	"audio_config": {
+		"audio": "pipewire"
 	},
+	"bootloader": "Grub",
+	"config_version": "2.6.1",
+	"debug": false,
+	"disk_config": {
+		"config_type": "default_layout",
+		"device_modifications": [
+			{
+				"device": "/dev/sda"
+			}
+		]
+	},
+	"hostname": "hostname",
+	"kernels": [
+		"linux"
+	],
+	"plugin": "https://raw.githubusercontent.com/chrishazfun/installarch/main/plugin.py",
+	"locale_config": {
+		"kb_layout": "us",
+		"sys_enc": "UTF-8",
+		"sys_lang": "en_US"
+	},
+	"network_config": {
+		"type": "nm"
+	},
+	"no_pkg_lookups": false,
+	"ntp": true,
+	"offline": false,
 	"packages": [
-		"zsh", "nano", "git", "jre-openjdk", "flatpak", "networkmanager", "wget", "curl", "python", "python-pipx",
+		"zsh", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
 
 		"plasma-desktop",
 		"plasma-nm", "plasma-pa", "plasma-thunderbolt", "kde-gtk-config", "kdeplasma-addons", "kscreen", "ksysguard", "powerdevil",
@@ -35,35 +57,23 @@
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "ffmpegthumbnailer"
 	],
 	"services": [
-		"gdm",
-		"bluetooth",
-		"NetworkManager"
+		"lightdm",
+		"bluetooth"
 	],
-	"debug": true,
-	"swap": true,
-	"keyboard-layout": "us",
-	"sys-encoding": "utf-8",
-	"sys-language": "en_US",
-	"timezone": "Australia/Sydney",
-	"ntp": true,
-	"no_pkg_lookups": true,
-	"skip-mirror-check": false,
-	"nic": {
-		"dhcp": true,
-		"dns": null,
-		"gateway": null,
-		"iface": null,
-		"ip": null,
-		"type": "nm"
-	},
-	"mirror-region": {
-		"Australia": {
-			"http://archlinux.mirror.digitalpacific.com.au/$repo/os/$arch": true
+	"parallel downloads": 0,
+	"profile_config": {
+		"gfx_driver": "VMware / VirtualBox (open-source)",
+		"greeter": null,
+		"profile": {
+			"custom_settings": {},
+			"details": [],
+			"main": "Xorg"
 		}
 	},
-	"disk_encryption": null,
-	"offline": false,
+	"script": "guided",
 	"silent": false,
-	"config_version": "2.5.2",
-	"archinstall-language": "English"
+	"swap": true,
+	"skip-mirror-check": false,
+	"timezone": "Australia/Sydney",
+	"version": "2.6.1"
 }
