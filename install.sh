@@ -79,6 +79,7 @@ else
 	echo "No Nvidia card detected, generic driver imported"
 fi
 
+# .disk_config.device_modifications[0].device
 hostnamePush () {
 	read -e -p "Hostname: " -i "changethishostname" hostname
 	modified_config=$(jq --arg item "$hostname" '.hostname = $item' <<< $(cat "$config"))
@@ -100,16 +101,17 @@ fi
 #	echo "AUR packages import failed";
 #fi
 
-addDrivesToConfig() {
+addDrivesToConfig () {
 	lsblk
 	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
-	read -e -p "Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdds
-	modified_config=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))' <<< $(cat "$config"))
+	read -e -p "Primary disk for install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdd
+	modified_config=$(jq --arg item "$hdd" '.disk_config.device_modifications[0].device = $item' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 }
 if ! addDrivesToConfig; then
 	echo "Unable to add drives to config";
+	exit 1
 fi
 
 echo "Installing with partly generated config..."
