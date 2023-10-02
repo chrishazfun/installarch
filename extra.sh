@@ -5,7 +5,7 @@
 # https://raw.githubusercontent.com/qbittorrent/search-plugins/master/nova3/engines/torlock.py
 
 # plugin for aur pkg import at a later date
-# "plugin": "https://raw.githubusercontent.com/chrishazfun/installarch/main/plugin.py",
+# "plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-aur/main/archinstall_aur/__init__.py",
 
 # simple streamlink gui in the downloads folder
 git clone https://github.com/techmouse/livestreamlinkgui ~/Downloads
