@@ -58,6 +58,7 @@ echo "Updating internal database and checking for updates specific to these pkgs
 sleep 2
 if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-setuptools jq; then
 	echo "Failed to update internal database and failed to check for updates specific to these pkgs: archlinux-keyring, archinstall, reflector, python, python-setuptools, jq"
+	exit 1
 fi
 
 # <<< "$configData"
@@ -86,31 +87,32 @@ hostnamePush () {
 }
 if ! hostnamePush; then
 	echo "SYSTEM: Hostname import failed";
+	exit 1
 fi
 
-aurPkgsParse() {
-	read -e -p "Optional AUR Pkgs (preferred apps prefilled): " -i "yay-bin protonup-qt-bin itch-setup-bin heroic-games-launcher-bin xboxdrv shutter-encoder github-desktop-bin boatswain jamesdsp streamlink-handoff-host" aur_pkgs
-	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
-	echo "$modified_config" >> temp.json
-	mv temp.json "$config"
-}
-if ! aurPkgsParse; then
-	echo "SYSTEM: AUR packages import failed";
-fi
+#aurPkgsParse() {
+#	read -e -p "Optional AUR Pkgs (suggested apps prefilled): " -i "yay-bin jamesdsp streamlink-handoff-host" aur_pkgs
+#	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+#	echo "$modified_config" >> temp.json
+#	mv temp.json "$config"
+#}
+#if ! aurPkgsParse; then
+#	echo "AUR packages import failed";
+#fi
 
 addDrivesToConfig() {
 	lsblk
 	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
-	read -e -p "SYSTEM: Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdds
+	read -e -p "Primary Disk for Install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdds
 	modified_config=$(jq --arg items "$hdds" '.harddrives += ($items | split(" "))' <<< $(cat "$config"))
 	echo "$modified_config" >> temp.json
 	mv temp.json "$config"
 }
 if ! addDrivesToConfig; then
-	echo "SYSTEM: Unable to add drives to config";
+	echo "Unable to add drives to config";
 fi
 
-echo "SYSTEM: Installing with partly generated config..."
+echo "Installing with partly generated config..."
 sleep 2
 
 echo "..."
