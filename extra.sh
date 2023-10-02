@@ -4,8 +4,8 @@
 # https://raw.githubusercontent.com/qbittorrent/search-plugins/master/nova3/engines/piratebay.py
 # https://raw.githubusercontent.com/qbittorrent/search-plugins/master/nova3/engines/torlock.py
 
-# filter to change top level string example
-# .hostname = "hostnamegoeshere"
+# plugin for aur pkg import at a later date
+# "plugin": "https://raw.githubusercontent.com/chrishazfun/installarch/main/plugin.py",
 
 # simple streamlink gui in the downloads folder
 git clone https://github.com/techmouse/livestreamlinkgui ~/Downloads

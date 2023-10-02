@@ -27,7 +27,6 @@
 	"kernels": [
 		"linux"
 	],
-	"plugin": "https://raw.githubusercontent.com/chrishazfun/installarch/main/plugin.py",
 	"locale_config": {
 		"kb_layout": "us",
 		"sys_enc": "UTF-8",
