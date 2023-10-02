@@ -27,6 +27,7 @@
 	"kernels": [
 		"linux"
 	],
+	"plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-aur/main/archinstall_aur/__init__.py",
 	"locale_config": {
 		"kb_layout": "us",
 		"sys_enc": "UTF-8",
