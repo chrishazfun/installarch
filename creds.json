@@ -2,8 +2,12 @@
 	"!users": [
 		{
 			"sudo": true,
-			"username": "chris",
-			"!password": "password",
+			"username": "username",
+			"!password": "password"
+		},
+		{
+			"sudo": false,
+			"username": "guest"
 		}
 	]
 }
