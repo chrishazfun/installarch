@@ -62,7 +62,7 @@ if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-
 fi
 
 config="config.json"
-creds="config.json"
+creds="creds.json"
 
 # nvidia propritary drivers or vmware drivers for relevant systems, open-source generic drivers for everything else
 # TODO a way better system to deal with this, looks ugly in the tty
