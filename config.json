@@ -3,7 +3,6 @@
 		"multilib"
 	],
 	"custom-commands": [
-		"mkinitcpio -P",
 		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
 		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
 		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
@@ -13,7 +12,7 @@
 		"audio": "pipewire"
 	},
 	"bootloader": "Grub",
-	"config_version": "2.6.1",
+	"config_version": "2.6.3",
 	"debug": false,
 	"disk_config": {
 		"config_type": "default_layout",
@@ -23,7 +22,7 @@
 			}
 		]
 	},
-	"hostname": "hostname",
+	"hostname": "changethisplease",
 	"kernels": [
 		"linux"
 	],
@@ -32,6 +31,14 @@
 		"sys_enc": "UTF-8",
 		"sys_lang": "en_US"
 	},
+	"mirror_config": {
+		"custom_mirrors": [],
+		"mirror_regions": {
+			"Worldwide": [
+				"https://geo.mirror.pkgbuild.com/$repo/os/$arch"
+			]
+		}
+	},
 	"network_config": {
 		"type": "nm"
 	},
@@ -39,28 +46,26 @@
 	"ntp": true,
 	"offline": false,
 	"packages": [
-		"zsh", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
-
-		"plasma-desktop", "plasma-nm", "plasma-pa", "plasma-thunderbolt", "kde-gtk-config", "kdeplasma-addons", "kscreen", "ksysguard", "powerdevil",
-		"xdg-desktop-portal-kde", "xdg-user-dirs",
-
+		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
+		"ly", "lximage-qt", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "screengrab", "breeze-icons",
+		"xdg-desktop-portal-lxqt", "xdg-utils",
 		"yt-dlp", "distrobox",
 		"toot",
 		"streamlink",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"firefox", "qbittorrent",
 		"meld", "picard", "homebank",
-		"vlc", "obs-studio", "gimp", "ardour", "blender", "steam",
+		"mpv", "obs-studio", "gimp", "ardour", "blender", "steam",
 		"bluez", "bluez-libs", "bluez-utils",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "ffmpegthumbnailer"
 	],
 	"services": [
-		"lightdm",
+		"ly",
 		"bluetooth"
 	],
-	"parallel downloads": 0,
+	"parallel downloads": 25,
 	"profile_config": {
-		"gfx_driver": "VMware / VirtualBox (open-source)",
+		"gfx_driver": "All open-source",
 		"greeter": null,
 		"profile": {
 			"custom_settings": {},
@@ -71,7 +76,7 @@
 	"script": "guided",
 	"silent": false,
 	"swap": true,
-	"skip-mirror-check": false,
+	"skip-mirror-check": true,
 	"timezone": "Australia/Sydney",
-	"version": "2.6.1"
+	"version": "2.6.3"
 }

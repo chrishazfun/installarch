@@ -76,10 +76,9 @@ elif [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i vmware | wc -l' -gt 0 ]; th
 	mv temp.json "$config"
 	echo "VMWare drivers imported to config"
 else
-	echo "No Nvidia card detected, generic driver imported"
+	echo "Neither VMWare info or nVidia card detected, generic driver imported"
 fi
 
-# .disk_config.device_modifications[0].device
 hostnamePush () {
 	read -e -p "Hostname: " -i "changethishostname" hostname
 	modified_config=$(jq --arg item "$hostname" '.hostname = $item' <<< $(cat "$config"))
@@ -87,7 +86,7 @@ hostnamePush () {
 	mv temp.json "$config"
 }
 if ! hostnamePush; then
-	echo "SYSTEM: Hostname import failed";
+	echo "Hostname import failed.";
 	exit 1
 fi
 

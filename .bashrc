@@ -1,5 +1,7 @@
 alias getmp4="yt-dlp -f 'bestvideo+bestaudio[ext=m4a]' --recode-video mp4"
+alias getmp4ff="yt-dlp -f 'bestvideo+bestaudio[ext=m4a]' --recode-video mp4 --cookies-from-browser firefox"
 alias getmp3="yt-dlp -x --audio-format mp3"
+alias getmp3ff="yt-dlp -x --audio-format mp3 --cookies-from-browser firefox"
 alias downloadwebsite="wget -mkEpnp"
 
 flushall () {
