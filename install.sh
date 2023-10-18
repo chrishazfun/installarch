@@ -127,7 +127,7 @@ if ! passwordPush; then
 	exit 1
 fi
 
-aurPkgsParse() {
+aurPkgsParse () {
 	read -e -p "Optional AUR Pkgs (suggested apps prefilled): " -i "yay-bin jamesdsp streamlink-handoff-host" aur_pkgs
 	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
 	echo "$modified_config" >> temp_config.json
@@ -141,9 +141,6 @@ echo "Installing with partly generated config..."
 sleep 2
 
 echo "..."
-sleep 3
-echo "DON'T FORGET TO CREATE"
-echo "A USER WITH SUDO PRIVLEDGES"
 sleep 3
 
 # --creds creds.json

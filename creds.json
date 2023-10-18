@@ -4,10 +4,6 @@
 			"sudo": true,
 			"username": "username",
 			"!password": "password"
-		},
-		{
-			"sudo": false,
-			"username": "guest"
 		}
 	]
 }

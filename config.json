@@ -139,8 +139,10 @@
 	"offline": false,
 	"packages": [
 		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
-		"ly", "lximage-qt", "lxqt-admin", "lxqt-archiver", "lxqt-config", "lxqt-globalkeys", "lxqt-notificationd", "lxqt-openssh-askpass", "lxqt-panel", "lxqt-policykit", "lxqt-powermanagement", "lxqt-qtplugin", "lxqt-runner", "lxqt-session", "lxqt-sudo", "lxqt-themes", "obconf-qt", "openbox", "pavucontrol-qt", "pcmanfm-qt", "qterminal", "screengrab", "breeze-icons",
-		"xdg-desktop-portal-lxqt", "xdg-utils",
+		"gnome-music", "gnome-characters", "gnome-logs", "gnome-shell-extensions", "gnome-system-monitor", "gnome-text-editor", "endeavour", "evolution", "gnome-boxes", "gnome-builder", "gnome-notes", "polari", "loupe", "nautilus", "simple-scan",
+		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-font-viewer", "gnome-keyring", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-user-share", "dconf-editor", "file-roller", "seahorse", "snapshot", "tecla", "tracker3-miners", "rygel",
+		"gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb",
+		"xdg-desktop-portal-gnome", "xdg-user-dirs-gtk",
 		"yt-dlp", "distrobox",
 		"toot",
 		"streamlink",
@@ -152,7 +154,7 @@
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "ffmpegthumbnailer"
 	],
 	"services": [
-		"ly",
+		"gdm",
 		"bluetooth"
 	],
 	"parallel downloads": 25,
