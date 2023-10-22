@@ -81,18 +81,18 @@ else
 	echo "Neither VMWare info or nVidia card detected, generic driver imported"
 fi
 
-drivePush () {
-	lsblk
-	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
-	read -e -p "Primary disk for install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdd
-	modified_config=$(jq --arg item "$hdd" '.disk_config.device_modifications[0].device = $item' <<< $(cat "$config"))
-	echo "$modified_config" >> temp_config.json
-	mv temp_config.json "$config"
-}
-if ! drivePush; then
-	echo "Unable to add drives to config";
-	exit 1
-fi
+#drivePush () {
+#	lsblk
+#	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
+#	read -e -p "Primary disk for install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdd
+#	modified_config=$(jq --arg item "$hdd" '.disk_config.device_modifications[0].device = $item' <<< $(cat "$config"))
+#	echo "$modified_config" >> temp_config.json
+#	mv temp_config.json "$config"
+#}
+#if ! drivePush; then
+#	echo "Unable to add drives to config";
+#	exit 1
+#fi
 
 hostnamePush () {
 	read -e -p "Hostname: " -i "changethishostname" hostname
@@ -142,6 +142,8 @@ sleep 2
 
 echo "..."
 sleep 3
+echo "BE SURE TO SELECT A PRIMARY DISK FOR YOUR INSTALL"
+sleep 2
 
 # --creds creds.json
 if ! archinstall --config config.json --creds creds.json; then
