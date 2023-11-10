@@ -33,13 +33,6 @@ if ! perl -pi -e '$_ .= qq(DisableDownloadTimeout\n) if /# Misc options/' /etc/p
 	exit 1
 fi
 
-echo "Enabling parallel downloads and setting the max to 25"
-sleep 1
-if ! sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf; then
-	echo "Failed to enable parallel downloads"
-	exit 1
-fi
-
 echo "Enabling color in the terminal"
 sleep 1
 if ! sed -i 's/#Color/Color/' /etc/pacman.conf; then
@@ -55,27 +48,37 @@ if ! sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf; then
 fi
 
 echo "Updating internal database and checking for updates specific to these pkgs: archlinux-keyring, archinstall, reflector, python, python-setuptools, jq"
-sleep 2
+sleep 1
 if ! pacman -Syy --needed archlinux-keyring archinstall reflector python python-setuptools jq; then
 	echo "Failed to update internal database and failed to check for updates specific to these pkgs: archlinux-keyring, archinstall, reflector, python, python-setuptools, jq"
 	exit 1
 fi
 
-config="config.json"
-creds="creds.json"
+echo "Enabling parallel downloads and setting the max to 25"
+sleep 1
+prlDownloads() {
+	modified_config=$(jq '.["parallel downloads"] = 25' <<< $(cat config.json))
+	echo "$modified_config" >> temp_config.json
+	mv temp_config.json config.json
+	sed -i 's/#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf
+}
+if ! prlDownloads; then
+	echo "Failed to enable parallel downloads"
+	exit 1
+fi
 
 # nvidia propritary drivers or vmware drivers for relevant systems, open-source generic drivers for everything else
 # TODO a way better system to deal with this, looks ugly in the tty
-# ^^ probably select 0-5 for gfx options then import to config
+# ^^ probably select 0-5 for gfx options then import to config, no automatic import
 if [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' -gt 0 ]; then
-	modified_config=$(jq --arg items "Nvidia (proprietary)" '.profile_config.gfx_driver = $item)' <<< $(cat "$config"))
+	modified_config=$(jq --arg items "Nvidia (proprietary)" '.profile_config.gfx_driver = $item)' <<< $(cat config.json))
 	echo "$modified_config" >> temp_config.json
-	mv temp_config.json "$config"
+	mv temp_config.json config.json
 	echo "Nvidia proprietary drivers imported to config"
 elif [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i vmware | wc -l' -gt 0 ]; then
-	modified_config=$(jq --arg items "VMware / VirtualBox (open-source)" '.profile_config.gfx_driver = $item)' <<< $(cat "$config"))
+	modified_config=$(jq --arg items "VMware / VirtualBox (open-source)" '.profile_config.gfx_driver = $item)' <<< $(cat config.json))
 	echo "$modified_config" >> temp_config.json
-	mv temp_config.json "$config"
+	mv temp_config.json config.json
 	echo "VMWare drivers imported to config"
 else
 	echo "Neither VMWare info or nVidia card detected, generic driver imported"
@@ -85,9 +88,9 @@ fi
 #	lsblk
 #	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
 #	read -e -p "Primary disk for install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdd
-#	modified_config=$(jq --arg item "$hdd" '.disk_config.device_modifications[0].device = $item' <<< $(cat "$config"))
+#	modified_config=$(jq --arg item "$hdd" '.disk_config.device_modifications[0].device = $item' <<< $(cat config.json))
 #	echo "$modified_config" >> temp_config.json
-#	mv temp_config.json "$config"
+#	mv temp_config.json config.json
 #}
 #if ! drivePush; then
 #	echo "Unable to add drives to config";
@@ -96,9 +99,9 @@ fi
 
 hostnamePush () {
 	read -e -p "Hostname: " -i "changethishostname" hostname
-	modified_config=$(jq --arg item "$hostname" '.hostname = $item' <<< $(cat "$config"))
+	modified_config=$(jq --arg item "$hostname" '.hostname = $item' <<< $(cat config.json))
 	echo "$modified_config" >> temp_config.json
-	mv temp_config.json "$config"
+	mv temp_config.json config.json
 }
 if ! hostnamePush; then
 	echo "Hostname import failed";
@@ -107,9 +110,9 @@ fi
 
 usernamePush () {
 	read -e -p "Username: " -i "" usrname
-	modified_creds=$(jq --arg item "$usrname" '.["!users"][0]["username"] = $item' <<< $(cat "$creds"))
+	modified_creds=$(jq --arg item "$usrname" '.["!users"][0]["username"] = $item' <<< $(cat creds.json))
 	echo "$modified_creds" >> temp_creds.json
-	mv temp_creds.json "$creds"
+	mv temp_creds.json creds.json
 }
 if ! usernamePush; then
 	echo "Password creds import failed";
@@ -118,9 +121,9 @@ fi
 
 passwordPush () {
 	read -e -p "Password (hidden for security): " -i "" passwd
-	modified_creds=$(jq --arg item "$passwd" '.["!users"][0]["!password"] = $item' <<< $(cat "$creds"))
+	modified_creds=$(jq --arg item "$passwd" '.["!users"][0]["!password"] = $item' <<< $(cat creds.json))
 	echo "$modified_creds" >> temp_creds.json
-	mv temp_creds.json "$creds"
+	mv temp_creds.json creds.json
 }
 if ! passwordPush; then
 	echo "Password creds import failed";
@@ -129,9 +132,9 @@ fi
 
 aurPkgsParse () {
 	read -e -p "Optional AUR Pkgs (suggested apps prefilled): " -i "yay-bin jamesdsp streamlink-handoff-host" aur_pkgs
-	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat "$config"))
+	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat config.json))
 	echo "$modified_config" >> temp_config.json
-	mv temp_config.json "$config"
+	mv temp_config.json config.json
 }
 # if ! aurPkgsParse; then
 # 	echo "AUR packages import failed";
