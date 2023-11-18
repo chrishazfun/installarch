@@ -1,7 +1,9 @@
-#alias getmp4="yt-dlp -f bestvideo[height=2160][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/bestvideo[height=2160]+bestaudio --recode-video mp4 --cookies-from-browser firefox"
-alias getmp3="yt-dlp -x --audio-format mp3" # --cookies-from-browser firefox
-# example: getmp3 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
+alias getmp4="yt-dlp -f bestvideo[height=2160][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/bestvideo[height=2160]+bestaudio --recode-video mp4"
+alias getmp3="yt-dlp -x --audio-format mp3"
+# example (with --cookies-from-browser firefox): getmp4 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
+# example (with --cookies-from-browser firefox): getmp3 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
 alias downloadwebsite="wget -mkEpnp"
+# example: downloadwebsite https://www.google.com/
 
 flushall () {
 	sudo pacman -Scc
