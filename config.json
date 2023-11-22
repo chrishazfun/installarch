@@ -39,8 +39,8 @@
 	"offline": false,
 	"packages": [
 		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
-		"gnome-music", "gnome-characters", "gnome-logs", "gnome-shell-extensions", "gnome-system-monitor", "gnome-text-editor", "endeavour", "evolution", "gnome-boxes", "gnome-builder", "gnome-notes", "polari", "loupe", "nautilus", "simple-scan",
-		"gdm", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-font-viewer", "gnome-keyring", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-user-share", "dconf-editor", "file-roller", "seahorse", "snapshot", "tecla", "tracker3-miners", "rygel",
+		"gdm", "gnome-clocks", "gnome-characters", "gnome-color-manager", "gnome-console", "gnome-control-center", "gnome-disk-utility", "gnome-font-viewer", "gnome-music", "simple-scan", "snapshot", "tecla", "d-spy", "dconf-editor", "file-roller", "glade", "gnome-builder", "gnome-notes", "gnome-sound-recorder", "polari", "seahorse", "tali",
+		"gnome-keyring", "gnome-logs", "gnome-menus", "gnome-session", "gnome-settings-daemon", "gnome-shell", "gnome-user-share", "grilo-plugins", "gnome-software", "gnome-system-monitor", "gnome-text-editor", "loupe", "nautilus", "rygel", "tracker3-miners",
 		"gvfs", "gvfs-afc", "gvfs-goa", "gvfs-google", "gvfs-gphoto2", "gvfs-mtp", "gvfs-nfs", "gvfs-smb",
 		"xdg-desktop-portal-gnome", "xdg-user-dirs-gtk",
 		"yt-dlp", "distrobox",
