@@ -1,9 +1,7 @@
-alias getmp4="yt-dlp -f bestvideo[height=2160][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/bestvideo[height=2160]+bestaudio --recode-video mp4"
-alias getmp3="yt-dlp -x --audio-format mp3"
-# example (with --cookies-from-browser firefox): getmp4 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
-# example (with --cookies-from-browser firefox): getmp3 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
-alias downloadwebsite="wget -mkEpnp"
-# example: downloadwebsite https://www.google.com/
+alias getmp4="yt-dlp -f bestvideo[height=2160][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/bestvideo[height=2160]+bestaudio --recode-video mp4" # getmp4 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
+alias getmp3="yt-dlp -x --audio-format mp3" # getmp3 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
+alias downloadwebsite="wget -mkEpnp" # downloadwebsite https://www.google.com/
+alias qp="ping -c 1" # qp google.com (pings something once)
 
 flushall () {
 	sudo pacman -Scc
