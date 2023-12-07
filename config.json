@@ -39,7 +39,7 @@
 	"offline": false,
 	"packages": [
 		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
-		"sddm", "plasma",
+		"sddm", "sddm-kcm", "plasma-desktop",
 		"yt-dlp", "distrobox",
 		"toot",
 		"streamlink",
