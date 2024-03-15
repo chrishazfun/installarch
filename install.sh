@@ -16,16 +16,14 @@ if [ ! -f "/etc/arch-release" ]; then
 	exit 1
 fi
 
-if [[ ! $1 == noclearout ]]; then
-	echo "Killing gpg-agent processes and emptying out pacmans gnupg directory"
-	sleep 2
-	killall gpg-agent
-	rm -rf /etc/pacman.d/gnupg/*
-	echo "Initializing and populating pacmans keyring"
-	sleep 2
-	pacman-key --init || { echo "Failed to initialize pacmans keyring"; exit 1; }
-	pacman-key --populate archlinux || { echo "Failed to populate pacmans keyring"; exit 1; }
-fi
+echo "Killing gpg-agent processes and emptying out pacmans gnupg directory"
+sleep 2
+killall gpg-agent
+rm -rf /etc/pacman.d/gnupg/*
+echo "Initializing and populating pacmans keyring"
+sleep 2
+pacman-key --init || { echo "Failed to initialize pacmans keyring"; exit 1; }
+pacman-key --populate archlinux || { echo "Failed to populate pacmans keyring"; exit 1; }
 
 echo "Disabling download timeout on packages"
 sleep 1

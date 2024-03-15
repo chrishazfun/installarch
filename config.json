@@ -37,7 +37,6 @@
 	"no_pkg_lookups": false,
 	"ntp": true,
 	"offline": false,
-	"plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-aur/main/archinstall_aur/__init__.py",
 	"packages": [
 		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
 
