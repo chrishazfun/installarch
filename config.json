@@ -37,9 +37,14 @@
 	"no_pkg_lookups": false,
 	"ntp": true,
 	"offline": false,
+	"plugin": "https://raw.githubusercontent.com/chrishazfun/archinstall-aur/main/archinstall_aur/__init__.py",
 	"packages": [
 		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
-		"sddm", "sddm-kcm", "plasma-desktop",
+
+		"i3-wm", "i3blocks", "i3lock", "i3status",
+		"dunst", "kitty", "lf",
+		"xdg-desktop-portal-hyprland", "qt5-wayland", "qt6-wayland",
+
 		"yt-dlp", "distrobox",
 		"toot",
 		"streamlink",

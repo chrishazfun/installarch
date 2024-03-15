@@ -1,10 +1,10 @@
 # installarch
 My personal method of installing Arch Linux, using [`archinstall`](https://www.github.com/archlinux/archinstall) as a base.
 
-### curl-based Install (one-liner)
+<!--### curl-based Install (one-liner)
 ```bash
-bash <(curl -s https://chrislowles.com/installarch)
-```
+bash <(curl -s https://chrishaz.fun/installarch)
+```-->
 
 ### OR (commands used in curl script, refer to sections below for more info)
 ```bash
@@ -14,7 +14,6 @@ git clone https://github.com/chrislowles/installarch
 cd installarch
 bash install.sh
 ```
-
 
 ### Additional Notes
 1. The initial startup before the actual archinstall screen comes up may take a while, the plugin used to gather AUR pkgs is just preparing itself, this may take ~10 minutes.

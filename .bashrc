@@ -1,12 +1,25 @@
-alias getmp4="yt-dlp -f bestvideo[height=2160][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/bestvideo[height=2160]+bestaudio --recode-video mp4" # getmp4 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
-alias getmp3="yt-dlp -x --audio-format mp3" # getmp3 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
+# alias getmp4="yt-dlp -f bestvideo[height=2160][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/bestvideo[height=2160]+bestaudio --recode-video mp4" # getmp4 --cookies-from-browser firefox https://youtu.be/NT9Cfuv5gZE
 alias downloadwebsite="wget -mkEpnp" # downloadwebsite https://www.google.com/
 alias qp="ping -c 1" # qp google.com (pings something once)
+
+getmp3 () {
+	yt-dlp -x --audio-format mp3 # --cookies-from-browser firefox (if -rc [require cookies] flag is set)
+	# example: getmp3 --rc https://youtu.be/NT9Cfuv5gZE
+}
+
+getmp4 () {
+	yt-dlp -f bestvideo[height=2160][ext=mp4][vcodec^=avc]+bestaudio[ext=m4a]/bestvideo[height=2160]+bestaudio --recode-video mp4 # --cookies-from-browser firefox (if -rc [require cookies] flag is set)
+	# example: getmp3 --rc https://youtu.be/NT9Cfuv5gZE
+}
 
 flushall () {
 	sudo pacman -Scc
 	sudo pacman -Rns $(pacman -Qdtq)
 	flatpak uninstall --unused
+}
+
+dlsfyt () {
+	yt-dlp --cookies-from-browser firefox https://www.youtube.com/playlist?list=LM -x --audio-format mp3
 }
 
 updateall () {
@@ -19,30 +32,5 @@ updateall () {
 			([yY][eE][sS] | [yY]) flushall;;
 			(*) break;;
 		esac
-	done
-}
-
-downloadimagesfromwebsite () {
-	# download images from website (jpg png gifs) [WIP]
-	for line in $1; do
-		# replace http://
-		stripped_url=`echo $line | cut -c8-`
-		target_folder="downloads/`echo $stripped_url | sed 's/\//_/g'`"
-		echo "scraping $stripped_url ..."
-		echo "-----------------------------------"
-		echo "> creating folder ..."
-		echo $target_folder
-		mkdir -p $target_folder
-		echo "> scraping $stripped_url ..."
-		wget -e robots=off \
-			-H -nd -nc -np \
-			--recursive -p \
-			--level=1 \
-			--accept jpg,jpeg,png,gif \
-			--convert-links -N \
-			--limit-rate=200k \
-			--wait 1.0 \
-			-P $target_folder $stripped_url
-		echo "> done scraping $stripped_url"
 	done
 }

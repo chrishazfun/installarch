@@ -16,15 +16,16 @@ if [ ! -f "/etc/arch-release" ]; then
 	exit 1
 fi
 
-echo "Killing gpg-agent processes and emptying out pacmans gnupg directory"
-sleep 2
-killall gpg-agent
-rm -rf /etc/pacman.d/gnupg/*
-
-echo "Initializing and populating pacmans keyring"
-sleep 2
-pacman-key --init || { echo "Failed to initialize pacmans keyring"; exit 1; }
-pacman-key --populate archlinux || { echo "Failed to populate pacmans keyring"; exit 1; }
+if [[ ! $1 == noclearout ]]; then
+	echo "Killing gpg-agent processes and emptying out pacmans gnupg directory"
+	sleep 2
+	killall gpg-agent
+	rm -rf /etc/pacman.d/gnupg/*
+	echo "Initializing and populating pacmans keyring"
+	sleep 2
+	pacman-key --init || { echo "Failed to initialize pacmans keyring"; exit 1; }
+	pacman-key --populate archlinux || { echo "Failed to populate pacmans keyring"; exit 1; }
+fi
 
 echo "Disabling download timeout on packages"
 sleep 1
@@ -37,13 +38,6 @@ echo "Enabling color in the terminal"
 sleep 1
 if ! sed -i 's/#Color/Color/' /etc/pacman.conf; then
 	echo "Failed to enable color in the terminal"
-	exit 1
-fi
-
-echo "Adding xterm to the blocklist"
-sleep 1
-if ! sed -i 's/#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf; then
-	echo "Failed to add xterm to the blocklist"
 	exit 1
 fi
 
@@ -84,19 +78,6 @@ else
 	echo "Neither VMWare info or nVidia card detected, generic driver imported"
 fi
 
-#drivePush () {
-#	lsblk
-#	first_disk=$(lsblk -o NAME -n | grep -m 1 "^sd\|^nvme")
-#	read -e -p "Primary disk for install (e.g: /dev/sda OR /dev/nvme0n0) | One has been suggested, you may backspace that if you want: " -i "/dev/$first_disk" hdd
-#	modified_config=$(jq --arg item "$hdd" '.disk_config.device_modifications[0].device = $item' <<< $(cat config.json))
-#	echo "$modified_config" >> temp_config.json
-#	mv temp_config.json config.json
-#}
-#if ! drivePush; then
-#	echo "Unable to add drives to config";
-#	exit 1
-#fi
-
 hostnamePush () {
 	read -e -p "Hostname: " -i "changethishostname" hostname
 	modified_config=$(jq --arg item "$hostname" '.hostname = $item' <<< $(cat config.json))
@@ -130,23 +111,18 @@ if ! passwordPush; then
 	exit 1
 fi
 
-aurPkgsParse () {
-	read -e -p "Optional AUR Pkgs (suggested apps prefilled): " -i "yay-bin jamesdsp streamlink-handoff-host" aur_pkgs
-	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat config.json))
-	echo "$modified_config" >> temp_config.json
-	mv temp_config.json config.json
-}
-# if ! aurPkgsParse; then
-# 	echo "AUR packages import failed";
-# fi
+#aurPkgsParse () {
+#	read -e -p "Optional AUR Pkgs (suggested apps prefilled): " -i "yay-bin jamesdsp streamlink-handoff-host" aur_pkgs
+#	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat config.json))
+#	echo "$modified_config" >> temp_config.json
+#	mv temp_config.json config.json
+#}
+#if ! aurPkgsParse; then
+#	echo "AUR packages import failed";
+#fi
 
-echo "Installing with partly generated config..."
-sleep 2
-
-echo "..."
+echo "Installing with partly generated config, review disk options please..."
 sleep 3
-echo "BE SURE TO SELECT A PRIMARY DISK FOR YOUR INSTALL"
-sleep 2
 
 # --creds creds.json
 if ! archinstall --config config.json --creds creds.json; then
