@@ -8,7 +8,6 @@ bash <(curl -s https://chrishaz.fun/installarch)
 
 ### OR (commands used in curl script, refer to sections below for more info)
 ```bash
-pacman-key --init
 sudo pacman -Syy git
 git clone https://github.com/chrislowles/installarch
 cd installarch
