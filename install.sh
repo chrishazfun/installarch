@@ -131,7 +131,7 @@ fi
 echo "APPLYING GTK THEMES TO GTK FLATPAK APPS: itsfoss.com/flatpak-app-apply-theme"
 sleep 2
 
-echo "IF YOU INSTALLED PLEX ACCESS http://localhost:32400/web/ FOR CONFIGURATION"
+echo "PLEX USERS: ACCESS http://localhost:32400/web/ FOR CONFIGURATION"
 sleep 2
 
 echo "Done!... hopefully | More to do at github.com/chrishazfun/installarch under extra.sh if you want :)"
