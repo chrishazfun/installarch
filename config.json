@@ -40,9 +40,8 @@
 	"packages": [
 		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
 
-		"awesome", "ly",
-		"dunst", "kitty", "lf",
-		"xdg-desktop-portal", "qt5-wayland", "qt6-wayland",
+		"ly", "i3-wm", "i3blocks", "i3lock", "i3status", "dunst", "xfce4-terminal",
+		"xdg-desktop-portal",
 
 		"yt-dlp", "distrobox",
 		"toot",
