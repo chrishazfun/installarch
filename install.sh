@@ -110,7 +110,7 @@ if ! passwordPush; then
 fi
 
 #aurPkgsParse () {
-#	read -e -p "Optional AUR Pkgs (suggested apps prefilled): " -i "yay-bin jamesdsp streamlink-handoff-host" aur_pkgs
+#	read -e -p "Optional AUR Pkgs (suggested apps prefilled): " -i "yay-bin " aur_pkgs
 #	modified_config=$(jq --arg items "$aur_pkgs" '.packages += ($items | split(" "))' <<< $(cat config.json))
 #	echo "$modified_config" >> temp_config.json
 #	mv temp_config.json config.json
