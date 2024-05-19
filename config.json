@@ -40,7 +40,8 @@
 	"packages": [
 		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
 
-		"ly", "i3-wm", "i3blocks", "i3lock", "i3status", "dunst", "xfce4-terminal",
+		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
+		"xfdesktop", "xfwm4", "xfconf", "xfce4-session", "xfce4-settings", "xfce4-panel", "xfce4-appfinder", "xfce4-terminal", "thunar", "thunar-volman", "thunar-archive-plugin", "thunar-media-tags-plugin", "xfce4-power-manager", "xfburn", "xfce4-battery-plugin", "xfce4-clipman-plugin", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-mpc-plugin", "xfce4-notes-plugin", "xfce4-notifyd", "xfce4-screensaver", "xfce4-screenshooter", "xfce4-taskmanager", "xfce4-wavelan-plugin", "xfce4-weather-plugin", "xfce4-whiskermenu-plugin", "xfce4-xkb-plugin",
 		"xdg-desktop-portal",
 
 		"yt-dlp", "distrobox",
@@ -55,7 +56,7 @@
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "ffmpegthumbnailer"
 	],
 	"services": [
-		"ly",
+		"lightdm",
 		"bluetooth"
 	],
 	"parallel downloads": 25,
