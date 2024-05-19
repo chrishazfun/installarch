@@ -73,7 +73,7 @@ elif [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i vmware | wc -l' -gt 0 ]; th
 	mv temp_config.json config.json
 	echo "VMWare drivers imported to config"
 else
-	echo "Neither VMWare info or nVidia card detected, generic driver imported"
+	echo "Neither VMWare info nor nVidia card detected, generic driver imported"
 fi
 
 hostnamePush () {
@@ -94,7 +94,7 @@ usernamePush () {
 	mv temp_creds.json creds.json
 }
 if ! usernamePush; then
-	echo "Password creds import failed";
+	echo "Username creds import failed";
 	exit 1
 fi
 
