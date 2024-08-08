@@ -3,9 +3,8 @@
 		"multilib"
 	],
 	"custom-commands": [
-		"sed -i 's/^#ParallelDownloads = 5/ParallelDownloads = 25/' /etc/pacman.conf",
-		"sed -i 's/^#IgnorePkg   =/IgnorePkg=xterm/' /etc/pacman.conf",
-		"sed -i 's/^#Color/Color/' /etc/pacman.conf"
+		"usermod -a -G libvirt $(whoami)",
+		"newgrp libvirt"
 	],
 	"archinstall-language": "English",
 	"audio_config": {
@@ -40,24 +39,20 @@
 	"packages": [
 		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
 
-		"lightdm", "lightdm-gtk-greeter", "lightdm-gtk-greeter-settings",
-		"xfdesktop", "xfwm4", "xfconf", "xfce4-session", "xfce4-settings", "xfce4-panel", "xfce4-appfinder", "xfce4-terminal", "thunar", "thunar-volman", "thunar-archive-plugin", "thunar-media-tags-plugin", "xfce4-power-manager", "xfburn", "xfce4-battery-plugin", "xfce4-clipman-plugin", "xfce4-genmon-plugin", "xfce4-mount-plugin", "xfce4-mpc-plugin", "xfce4-notes-plugin", "xfce4-notifyd", "xfce4-screensaver", "xfce4-screenshooter", "xfce4-taskmanager", "xfce4-wavelan-plugin", "xfce4-weather-plugin", "xfce4-whiskermenu-plugin", "xfce4-xkb-plugin",
-		"xdg-desktop-portal",
+		"ly", "i3-wm", "i3blocks", "i3lock", "i3status",
+		"thunar", "thunar-volman", "thunar-archive-plugin",
+		"xfce4-terminal", "mousepad",
 
 		"yt-dlp", "distrobox",
-		"toot",
-		"streamlink",
 		"wine-gecko", "wine-mono", "wine-staging",
-		"firefox", "speech-dispatcher",
+		"firefox",
 		"qbittorrent",
-		"meld", "picard", "homebank",
+		"meld", "picard",
 		"mpv", "obs-studio", "gimp", "ardour", "blender", "steam",
-		"bluez", "bluez-libs", "bluez-utils",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "ffmpegthumbnailer"
 	],
 	"services": [
-		"lightdm",
-		"bluetooth"
+		"ly"
 	],
 	"parallel downloads": 25,
 	"profile_config": {
