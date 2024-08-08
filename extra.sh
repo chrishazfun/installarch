@@ -5,7 +5,8 @@
 # en_AU ISO-8859-1
 
 # install custom bashrc commands, shortcuts to common commands, push this into config somehow
-curl -Sk https://raw.githubusercontent.com/chrishazfun/installarch/main/.bashrc >> ~/.bashrc && source ~/.bashrc
+curl -Sk https://raw.githubusercontent.com/chrishazfun/installarch/main/.bashrc >> ~/.bashrc
+source ~/.bashrc
 
 # read command needed for lsp/zam shortcut flush, if we're to install them
 #echo '[Desktop Entry]
