@@ -59,23 +59,6 @@ if ! prlDownloads; then
 	exit 1
 fi
 
-# nvidia propritary drivers or vmware drivers for relevant systems, open-source generic drivers for everything else
-# TODO a way better system to deal with this, looks ugly in the tty
-# ^^ probably select 0-5 for gfx options then import to config, no automatic import
-if [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i nvidia | wc -l' -gt 0 ]; then
-	modified_config=$(jq --arg items "Nvidia (proprietary)" '.profile_config.gfx_driver = $item)' <<< $(cat config.json))
-	echo "$modified_config" >> temp_config.json
-	mv temp_config.json config.json
-	echo "Nvidia proprietary drivers imported to config"
-elif [ 'lspci -k | grep -A 2 -E "(VGA|3D)" | grep -i vmware | wc -l' -gt 0 ]; then
-	modified_config=$(jq --arg items "VMware / VirtualBox (open-source)" '.profile_config.gfx_driver = $item)' <<< $(cat config.json))
-	echo "$modified_config" >> temp_config.json
-	mv temp_config.json config.json
-	echo "VMWare drivers imported to config"
-else
-	echo "Neither VMWare info nor nVidia card detected, generic driver imported"
-fi
-
 hostnamePush () {
 	read -e -p "Hostname: " -i "changethishostname" hostname
 	modified_config=$(jq --arg item "$hostname" '.hostname = $item' <<< $(cat config.json))
