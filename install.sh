@@ -20,6 +20,7 @@ echo "Killing gpg-agent processes and emptying out pacmans gnupg directory"
 sleep 2
 killall gpg-agent
 rm -rf /etc/pacman.d/gnupg/*
+
 echo "Initializing and populating pacmans keyring"
 sleep 2
 pacman-key --init || { echo "Failed to initialize pacmans keyring"; exit 1; }
@@ -105,7 +106,6 @@ fi
 echo "Installing with partly generated config, review disk options please..."
 sleep 3
 
-# --creds creds.json
 if ! archinstall --config config.json --creds creds.json; then
 	echo "SYSTEM: Failed to install"
 	exit 1
