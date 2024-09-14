@@ -39,20 +39,22 @@
 	"packages": [
 		"bash", "bash-completion", "nano", "git", "jre-openjdk", "flatpak", "wget", "curl", "python", "python-pipx",
 
-		"ly", "i3-wm", "i3blocks", "i3lock", "i3status",
-		"thunar", "thunar-volman", "thunar-archive-plugin",
-		"xfce4-terminal", "mousepad",
+		"ly", "cosmic", "power-profiles-daemon",
+
+		"qemu-full", "virt-manager", "libvirt", "iptables-nft", "dnsmasq", "openbsd-netcat",
 
 		"yt-dlp", "distrobox",
 		"wine-gecko", "wine-mono", "wine-staging",
 		"firefox",
 		"qbittorrent",
 		"meld", "picard",
-		"mpv", "obs-studio", "gimp", "ardour", "blender", "steam",
+		"mpv", "obs-studio", "gimp", "ardour", "blender",
+		"steam", "retroarch", "retroarch-assets-xmb", "retroarch-assets-ozone",
 		"qt6-multimedia-ffmpeg", "webp-pixbuf-loader", "ttf-croscore", "ffmpegthumbnailer"
 	],
 	"services": [
-		"ly"
+		"ly",
+		"libvirtd"
 	],
 	"parallel downloads": 25,
 	"profile_config": {
